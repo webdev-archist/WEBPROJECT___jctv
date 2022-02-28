@@ -1,0 +1,337 @@
+<html>
+	<head>
+		<meta charset="utf8">
+		<title>page activites relidsfikhfsdukhsfdukg
+		</title>
+		<style>
+		</style>
+		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/style_pages.css">
+		<script id="fill_from_db"></script>
+		<script>
+			 let obj={}
+			 <% for(a in locals.value.object){ %>
+				<% if(a=="ok"){ %>
+				obj.<%= a %>={}
+					<% for(b in locals.value.object[a]){ %>
+					obj.<%= a %>.<%= b %>="<%= locals.value.object[a][b] %>"
+					<% } %>
+				<% } else {%>
+				obj.<%= a %>="<%= locals.value.object[a] %>"
+				<% } %>
+			 <% } %>
+		</script>
+	</head>
+	<body id="map" class="form_2">
+		<div id="fb-root"></div>
+		<script>
+			(function(d,s,id){
+				var js,fjs=d.getElementsByTagName(s)[0]
+				if(d.getElementById(id))return;
+				js=d.createElement(s)
+				js.id=id
+				js.src="//connect.facebook.net/en_US/sdk.js#xfbml=1"
+				fjs.parentNode.insertBefore(js,fjs)
+			}(document,'script','facebook-jssdk'))
+		</script>
+		<%- include('header'); %>
+		
+		
+		
+		<nav id="gauche">
+			<div class="btn-group">
+				<a class="menu menu_petit btn btn-sm btn-danger" data-tab="['accueil']" title="Retour à la page d'accueil (insérer ce texte dans la bdd)"><i class="glyphicon glyphicon-home"></i></a>
+				<button class="menu_petit btn btn-sm btn-danger" data-tab="['menu']" title="Accéder au menu secondaire" onclick="$('#sousmenu').addClass('active');"><i class="glyphicon glyphicon-align-justify"></i></button>
+				<button class="menu_petit btn btn-sm btn-danger" data-tab="['menu']" title="Visite guidé du site jesus-christ.tv"><i style="font-weight:bold">?</i></button>
+				<button class="nodisplay menu_petit btn btn-sm btn-danger" data-tab="['dropdown']" title=""><i class="	glyphicon glyphicon-plus"></i></button>
+			</div>
+			<button id="action_button" title="<%= locals.value.object.pages_map.other_side.gauche.action_btn %><%= locals.value.object._all_parameters.pays[locals.value.pays] %>"><i class="btn btn-danger btn-lg icon_<%= locals.value.pays %>"></i></button>
+			<div class="dropdown">
+				<button id="choix_pays" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" title="<%= locals.value.object.pages_map.other_side.gauche.pays_title %>"><%= locals.value.object.pages_map.other_side.gauche.pays %><span class="caret"></span></button>
+				<ul class="dropdown-menu safe scrolly">
+				</ul>
+			</div>
+			<input readonly value="" disabled>
+			<input id="left_search" placeholder="veuiller_svp_search_klkchoz_here_b!tch">
+			<button id="left_loupe"><i class="btn btn-info icon search"></i></button>
+			<a id="promo" class="buttons" href="<%= locals.value.object.pages_map.other_side.gauche.promo.href %>" title="<%= locals.value.object.pages_map.other_side.gauche.promo.title %>"><i class="glyphicon glyphicon-minus"></i></a>
+			<a id="add_to_map" class="buttons" href="<%= locals.value.object.pages_map.other_side.gauche.add.href %>" title="<%= locals.value.object.pages_map.other_side.gauche.add.title %>"><i class="glyphicon glyphicon-plus"></i></a>
+		</nav>
+		<main id="main" class="">
+		
+		
+		
+		
+			<div id="accueil" class="active">
+				<h2 class="textS"><%= locals.value.object.pages_map.accueil_h2 %></h2>
+				<!--
+				<video src="<%= locals.value.object.pages_map.accueil_video.src %>">Une video seo</video>
+				<img src="" alt="" class="">
+				<audio src="<%= locals.value.object.pages_map.accueil_audio.src %>">Une musique seo seo</audio>
+				-->
+				<section class="flex_between">
+					<a target="_blank" href="<%= locals.value.object.pages_map.accueil_lien0.href %>" title="<%= locals.value.object.pages_map.accueil_lien0.title %>"><i class="glyphicon glyphicon-asterisk"></i> <%= locals.value.object.pages_map.accueil_lien0.html %></a>
+					<a target="_blank" href="<%= locals.value.object.pages_map.accueil_lien1.href %>" title="<%= locals.value.object.pages_map.accueil_lien1.title %>"><i class="glyphicon glyphicon-asterisk"></i> <%= locals.value.object.pages_map.accueil_lien1.html %></a>
+					<a target="_blank" href="<%= locals.value.object.pages_map.accueil_lien2.href %>" title="<%= locals.value.object.pages_map.accueil_lien2.title %>"><i class="glyphicon glyphicon-asterisk"></i> <%= locals.value.object.pages_map.accueil_lien2.html %></a>
+					<a target="_blank" href="<%= locals.value.object.pages_map.accueil_lien3.href %>" title="<%= locals.value.object.pages_map.accueil_lien3.title %>"><i class="glyphicon glyphicon-asterisk"></i> <%= locals.value.object.pages_map.accueil_lien3.html %></a>
+				</section>
+				<figure class="multimedias bg-whites">
+					<h3 class=""><%= locals.value.object.pages_map.accueil_h3s[0] %></h3>
+					<h3 class=""><%= locals.value.object.pages_map.accueil_h3s[1] %></h3>
+					<h3 class=""><%= locals.value.object.pages_map.accueil_h3s[2] %></h3>
+					<iframe src="<%= locals.value.object.pages_map.accueil_video.src %>" class="" title="<%= locals.value.object.pages_map.accueil_video.title %>">
+					</iframe>
+					<img src="<%= locals.value.object.pages_map.accueil_img.src %>" alt="<%= locals.value.object.pages_map.accueil_img.alt %>" title="<%= locals.value.object.pages_map.accueil_img.title %>" class="">
+					<iframe src="<%= locals.value.object.pages_map.accueil_audio.src %>" class="" title="<%= locals.value.object.pages_map.accueil_audio.title %>">
+					</iframe>
+				</figure>
+				<p><%- locals.value.object.pages_map.accueil_text %></p>
+				<hr>	
+				<% if(locals.value.connected==08){ %>
+				<div class="loggin">
+				<a href="<%= locals.value.object._all_buttons_log._0.href %>" title="<%= locals.value.object._all_buttons_log._0.title %>" class="btn btn-danger"><%= locals.value.object._all_buttons_log._0.html %></a>
+				</div>
+				<% } %>	
+			</div>
+			
+			
+			
+			
+			<div id="action" class="scrolly">
+				<h2><%- locals.value.object.pages_map.other_side.carte.h2 %></h2>
+				<div id="pub" class="pub aside scrolly boxSh_">
+					<h4><%- locals.value.object.pages_map.other_side.carte.h4_ %></h4>
+					<% for(a in locals.value.pub){ %>
+						<div class="">
+							<a href="#" data-data="<%= locals.value.pub[a].id_pub %>" class="">
+								<h4><%- locals.value.pub[a].titre %></h4>
+								<p><%- locals.value.pub[a].descr %></p>
+							</a>
+						</div>
+					<% } %>
+				</div>
+				<div id="la_carte" class="carte_<%= locals.value.pays %>">
+					<span class="close" onclick="this.parentNode.className='carte_'+this.data;$(this).hide();$(dioceses).show()">X</span>
+					<div id="area_image" style="background-image: url('/img/regions/none.gif');">
+						<img src="/imgs/fonds/none.gif" alt="petites annonces côte d'ivoire carte" height="400px" width="400px" usemap="#map">
+					</div>
+					<map name="map" id="map_carte">
+						<area shape="poly" id="a_01" href="#" data-data="Bas-Sassandra" title="Bas-Sassandra" alt="Bas-Sassandra" coords="150,357,136,345,121,353,130,365,79,394,84,316,111,304,106,272,142,272,187,342"><area shape="poly" id="a_02" href="#" data-data="Denguélé" title="Denguélé" alt="Denguélé" coords="124,61,116,45,134,33,133,23,95,32,76,20,46,44,43,78,60,92,72,109,98,131,100,107,116,110,126,103"><area shape="poly" id="a_03" href="#" data-data="Savanes" title="Savanes" alt="Savanes" coords="136,9,158,7,163,32,189,23,208,29,224,33,248,60,278,72,289,95,300,100,308,113,306,122,303,131,283,129,272,121,245,114,235,99,233,87,215,87,206,119,192,124,197,139,177,132,157,105,159,101,149,98,144,103,128,104,127,59,120,47,134,38">	<area shape="poly" id="a_04" href="#" data-data="Bafing" title="Bafing" alt="Bafing" coords="38,141,40,157,52,167,77,182,80,166,84,165,103,174,106,156,97,133,66,106,57,118,66,131,72,149"><area shape="poly" id="a_05" href="#" data-data="18 Montagnes" title="18 Montagnes" alt="18 Montagnes" coords="22,199,28,216,35,229,25,258,30,261,49,236,55,235,57,242,108,237,104,176,82,170,75,186,50,175,36,202,22,199"><area shape="poly" id="a_06" href="#" data-data="Cavally" title="Cavally" alt="Cavally" coords="18,263,22,261,33,263,50,239,56,246,109,240,110,247,111,262,106,268,103,314,91,315,61,299,51,276,30,276,21,271"><area shape="poly" id="a_07" href="#" data-data="Worodougou" title="Worodougou" alt="Worodougou" coords="109,183,156,185,169,190,183,184,191,170,211,162,212,156,196,142,177,135,157,107,152,104,128,107,119,114,105,110,99,136,107,152"><area shape="poly" id="a_08" href="#" data-data="Haut-Sassandra" title="Haut-Sassandra" alt="Haut-Sassandra" coords="110,186,154,187,170,195,155,198,149,221,163,216,177,221,165,233,167,259,161,273,134,275,114,267,116,257,111,239"><area shape="poly" id="a_09" href="#" data-data="Marahoué" title="Marahoué" alt="Marahoué" coords="153,220,157,201,171,199,175,191,187,187,189,204,196,221,203,225,203,244,206,255,190,262,169,260,168,252,167,239,172,228,178,224,166,215"><area shape="poly" id="a_10" href="#" data-data="Vallée du Bandama" title="Vallée du Bandama" alt="Vallée du Bandama" coords="217,90,230,90,242,115,272,127,301,135,302,170,273,182,253,200,246,199,205,218,194,214,190,187,192,170,207,166,215,158,203,145,196,126,209,117"><area shape="poly" id="a_11" href="#" data-data="Fromager" title="Fromager" alt="Fromager" coords="153,279,154,293,173,311,184,303,188,287,203,281,217,282,223,276,212,258,193,266,169,265"><area shape="poly" id="a_12" href="#" data-data="Sud-Bandama" title="Sud-Bandama" alt="Sud-Bandama" coords="175,316,183,328,193,343,186,356,205,356,206,342,215,345,231,345,235,325,238,314,233,293,221,283,192,290"><area shape="poly" id="a_13" href="#" data-data="Lacs" title="Lacs" alt="Lacs" coords="233,235,219,237,221,247,237,250,251,272,239,276,214,259,199,231,195,211,251,192,247,232"><area shape="poly" id="a_14" href="#" data-data="Zanzan" title="Zanzan" alt="Zanzan" coords="284,66,298,56,332,51,353,56,376,84,381,121,391,156,376,185,360,227,339,215,328,209,303,178,305,142,313,127,310,105,292,94"><area shape="poly" id="a_15" href="#" data-data="Lagunes" title="Lagunes" alt="Lagunes" coords="222,271,265,272,259,304,277,314,298,310,306,296,329,299,307,332,292,323,284,331,284,340,234,336,241,299"><area shape="poly" id="a_16" href="#" data-data="N’zi-Comoé" title="N’zi-Comoé" alt="N’zi-Comoé" coords="296,166,323,203,310,246,287,272,253,272,245,248,301,248,301,233,248,231,249,201,261,179">			<area shape="poly" id="a_17" href="#" data-data="Agneby" title="Agneby" alt="Agneby" coords="266,307,270,283,288,285,302,267,317,262,334,291,332,297,307,305,297,321,280,318"><area shape="poly" id="a_18" href="#" data-data="Moyen-Comoé" title="Moyen-Comoé" alt="Moyen-Comoé" coords="317,259,334,284,334,299,345,298,352,284,346,253,350,232,354,230,330,215,328,231,317,240"><area shape="poly" id="a_19" href="#" data-data="Sud-Comoé" title="Sud-Comoé" alt="Sud-Comoé" coords="321,345,330,326,346,316,349,298,351,289,372,321,373,333,374,346,346,352"><area shape="poly" id="a_21" href="#" data-data="Abidjan" title="Abidjan" alt="Abidjan" coords="286,328,293,348,325,351,327,342,300,339"><area shape="poly" id="a_23" href="#" data-data="San Pédro" title="San Pédro" alt="San Pédro" coords="126,352,136,347,145,358,184,361,184,372,136,370"><area shape="poly" id="a_22" href="#" data-data="Yamoussoukro" title="Yamoussoukro" alt="Yamoussoukro" coords="222,235,298,236,298,248,222,247">
+					</map>
+				</div>
+				<div id="dioceses" class="dioceses safe bl0 w100">
+					<h3><%- locals.value.object.pages_map.other_side.carte.h3 %><%= locals.value.object._all_parameters.pays[locals.value.pays] %></h3>
+					<% for(a in locals.value.localdatas.dioceses){ %>
+						<a href="#" data-data="<%= locals.value.localdatas.dioceses[a].generique %>"><%= locals.value.localdatas.dioceses[a].nom %></a>
+					<% } %>
+				</div>
+				<div id="legende" class="legende aside">
+					<h4><%- locals.value.object.pages_map.other_side.carte.h4 %></h4>
+					<% for(a in locals.value.object.pages_map.other_side.carte.legende){ %>
+						<a href="#" data-data="<%= a %>" class="flcb w100"><i class="fl icon_<%= a %>"></i><%= locals.value.object.pages_map.other_side.carte.legende[a] %> (<span><% if(!locals.value.localdatas.stats[a]){ %>0<% } else {%><%= locals.value.localdatas.stats[a] %><% } %></span>)</a>
+					<% } %>
+				</div>
+				<form action="" method="POST" class="add_to_map tojump_">
+				</form>
+				<form action="" method="POST" class="promo tojump_">
+				</form>
+			</div>
+		</main>
+		
+		
+		
+		
+		<%- include('navbar'); %>
+		
+		
+		
+		
+		<%- include('footer'); %>
+		<aside id="droite">
+		</aside>
+		
+		
+		
+		
+		<div id="modals">
+		</div>
+		<div>
+			<div id="modal_add" class="modal_">
+				<form action="/_/add_map" method="POST" class="" onsubmit="if($(this).find('input[name=ajouteur]').val()==0){alert('vous devez etre connecté pour poster klkchoz');return false;}">
+					<input name="ajouteur" type="hidden" value="<%= locals.value.username %>">
+					<input name="redirect" type="hidden">
+					<input name="pays" type="hidden" value="<%= locals.value.pays %>">
+					<div class="modal_box panel-group">
+						<div class="modal_header panel panel-primary">
+							<h2><%= locals.value.object.pages_map.other_side.modals.add.h2 %></h2>
+							<div class="dropdown">
+								<button type="button" id="choix_pays" class="btn btn-danger dropdown-toggle" data-toggle="dropdown"><%= locals.value.object.pages_map.other_side.modals.add.dropdown %><span class="caret"></span></button>
+								<ul class="dropdown-menu safe scrolly">
+									<li>
+										<a href="#" data-data="void" class=""><i class="icon_void"></i><%= locals.value.object.pages_map.other_side.modals.add.dropdown %></a>
+									</li>
+								<% for(a in locals.value.object.pages_map.other_side.carte.legende){ %>
+									<li>
+										<a href="#" data-data="<%= a %>" class=""><i class="icon_<%= a %>"></i><%= locals.value.object.pages_map.other_side.carte.legende[a] %></a>
+									</li>
+								<% } %>
+								</ul>
+							</div>
+							<input name="categorie" type="hidden" value="void">
+							<label for="m_add_titre"><%= locals.value.object.pages_map.other_side.modals.add.hl_titre %></label>
+							<input id="m_add_titre" name="titre" placeholder="<%= locals.value.object.pages_map.other_side.modals.add.h_titre %>">
+							<label for="m_add_diocese"><%= locals.value.object.pages_map.other_side.modals.add.hl_diocese %></label>
+							<div class="dropdown">
+								<button type="button" id="choix_pays" class="btn btn-danger dropdown-toggle" data-toggle="dropdown"><%= locals.value.object.pages_map.other_side.modals.add.dropdown_ %><span class="caret"></span></button>
+								<ul class="dropdown-menu safe scrolly">
+									<li>
+										<a href="#" data-data="void" class=""><i class="icon_void"></i><%= locals.value.object.pages_map.other_side.modals.add.dropdown_ %></a>
+									</li>
+								<% for(a in locals.value.localdatas.dioceses){ %>
+									<li>
+										<a href="#" data-data="<%= locals.value.localdatas.dioceses[a].generique %>" class=""><i class="icon_diocese"></i><%= locals.value.localdatas.dioceses[a].nom %></a>
+									</li>
+								<% } %>
+								</ul>
+							</div>
+							<input name="diocese" id="m_add_diocese" type="hidden" value="void">
+							<label for="m_add_region"><%= locals.value.object.pages_map.other_side.modals.add.hl_diocese %></label>
+							<div class="dropdown">
+								<button type="button" id="choix_pays" class="btn btn-danger dropdown-toggle" data-toggle="dropdown"><%= locals.value.object.pages_map.other_side.modals.add.dropdown_ %><span class="caret"></span></button>
+								<ul class="dropdown-menu safe scrolly">
+									<li>
+										<a href="#" data-data="void" class=""><i class="icon_void"></i><%= locals.value.object.pages_map.other_side.modals.add.dropdown_ %></a>
+									</li>
+									<li>maintenant ici il faut mettre les regions
+									</li>
+								<% for(a in locals.value.localdatas.dioceses){ %>
+									<li>
+										<a href="#" data-data="<%= locals.value.localdatas.dioceses[a].generique %>" class=""><i class="icon_diocese"></i><%= locals.value.localdatas.dioceses[a].nom %></a>
+									</li>
+								<% } %>
+								</ul>
+							</div>
+							<input name="diocese" id="m_add_region" type="hidden" value="void">
+						</div>
+						<div class="modal_content panel-warning">
+							<label for="m_add_ville"><%= locals.value.object.pages_map.other_side.modals.add.ml_ville %></label>
+							<input id="m_add_ville" name="ville" placeholder="<%= locals.value.object.pages_map.other_side.modals.add.m_ville %>">
+							<label for="m_add_quartier"><%= locals.value.object.pages_map.other_side.modals.add.ml_quartier %></label>
+							<input id="m_add_quartier" name="quartier" placeholder="<%= locals.value.object.pages_map.other_side.modals.add.m_quartier %>">
+							<label for="m_add_descr"><%= locals.value.object.pages_map.other_side.modals.add.ml_descr %></label>
+							<textarea id="m_add_descr" name="descr" placeholder="<%= locals.value.object.pages_map.other_side.modals.add.ml_descr_ph %>">
+							</textarea>
+						</div>
+						<div class="modal_footer panel panel-info">
+							<h4><%= locals.value.object.pages_cross.form.titre %></h4>
+							<div class="ui slider checkbox">
+								<input type="checkbox" name="appouver" id="main_cp_check"> <label for="main_cp_check"><%= locals.value.object.pages_cross.form.lu_approuv %>
+							</div>
+							<div>
+								<button type="button" class="ui yellow basic button"><%= locals.value.object.pages_cross.form.prev %></button>
+								<button type="button" class="ui blue basic button"><%= locals.value.object.pages_cross.form.save %></button>
+								<button class="ui green button"><%= locals.value.object.pages_cross.form.go %></button>
+							</div>
+						</div>					
+					</div>
+				</form>
+			</div>
+			
+			<div id="modal_promo" class="modal_">
+				<form action="/_/promo_map" method="POST" class=""  onsubmit="if($(this).find('input[name=ajouteur]').val()==0){alert('vous devez etre connecté pour poster klkchoz');return false;}">>
+					<input name="redirect" type="hidden">
+					<input name="ajouteur" type="hidden" value="<%= locals.value.username %>">
+					<input name="pays" type="hidden" value="<%= locals.value.pays %>">
+					<div class="modal_box panel-group">
+						<div class="modal_header panel panel-primary">
+							<h2><%= locals.value.object.pages_map.other_side.modals.promo.h2 %></h2>
+							<label for="hlp_titre"><%= locals.value.object.pages_map.other_side.modals.promo.h_titre %></label>
+							<input id="hlp_titre" name="titre" placeholder="<%= locals.value.object.pages_map.other_side.modals.promo.h_titre_ph %>">
+						</div>
+						<div class="modal_content panel-warning">
+							<fieldset><legend><%= locals.value.object.pages_map.other_side.modals.promo.h_legend %></legend>
+								<label for="hlp_geo"><%= locals.value.object.pages_map.other_side.modals.promo.hr_label0 %></label>
+								<input id="hlp_geo" type="radio" name="geo" value="diocese">
+								<label for="hlp_geo_"><%= locals.value.object.pages_map.other_side.modals.promo.hr_label1 %></label>
+								<input id="hlp_geo_" type="radio" name="geo" value="nation">
+								<label for="hlp_geo__"><%= locals.value.object.pages_map.other_side.modals.promo.hr_label2 %></label>
+								<input id="hlp_geo__" type="radio" name="geo" value="autre_pays">
+							</fieldset>
+							<% if(!locals.value.map_created){ %>
+								<div><%= locals.value.object.pages_map.other_side.modals.promo.aucun %></div>
+							<% } else { %>
+							<label for="ml_which"><%= locals.value.object.pages_map.other_side.modals.promo.mw_label %></label>
+							<div class="dropdown">
+								<button type="button" id="choix_pays" class="btn btn-danger dropdown-toggle" data-toggle="dropdown"><%= locals.value.object.pages_map.other_side.modals.promo.m_dropdown %><span class="caret"></span></button>
+								<ul class="dropdown-menu safe scrolly">
+									<li>
+										<a href="#" data-data="void" class=""><i class="icon_void"></i><%= locals.value.object.pages_map.other_side.modals.promo.m_dropdown %></a>
+									</li>
+								<% for(a in locals.value.map_created){ %>
+									<li>
+										<a href="#" data-data="<%= locals.value.map_created[a].id_map %>" class="" title="<%= locals.value.object.pages_map.other_side.carte.legende[locals.value.map_created[a].categorie] %>"><i class="icon_<%= locals.value.map_created[a].categorie %>"></i><%= locals.value.map_created[a].titre %></a>
+									</li>
+								<% } %>
+								</ul>
+							</div>
+							<% } %>
+							<input id="ml_which" name="which" type="hidden" value="void">
+							<label for="ml_promo_descr"><%= locals.value.object.pages_map.other_side.modals.promo.ml_descr %></label>
+							<textarea id="ml_promo_descr" name="descr" placeholder="<%= locals.value.object.pages_map.other_side.modals.add.ml_descr_ph %>">
+							</textarea>
+						</div>
+						<div class="modal_footer panel panel-info">
+							<h4><%= locals.value.object.pages_cross.form.titre %></h4>
+							<div class="ui slider checkbox">
+								<input type="checkbox" name="appouver" id="main_cp_check"> <label for="main_cp_check"><%= locals.value.object.pages_cross.form.lu_approuv %>
+							</div>
+							<div>
+								<button type="button" class="ui yellow basic button"><%= locals.value.object.pages_cross.form.prev %></button>
+								<button type="button" class="ui blue basic button"><%= locals.value.object.pages_cross.form.save %></button>
+								<button class="ui green button"><%= locals.value.object.pages_cross.form.go %></button>
+							</div>
+						</div>					
+					</div>
+				</form>
+			</div>
+		</div>
+		
+		
+		
+		
+		<%- include('map_tpls'); %>
+		
+		
+		
+		
+		
+	</body>
+	<%- include('loads'); %>
+	<%- include('loads_'); %>
+	<script>
+	var tinymce_opt={
+		  selector: '#m_add_descr,#ml_promo_descr',
+		  height: 500,
+		  theme: 'modern',
+		  plugins: [
+			'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+			'searchreplace wordcount visualblocks visualchars code fullscreen',
+			'insertdatetime media nonbreaking save table contextmenu directionality',
+			'emoticons template paste textcolor colorpicker textpattern imagetools codesample toc help'
+		  ],
+		  toolbar1: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+		  toolbar2: 'print preview media | forecolor backcolor emoticons | codesample help',
+		  image_advtab: true,
+		  templates: [
+			{ title: 'Test template 1', content: 'Test 1' },
+			{ title: 'Test template 2', content: 'Test 2' }
+		  ],
+		  content_css: [
+			'apis/tinymce/js/tinymce/css.css',
+			//'tinymce/js/tinymce/codepen.min.css'
+		  ]
+	 }
+	tinymce.init(tinymce_opt);
+	</script>
+	<script src="/js/script_.js"></script>
+</html>

@@ -1,0 +1,123 @@
+<template id="lis_tpl">
+	<li class="col-md-4" data-data="{{_id}}">
+		<article class="panel-group">
+			<header class="panel panel-primary">
+				<h3 class="">{{titre}}</h3>
+				<div class="flex_around">
+					<span class="">
+						Auteur : 
+						<a href="{{ajouteur_href}}" title="{{_ajouteur}}" target="_blank">
+							<!--
+							<div class="ui avatar image {{ajouteurs_sprite_src}}"><span>{{ajouteur_}}</span></div>
+							-->
+							<div class="ui avatar image ">
+								<img src="{{ajouteur_src}}" title="{{ajouteur_title}}" alt="{{ajouteur_alt}}">
+							</div>
+							<div>{{ajouteur_}}</div>
+						</a>
+					</span>
+					<button class="btn btn-danger talk pr" style="padding-left:1.5em;height:2em;"><i class="ui icon comment"></i> <span class='tl0'>({{comments_count}})</span></button>
+					<span class="filtre"><a href="#">#{{miracles}}{{conversions}}</a></span>
+					<span class="">{{date}} ______appliquer une fonction avec mustache pour bien afficher la date_______</span>
+				</div>
+			</header>
+			<main class="bg-whites">
+				<div class="">{{descr_}}</div>
+				<div class="nodisplay">{{descr}}</div>
+				<button class="btn btn-danger" onclick="lire_la_suite.innerHTML=$(this).parent().find('.nodisplay').html();show_modal('lire_la_suite')"><%= locals.value.object.esperance_type_0.lire_suite %></button>
+			</main>
+			<footer class="panel panel-info">
+				<i class="fl heart outline like icon"></i>
+				<div class="modal_h_sh_info"><div class="type"><%= locals.value.object.esperance_type_0.shares.share %><span class="badge">{{count_shares}}</span><%= locals.value.object.esperance_type_0.shares.times %></div><div class="likes"><span class="{{amen_}}"><span class="badge amen">{{count_amen}}</span><%= locals.value.object.esperance_type_0.shares.amen %></span><span class="{{hosanna_}}"><span class="badge hosanna">{{count_hosanna}}</span><%= locals.value.object.esperance_type_0.shares.hosanna %></span><span class="{{alleluia_}}"><span class="badge alleluia">{{count_alleluia}}</span><%= locals.value.object.esperance_type_0.shares.alleluia %></span></div></div>
+			</footer>
+		</article>
+		<div class="talk_tag nodisplay_ trbl0 bg-white zind"><span class='reload' onclick="alert('make refresh function')">refresh</span><span class='close' onclick="$(this).parent().slideUp()">X</span><h4><%= locals.value.object.esperance_type_0.talk %></h4><div class="scrolly"></div><textarea class="bl0 w100" placeholder="<%= locals.value.object.esperance_type_0.talk_t_ph %>"></textarea></div>
+	</li>
+</template>
+<template id="type_0_tpl">
+	<div class="safe" style="height:2em">
+		<h2 class="" style="float:left;">{{h2}}</h2>
+		<button class="ui button" style="float:right;" onclick="$('#{{type}} .nodisplay_').slideToggle()"><%= locals.value.object.esperance_type_0.temoignage %> {{type1}}</button>
+		<div class="">
+		</div>
+	</div>
+	<br/>
+	<div class="safe temoignage">
+		<p class=""><%= locals.value.object.esperance_type_0.filtre %></p>
+			{{{filtre0}}}
+			{{{filtre1}}}
+			{{{filtre2}}}
+			{{{filtre3}}}
+			{{{filtre4}}}
+			{{{filtre5}}}
+			{{{filtre6}}}
+			{{{filtre7}}}
+			{{{filtre8}}}
+			{{{filtre9}}}
+	</div>
+	<ul class="main_2">
+	</ul>
+	<div class="nodisplay_ bg-white">
+		<form action="/<%= locals.value.object.all_menu.lien2.href %>" method="POST">
+			<input name="requete" value="{{type}}" type="hidden"/>
+			<input name="langue" value="fr" type="hidden"/>
+			<input name="ajouteur" value="1" type="hidden"/>
+			<input name="href" value="0" type="hidden"/>
+			<fieldset><legend>1°) <%= locals.value.object.esperance_type_0._1.titre %></legend>
+				<div class="ui input">
+					<label for="main_{{type_}}_titre"><%= locals.value.object.esperance_type_0._1.label %> <%= locals.value.object.esperance_type_0.m._0 %></label>
+					<br>
+					<input id="main_{{type_}}_titre" name="titre" class="href" placeholder="<%= locals.value.object.esperance_type_0._1.label %><%= locals.value.object.esperance_type_0._1.ph %>"/>
+				</div>
+			</fieldset>
+			<fieldset><legend>2°) {{form_titre_2}}</legend>
+				<div class="ui input">
+					<label for="main_{{type_}}_type">{{form_label_2}}</label>
+					<br>
+					<select name="{{type}}_" class="form-control">
+						<option value="void" selected>{{form_ph_2}}</option>
+						{{{filtre0_}}}
+						{{{filtre1_}}}
+						{{{filtre2_}}}
+						{{{filtre3_}}}
+						{{{filtre4_}}}
+						{{{filtre5_}}}
+						{{{filtre6_}}}
+						{{{filtre7_}}}
+						{{{filtre8_}}}
+						{{{filtre9_}}}
+					</select>	
+					<input id="main_{{type_}}_type" name="{{type}}" placeholder="{{form_ph__2}}"/>
+				</div>
+			</fieldset>
+			<fieldset><legend>3°) <%= locals.value.object.esperance_type_0._3.titre %></legend>
+				<div class="ui input">
+					<label for="main_{{type_}}_descr"><%= locals.value.object.esperance_type_0._3.label %></label>
+					<br>
+					<textarea id="main_{{type_}}_descr"  name="descr" class="form-control"></textarea>
+				</div>
+			</fieldset>
+			<fieldset><legend>4°) <%= locals.value.object.esperance_type_0._4.titre %></legend>
+				<div class="ui slider checkbox">
+					<input type="checkbox" name="appouver" id="main_m_check"> <label for="main_m_check"><%= locals.value.object.esperance_type_0._4.label %></label>
+				</div>
+				<div>
+					<button class="ui yellow basic button"><%= locals.value.object.esperance_type_0._4._0 %></button>
+					<button class="ui blue basic button"><%= locals.value.object.esperance_type_0._4._1 %></button>
+					<button class="ui green button"><%= locals.value.object.esperance_type_0._4._2 %></button>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+</template>
+<template id="sauver_tpl">
+	<%- locals.value.object.esperance_sauver %>
+</template>
+<template id="guerir_tpl">
+	<%- locals.value.object.esperance_guerir %>
+	<span id="user_guerir_count"><%- locals.value.object.esperance_user_guerir_en_jesus %></span>
+	<span id="guerir_count" class="nodisplay"><%- locals.value.object.esperance_guerir_en_jesus %></span>
+</template>
+<template id="confession_tpl">
+	<%- locals.value.object.esperance_confession %>
+</template>

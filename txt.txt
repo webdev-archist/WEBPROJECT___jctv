@@ -1,0 +1,1 @@
+SELECT * FROM livres INNER JOIN users ON(ajouteur=users.id) INNER JOIN user ON(users.id=user.id) WHERE type=0 AND ajouteur=2 LIMIT 10;

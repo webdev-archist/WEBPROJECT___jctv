@@ -1,0 +1,20 @@
+<link rel="stylesheet" href="/apis/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="/apis/ui/semantic.min.css">
+<link rel="stylesheet" href="/css/set2.css">
+<link rel="stylesheet" href="/css/dropdowns.css">
+<link rel="stylesheet" href="/css/w3.css">
+<script>
+	var user_parameters={pays:"<%= locals.value.pays %>",langue:"<%= locals.value.langue %>"}
+</script>
+<script src="/js/fn.js"></script>
+<script src="/js/jquery.min.js"></script>
+<script src="/apis/bootstrap/js/bootstrap.min.js"></script>
+<script src="/apis/ui/semantic.js"></script>
+<script src="/apis/mustache/mustache.js"></script>
+<script src="/apis/tinymce/js/tinymce/tinymce.min.js"></script>
+<% if(locals.value.connected==1){ %>
+<script src="/users/<%= locals.value.username_.id %>_<%= locals.value.username_._href %>/notifs.js"></script>
+<script src="/users/<%= locals.value.username_.id %>_<%= locals.value.username_._href %>/msgs.js"></script>
+<script src="/users/connected/<%= locals.value.username_.id*locals.value.user_rand %>_<%= locals.value.username_._href %>.js"></script>
+<% } %>
+<script src="/js/_script.js"></script>

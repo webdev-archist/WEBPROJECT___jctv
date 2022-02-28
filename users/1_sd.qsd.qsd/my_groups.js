@@ -1,0 +1,1 @@
+var my_groups=[{"href_ajouteur":"sd.qsd.qsd","ajouteur":1,"id_group":6,"titre":"bataillon de marie"}]

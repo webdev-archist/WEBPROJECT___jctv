@@ -1,0 +1,506 @@
+<template id="template_type_1">
+	<article class="trbl0 text-center safe_" style="padding:1em;padding-top:10%">
+	{{{p}}}
+	</article>
+	<div class="ui labeled button">
+		<a href="{{btn_0_href}}" title="{{btn_0_title}}" class="col-md-9 ui basic red button"><i class="icon edit"></i> {{{btn_0_html}}}</a>	
+		<span class="ui red left pointing label">{{badge_0}}</span>	
+	</div>
+	<div class="ui labeled button">
+		<a href="{{btn_1_href}}" title="{{btn_1_title}}" class="col-md-9 ui basic green button"><i class="icon edit"></i> {{{btn_1_html}}}</a>	
+		<span class="ui green left pointing label">{{badge_1}}</span>	
+	</div>
+	<div class="self_buttons" data-position="bottom" data-tooltip="">
+		<div class="nodisplay">
+			 <% for(a in locals.value.object.charite_tpls.self_btn_tooltips){ %>
+				<% for(b in locals.value.object.charite_tpls.self_btn_tooltips[a]){ %>
+					<span class="<%= a %>"><%= locals.value.object.charite_tpls.self_btn_tooltips[a][b] %></span>
+				<% } %>
+			 <% } %>
+		</div>
+		<button class="ui button"><i class="icon help circle outline"></i></button>	
+		<button class="ui button present_img"><i class="icon image"></i></button>	
+		<button class="ui button present_p"><i class="icon text"></i></button>	
+	</div>
+	<img class="pub mult" src="{{mult_src}}" alt="{{mult_alt}}" title="{{mult_title}}">
+	<ul class="main_2">
+	</ul>
+	<article class="">
+		<header class="">
+			<h1 class="">
+			</h1>
+		</header>
+		<main>
+		</main>
+	</article>
+</template>
+<template id="forms_tpl">
+	<form action="/<%= locals.value.object.all_menu.lien1.href %>" method="POST">
+		<input name="requete" value="{{type}}" type="hidden"/>
+		<input name="langue" value="fr" type="hidden"/>
+		<input name="href" type="hidden"/>
+		<input name="ajouteur" value="1" type="hidden"/>
+		<fieldset><legend>1°) <%= locals.value.object.charite_forms._1.titre %></legend>
+			<div class="ui input">
+				<label for="main_{{type}}_titre"><%= locals.value.object.charite_forms._1.label %>{{action}}</label>
+				<input id="main_{{type}}_titre" name="titre">
+			</div>
+			<div class="">
+				<label for="main_{{type}}_img" class="nex"><%= locals.value.object.charite_forms._1.label_ %></label>
+				<button type="button" class="btn btn-danger nex"><%= locals.value.object.charite_forms.generals.add_i %></button>
+				<input id="main_{{type}}_img" name="image" type="file" class="nodisplay"/>
+			</div>
+		</fieldset>
+		<fieldset><legend>2°) <%= locals.value.object.charite_forms._2.titre %>{{action}}</legend>
+			<div class="dropdown">
+				<label for="main_{{type}}_action"><%= locals.value.object.charite_forms._2.label %></label>
+				<button id=main_{{type}}_action" class="btn btn-danger dropdown-toggle" data-toggle="dropdown"><%= locals.value.object.charite_forms.generals.clic_h %>...<span class="caret"></span></button>
+				<ul class="dropdown-menu">
+					{{{opt0}}}
+					{{{opt1}}}
+					{{{opt2}}}
+					{{{opt3}}}
+					{{{opt4}}}
+					{{{opt5}}}
+					{{{opt6}}}
+					{{{opt7}}}
+					{{{opt8}}}
+					{{{opt9}}}
+				</ul>
+				{{{o}}}
+			</div>
+			<div class="ui input">
+				<label for="main_{{type}}_action_"><%= locals.value.object.charite_forms._2.label_ %>{{action}}</label>
+				<input id="main_{{type}}_action_" placeholder="<%= locals.value.object.charite_forms._2.ph %>" class="blu"/>
+			</div>
+			<input name="action" readonly class="form-control">
+		</fieldset>
+		<fieldset><legend>3°) <%= locals.value.object.charite_forms._3.titre %></legend>
+			<div class="ui input">
+				<label for="main_{{type}}_date"><%= locals.value.object.charite_forms._3.label %></label>
+				<input id="main_{{type}}_date" name="jour"  type="date"/><br/>
+				<label for="main_{{type}}_time"><%= locals.value.object.charite_forms._3.label_ %></label>
+				<input id="main_{{type}}_time" name="heure" type="time"/>
+			</div>
+		</fieldset>
+		<fieldset><legend>4°) <%= locals.value.object.charite_forms._4.titre %></legend>
+			<label for="main_{{type}}_pays_"><%= locals.value.object.charite_forms._4.label %></label>
+			<select id="main_{{type}}_pays_" class="form-control" onchange="alert('ok')">
+				<option value="void" selected><%= locals.value.object.charite_forms._4.label %></option>
+			</select>	
+			<div class="ui input">
+				<label for="main_{{type}}_pays"><%= locals.value.object.charite_forms._4.label_ %></label>
+				<input id="main_{{type}}_pays" name="pays"  placeholder="<%= locals.value.object.charite_forms._4.ph %>s"/>
+				<label for="main_{{type}}_ville"><%= locals.value.object.charite_forms._4.label__ %></label>
+				<input id="main_{{type}}_ville" name="ville"  placeholder="<%= locals.value.object.charite_forms._4.ph_ %>"/>
+				<label for="main_{{type}}_lieu"><%= locals.value.object.charite_forms._4.label___ %></label>
+				<input id="main_{{type}}_lieu" name="lieu"  placeholder="<%= locals.value.object.charite_forms._4.ph__ %>"/>
+			</div>
+		</fieldset>
+		<fieldset><legend>5°) <%= locals.value.object.charite_forms._5.titre %></legend>
+			<div>
+				<label for="main_{{type}}_descr"><%= locals.value.object.charite_forms._5.label %>{{action}}</label>
+				<textarea id="main_{{type}}_descr" name="descr" class="form-control" placeholder="<%= locals.value.object.charite_forms._5.ph %>"></textarea>
+			</div>
+		</fieldset>
+		<fieldset><legend>6°) <%= locals.value.object.charite_forms._6.titre %></legend>
+			<div>
+				<!--
+				<label for="main_{{type}}_bourse"><%= locals.value.object.charite_forms._6.label %></label>
+				-->
+				<input type="hidden" id="main_{{type}}_bourse" class="form-control" name="id_bourse"  placeholder="<%= locals.value.object.charite_forms._6.ph %>"/>
+			</div>
+			<div>
+				<label for="main_{{type}}_bourse_"><%= locals.value.object.charite_forms._6.label_ %></label>
+				<input id="main_{{type}}_bourse_" class="form-control" name="bourse"  value="0" type="number"/> euros (trouver un moyen de convertir...et de sortir ce texte de la bdd)
+			</div>
+			
+			<!--
+			<a href="<%= locals.value.object.charite_menu_gauche.lien4.href %>" target="_blank"><%= locals.value.object.charite_forms._6.a %></a>
+			-->
+		</fieldset>
+		<fieldset><legend>7°) <%= locals.value.object.charite_forms._7.titre %></legend>
+			<div class="ui slider checkbox">
+				<input type="checkbox" name="appouver" id="main_{{type}}_check"> 
+				<label for="main_{{type}}_check"><%= locals.value.object.charite_forms._7.label %></label>
+			</div>
+			<div>
+				<button class="ui yellow basic button"><%= locals.value.object.charite_forms._7.btn0 %></button>
+				<button class="ui blue basic button"><%= locals.value.object.charite_forms._7.btn1 %></button>
+				<button class="ui green button" onmousedown="let d=new Date();d=+d;$(this).parent().parent().parent().find('input[name=id_bourse]').val('id_'+d)"><%= locals.value.object.charite_forms._7.btn2 %></button>
+			</div>
+		</fieldset>
+	</form>
+</template>
+<template id="benevolat_form_tpl">
+	<form action="/<%= locals.value.object.all_menu.lien1.href %>" method="POST">
+	<input name="langue" value="fr" type="hidden"/>
+	<input name="href" type="hidden"/>
+	<input name="ajouteur" value="0" type="hidden"/>
+		<h2><%= locals.value.object.charite_benevolat_form.h2 %></h2>
+		<fieldset><legend>1°) <%= locals.value.object.charite_benevolat_form._1.titre %></legend>
+			<div class="ui input">
+				<label for="main_b_nom"><%= locals.value.object.charite_benevolat_form._1.label %></label>
+				<input id="main_b_nom" name="nom" placeholder="<%= locals.value.object.charite_benevolat_form._1.ph %>"/>
+			</div>
+		</fieldset>			
+		<fieldset><legend>2°) Choisissez un titre et/ou une image</legend>
+			<div class="ui input">
+				<label for="main_b_titre"><%= locals.value.object.charite_benevolat_form._2.label %></label>
+				<input id="main_b_titre" class="href" name="titre" placeholder="<%= locals.value.object.charite_benevolat_form._2.ph %>"/>
+			</div>
+			<div class="">
+				<label><%= locals.value.object.charite_benevolat_form._2.label_ %></label>
+				<button type="button" class="ui button nex"><%= locals.value.object.charite_forms.generals.add_i %></button>
+				<input name="img" type="file" class="nodisplay"/>
+			</div>
+		</fieldset>			
+		<fieldset><legend>3°) <%= locals.value.object.charite_benevolat_form._3.titre %></legend>
+			<div class="ui input">
+				<label for="main_b_secteur"><%= locals.value.object.charite_benevolat_form._3.label %></label>
+				_________changer ce select par un dropdown menu_________________
+				<select name="action" id="main_b_secteur" class="form-control">
+					<option value="void" selected><%= locals.value.object.charite_benevolat_form._3.ph %></option>
+					<option value="0"><%= locals.value.object.charite_benevolat_form._3.opt0 %></option>
+				</select>	
+			</div>
+		</fieldset>			
+		<fieldset><legend>4°) <%= locals.value.object.charite_benevolat_form._4.titre %></legend>
+			<label for=""><%= locals.value.object.charite_benevolat_form._4.label %></label>
+			<select class="form-control">
+				<option value="void" selected><%= locals.value.object.charite_benevolat_form._4.ph %></option>
+			</select>	
+			<div class="ui input">
+				<label for="main_b_pays"><%= locals.value.object.charite_benevolat_form._4.label_ %></label>
+				<input id="main_b_pays" name="pays"  placeholder="<%= locals.value.object.charite_benevolat_form._4.ph_ %>"/>
+				<label for="main_b_ville"><%= locals.value.object.charite_benevolat_form._4.label__ %></label>
+				<input id="main_b_ville" name="ville"  placeholder="<%= locals.value.object.charite_benevolat_form._4.ph__ %>"/>
+			</div>
+		</fieldset>		
+		<fieldset><legend>5°) <%= locals.value.object.charite_benevolat_form._5.titre %></legend>
+			<div class="ui input">
+				<label for="main_b_debut"><%= locals.value.object.charite_benevolat_form._5.label %></label>
+				<input id="main_b_debut" type="date" name="debut"/>
+				<label for="main_b_fin"><%= locals.value.object.charite_benevolat_form._5.label_ %></label>
+				<input id="main_b_fin" type="time" name="fin"/>
+			</div>
+		</fieldset>	
+		<fieldset style="overflow-x:scroll;"><legend>6°) <%= locals.value.object.charite_benevolat_form._6.titre %></legend>
+			<div class="ui input">
+				<label for="main_b_dlv"><%= locals.value.object.charite_benevolat_form._6.label %></label>
+				<input id="main_b_dlv" name="horaires" placeholder="<%= locals.value.object.charite_benevolat_form._6.ph %>">
+				<br>
+				<p><%= locals.value.object.charite_benevolat_form._6.p %></p>
+				<br>
+				<label for="main_b_l"><%= locals.value.object.charite_benevolat_form._6.l %></label>
+				<input id="main_b_l" name="main_b_l" class="blur_b" placeholder="<%= locals.value.object.charite_benevolat_form._6.ph %>">
+				<label for="main_b_m"><%= locals.value.object.charite_benevolat_form._6.m %></label>
+				<input id="main_b_m" name="main_b_m" class="blur_b" placeholder="<%= locals.value.object.charite_benevolat_form._6.ph %>">
+				<label for="main_b_me"><%= locals.value.object.charite_benevolat_form._6.me %></label>
+				<input id="main_b_me" name="main_b_me" class="blur_b" placeholder="<%= locals.value.object.charite_benevolat_form._6.ph %>">
+				<label for="main_b_j"><%= locals.value.object.charite_benevolat_form._6.j %></label>
+				<input id="main_b_j" name="main_b_j" class="blur_b" placeholder="<%= locals.value.object.charite_benevolat_form._6.ph %>">
+				<label for="main_b_v"><%= locals.value.object.charite_benevolat_form._6.v %></label>
+				<input id="main_b_v" name="main_b_v" class="blur_b" placeholder="<%= locals.value.object.charite_benevolat_form._6.ph %>">
+				<label for="main_b_s"><%= locals.value.object.charite_benevolat_form._6.s %></label>
+				<input id="main_b_s" name="main_b_s" class="blur_b" placeholder="<%= locals.value.object.charite_benevolat_form._6.ph %>">
+				<input name="horaires_" type="hidden">
+			</div>
+		</fieldset>		
+		<fieldset style="overflow-x:scroll;"><legend>7°) <%= locals.value.object.charite_benevolat_form._7.titre %></legend>
+			<div class="">
+				<label for="main_b_descr"><%= locals.value.object.charite_benevolat_form._7.label %></label>
+				<input id="main_b_s" type="number" name="nombre" placeholder="<%= locals.value.object.charite_benevolat_form._7.ph %>"><%= locals.value.object.charite_benevolat_form._7.ph %>
+			</div>
+		</fieldset>	
+		<fieldset style="overflow-x:scroll;"><legend>8°) <%= locals.value.object.charite_benevolat_form._8.titre %></legend>
+			<div class="">
+				<label for="main_b_descr"><%= locals.value.object.charite_benevolat_form._8.label %></label>
+				<textarea id="main_b_descr" class="form-control" name="descr"></textarea>
+			</div>
+		</fieldset>	
+		<fieldset><legend>9°) <%= locals.value.object.charite_forms._7.titre %></legend>
+			<div class="ui slider checkbox">
+				<input type="checkbox" name="appouver" id="main_b_check"> 
+				<label for="main_b_check"><%= locals.value.object.charite_forms._7.label %></label>
+			</div>
+			<div>
+				<button class="ui yellow basic button"><%= locals.value.object.charite_forms._7.btn0 %></button>
+				<button class="ui blue basic button"><%= locals.value.object.charite_forms._7.btn1 %></button>
+				<button class="ui green button"><%= locals.value.object.charite_forms._7.btn2 %></button>
+			</div>
+		</fieldset>
+	</form>
+</template>
+<template id="li_b_tpl">
+	<li class="col-md-4 w3-card-4 text-center">
+		<header class="w3-container w3-light-grey">
+		  <h2>{{_nom}}</h2>
+		</header>
+		<div class="w3-container">
+		  <p title="{{titre}}" class="b_title">{{titre}}</p>
+		  <hr>
+		  <img src="imgs/{{img}}" alt="ONG {{_nom}}" title="{{nom}} {{prenom}} : {{pseudo}}" class="w3-left w3-circle w3-margin-right" style="width:60px">
+		  <p>{{descr}}</p><br>
+		</div>
+		<a target="_blank" class="tr0" href="{{href}}" title="<%= locals.value.object.charite_tpls.benevolat_blank %>"><i class="glyphicon glyphicon-arrow-up"></i></a>
+		<button class="w3-button w3-block w3-dark-grey bl0" title="{{titre}}" onclick="$(b_presentation).find('.id_input').val({{_id}});$(b_presentation).find('.ajouteur_input').val(1);$(b_presentation).find('.redirect_input').val($('#menu>a').eq(1)[0].href);$(b_presentation).find('h4').html($(this).parent().find('h2').html()+' : '+$(this).parent().find('b_title').html());$(b_presentation).find('div').html($(this).parent().find('p:last').html());show_modal('b_presentation')"><%= locals.value.object.charite_tpls.benevolat_button %></button>
+		<a class="tr0 ouside boxSh" href="{{_href_}}" title="{{ancre_title}}"><i class="glyphicon glyphicon-arrow-up"></i></a>
+	</li>
+</template>
+<template id="lis_tpl">
+	<li class="col-md-4">
+		<div class="ui card">
+			<div class="content">
+				<div class="header text-center">{{titre}}</div>
+				<img src="{{img}}" alt="{{titre}}" title="{{titre}}" class="img-responsive"/>
+			</div>
+			<div class="content" style="padding-bottom:0;">
+				<h4 class="ui sub header">{{pays}} {{ville}}, {{lieu}} : <span>{{action}}</span></h4>
+				<div class="ui small feed">
+					<div class="event">
+						<div class="content">
+							<div class="summary">
+								<a target="_blank" href="/user_account/{ajouteur_href}}" title="{{_ajouteur}}">{{ajouteur_}}</a> <%= locals.value.object.charite_tpls.ajouteur_c %> {{jour}},<%= locals.value.object.charite_tpls.a %>{{heure}}
+							</div>
+						</div>
+					</div>
+					<div class="event">
+						<div class="content">
+							<div class="summary">
+								<a target="_blank" href="/user_account/{{ajouteur_href}}" title="{{_ajouteur}}">{{ajouteur_}}</a> <%= locals.value.object.charite_tpls.dit %>: <a onclick="$(this).closest('li').find('.descr').slideToggle()"><%= locals.value.object.charite_tpls.dit_ %></a>
+							</div>
+						</div>
+					</div>
+					<div class="event">
+						<div class="content">
+							<div class="summary">	
+								<a onclick="$(this).next().slideToggle();$(this).toggleClass('active')" class="statis"><i class="ui icon users"></i> <%= locals.value.object.charite_tpls.stats %></a>
+								<div class="ui statistics _nodisplay boxS abs bg-white zind">
+									<div class="statistic">
+										<div class="value">
+										  <img src="artiste2.jpg" class="ui avatar image img_icon">
+										  {{participants_}}
+										</div>
+										<div class="label">
+										  <%= locals.value.object.charite_tpls.stats_ %>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="oeuvre_share">
+						<button title="<%= locals.value.object.charite_tpls.share %> Facebook" class="fb-share-button"><i class="icon facebook"></i></button>
+						<button title="<%= locals.value.object.charite_tpls.share %> Twitter" class=""><i class="icon twitter square"></i></button>
+						<button title="<%= locals.value.object.charite_tpls.share %> Google" class=""><i class="icon google"></i></button>
+						<button title="<%= locals.value.object.charite_tpls.share %> Email" class=""><i class="icon send"></i></button>
+					</div>
+				</div>
+			</div>
+			<div class="extra content" style="padding:0;">
+				<button class="btn btn-danger ab join" title="<%= locals.value.object.charite_tpls.join_ %>"><i class="ab l0 t0 ui icon "></i><%= locals.value.object.charite_tpls.join %></button>
+				<span class="nodisplay" title="<%= locals.value.object.charite_tpls.unjoin_ %>"><%= locals.value.object.charite_tpls.unjoin %></span>
+				<button class="btn btn-danger fr talk pr" title="<%= locals.value.object.charite_tpls.talk_ %>" data-data="{{href}}"><span class='tl0'>({{comments_count}})</span><i class="ui icon comment"></i> <%= locals.value.object.charite_tpls.talk %></button>
+				<a href="={{id_bourse}}" class="btn btn-danger w100 bourse" title="<%= locals.value.object.charite_tpls.bourse_ %>"><i class="ui icon bitcoin"></i> <%= locals.value.object.charite_tpls.bourse %></a>
+			</div>
+			<div class="talk_tag nodisplay_ trbl0 bg-white zind"><span class='reload' onclick="alert('make refresh function')">refresh</span><span class='close' onclick="$(this).parent().slideUp()">X</span><h4><%= locals.value.object.charite_tpls.talk %></h4><div class="scrolly"></div><textarea class="bl0 w100" placeholder="<%= locals.value.object.charite_tpls.talk_t_ph %>"></textarea></div>
+			<div class="descr nodisplay_ bg-white trbl0"><span class='close' onclick="$(this).parent().slideUp()">X</span>{{{descr}}}</div>
+		</div>
+		<a class="tr0 ouside boxSh" href="{{_href_}}" title="{{ancre_title}}"><i class="glyphicon glyphicon-arrow-up"></i></a>
+	</li>
+</template>
+<template id="aumone_tpl">
+	<div class="">
+		<img src="<%= locals.value.object.charite_aumone.img.src %>" alt="<%= locals.value.object.charite_aumone.img.alt %>" title="<%= locals.value.object.charite_aumone.img.title %>" class="img-responsive"/>
+		<h2><%= locals.value.object.charite_aumone.h2 %></h2>
+	</div>
+	<div class="b">
+		<button data-type="webmaster" class="btn btn-xs btn-aumone"><%= locals.value.object.charite_aumone.btn0_ %></button>
+		<button data-type="oeuvre" class="btn btn-xs btn-aumone"><%= locals.value.object.charite_aumone.btn1_ %></button>
+		<button data-type="bourse" class="btn btn-xs btn-aumone"><%= locals.value.object.charite_aumone.btn2_ %></button>
+		<!--
+		<button data-type="o_bourse" class="btn btn-xs btn-aumone"><%= locals.value.object.charite_aumone.btn3_ %></button>
+		-->
+	</div>
+	<div id="coordonnees" class="scrolly">
+		<p class=""><%= locals.value.object.charite_aumone.coordonnees.p %></p>
+		<section>
+			<label for="raison"><%= locals.value.object.charite_aumone.coordonnees._0 %></label>
+			<input class="form-control" id="raison" placeholder="">
+			<label for="civilite"><%= locals.value.object.charite_aumone.coordonnees._1 %></label>
+			<input id="civilite" class="form-control" placeholder="">
+			<label for="nom"><%= locals.value.object.charite_aumone.coordonnees._2 %></label>
+			<input id="nom" class="form-control" placeholder="">
+			<label for="prenom"><%= locals.value.object.charite_aumone.coordonnees._3 %></label>
+			<input id="prenom" class="form-control" placeholder="">
+			<label for="email"><%= locals.value.object.charite_aumone.coordonnees._4 %></label>
+			<input id="emaim" class="form-control" placeholder="">
+			<label for="telephone"><%= locals.value.object.charite_aumone.coordonnees._5 %></label>
+			<input id="telephone" class="form-control" placeholder="">
+		</section>
+	</div>
+	<div class="webmaster rig scrolly t">
+		<form action="/aumone" method="POST" class="">
+			<label for="webmaster"><%= locals.value.object.charite_aumone.webmaster.label %> </label>
+			<input id="webmaster" name="montant" type="number" class="form-control" placeholder="<%= locals.value.object.charite_aumone.webmaster.ph %>">
+			<input name="type" readonly>
+			<input name="id_bourse" value="webmaster" type="hidden">
+			<input name="redirect" class="redirect" type="hidden">
+			<input name="user" value="1" type="hidden">
+			<input name="don" value="webmaster" type="hidden">
+			<input name="coordonnees" type="hidden">
+			<input type="submit" class="btn btn-danger">
+		</form>
+		<div class="reglement">
+			<h4 class=""><%= locals.value.object.charite_aumone.webmaster.h4 %></h4>
+			<%- locals.value.object.charite_aumone.sepa %>
+				<span><%= locals.value.object.charite_aumone.webmaster.sepa %></span>
+			</div>
+			<%- locals.value.object.charite_aumone.bancaire %>
+				<span><%= locals.value.object.charite_aumone.webmaster.bancaire %></span>
+			</div>
+			<%- locals.value.object.charite_aumone.mobile_money %>
+				<span><%= locals.value.object.charite_aumone.webmaster.mobile %></span>
+			</div>
+			<%- locals.value.object.charite_aumone.cheque %>
+				<span><%= locals.value.object.charite_aumone.webmaster.cheque[1] %></span>
+				<%- locals.value.object.charite_aumone.cheque_ %>
+				<span><%= locals.value.object.charite_aumone.webmaster.cheque[0] %></span>
+			</div>
+			<div>
+				<button title="<%= locals.value.object.charite_aumone.btn0.title %>" data-data="sepa" class=" btn prelevement_sepa"><%= locals.value.object.charite_aumone.btn0.html %>
+				</button>
+			</div>
+			<div>
+				<button title="<%= locals.value.object.charite_aumone.btn1.title %>" data-data="bancaire" class="btn carte_bancaire"><%= locals.value.object.charite_aumone.btn1.html %>
+				</button>
+			</div>
+			<div>
+				<button title="<%= locals.value.object.charite_aumone.btn2.title %>" data-data="mobile" class="btn mobile_money"><%= locals.value.object.charite_aumone.btn2.html %>
+				</button>
+			</div>
+			<div>
+				<button title="<%= locals.value.object.charite_aumone.btn3.title %>" data-data="cheque" class="btn cheque"><%= locals.value.object.charite_aumone.btn3.html %>
+				</button>
+			</div>
+		</div>
+	</div>
+	<div class="o_bourse rig scrolly t">
+		<form action="/aumone" method="POST" class="">
+			<label for="id_o_bourse"><%= locals.value.object.charite_aumone.o_bourse.label %></label>
+			<input id="id_o_bourse" class="form-control" value="ljIhijhJHbjyhuy" readonly>
+			<input name="redirect" class="redirect" type="hidden">
+			<input name="user" value="1" type="hidden">
+			<input name="don" value="o_bourse" type="hidden">
+			<input name="coordonnees" type="hidden">
+			<input type="submit" class="form-control">
+		</form>
+	</div>
+	<div class="bourse rig scrolly t">
+		<p><%= locals.value.object.charite_aumone.bourse.p %></p>
+		<form action="/aumone" method="POST" class="">
+			<label for="id_bourse"><%= locals.value.object.charite_aumone.bourse.label %></label>
+			<input id="id_bourse" name="id_bourse" placeholder="<%= locals.value.object.charite_aumone.bourse.ph %>"/>
+			<br/>
+			<label for="b_montant"><%= locals.value.object.charite_aumone.bourse.label_ %></label>
+			<input id="b_montant" type="number" name="montant" placeholder="<%= locals.value.object.charite_aumone.bourse.ph_ %>"/>
+			<input name="type" readonly>
+			<input name="redirect" class="redirect" type="hidden">
+			<input name="user" value="1" type="hidden">
+			<input name="don" value="bourse" type="hidden">
+			<input name="coordonnees" type="hidden">
+			<input type="submit" class="btn btn-danger">
+		</form>
+		<div class="reglement">
+			<h4 class=""><%= locals.value.object.charite_aumone.bourse.h4 %></h4>
+			<%- locals.value.object.charite_aumone.sepa %>
+				<span><%= locals.value.object.charite_aumone.bourse.sepa %></span>
+			</div>
+			<%- locals.value.object.charite_aumone.bancaire %>
+				<span><%= locals.value.object.charite_aumone.bourse.bancaire %></span>
+			</div>
+			<%- locals.value.object.charite_aumone.mobile_money %>
+				<span><%= locals.value.object.charite_aumone.bourse.mobile %></span>
+			</div>
+			<%- locals.value.object.charite_aumone.cheque %>
+				<span><%= locals.value.object.charite_aumone.bourse.cheque[1] %></span>
+				<%- locals.value.object.charite_aumone.cheque_ %>
+				<span><%= locals.value.object.charite_aumone.bourse.cheque[0] %></span>
+			</div>
+			<div>
+				<button title="<%= locals.value.object.charite_aumone.btn0.title %>" data-data="sepa" class=" btn prelevement_sepa"><%= locals.value.object.charite_aumone.btn0.html %>
+				</button>
+			</div>
+			<div>
+				<button title="<%= locals.value.object.charite_aumone.btn1.title %>" data-data="bancaire" class="btn carte_bancaire"><%= locals.value.object.charite_aumone.btn1.html %>
+				</button>
+			</div>
+			<div>
+				<button title="<%= locals.value.object.charite_aumone.btn2.title %>" data-data="mobile" class="btn mobile_money"><%= locals.value.object.charite_aumone.btn2.html %>
+				</button>
+			</div>
+			<div>
+				<button title="<%= locals.value.object.charite_aumone.btn3.title %>" data-data="cheque" class="btn cheque"><%= locals.value.object.charite_aumone.btn3.html %>
+				</button>
+			</div>
+		</div>
+	</div>
+	<div class="oeuvre rig scrolly t">
+		<form action="/aumone" method="POST" id="participation" class="" style='margin-bottom:2em;'>
+			<h4 class=""><%= locals.value.object.charite_aumone.jesuschristtv.participation_h4 %></h4>
+			<div class="mensuel">
+				<label for="m_libre"><%= locals.value.object.charite_aumone.jesuschristtv.label %></p>
+				<input id="m_libre" name="montant" type="number" class="form-control" placeholder="<%= locals.value.object.charite_aumone.jesuschristtv.ph %>">
+			</div>
+			<div class="unique">
+				<label for="u_libre"><%= locals.value.object.charite_aumone.jesuschristtv.label_ %></p>
+				<input id="u_libre" name="montant_" type="number" class="form-control" placeholder="<%= locals.value.object.charite_aumone.jesuschristtv.ph_ %>">
+			</div>
+			<input name="type" readonly>
+			<input name="id_bourse" value="oeuvre" type="hidden">
+			<input name="redirect" class="redirect" type="hidden">
+			<input name="user" value="1" type="hidden">
+			<input name="don" value="oeuvre" type="hidden">
+			<input name="coordonnees" type="hidden">
+			<input type="submit" class="btn btn-danger">
+		</form>
+		<div id="reglement" class="reglement">
+			<h4 class=""><%= locals.value.object.charite_aumone.jesuschristtv.h4 %></h4>
+			<%- locals.value.object.charite_aumone.sepa %>
+				<span><%= locals.value.object.charite_aumone.jesuschristtv.sepa %></span>
+			</div>
+			<%- locals.value.object.charite_aumone.bancaire %>
+				<span><%= locals.value.object.charite_aumone.jesuschristtv.bancaire %></span>
+			</div>
+			<%- locals.value.object.charite_aumone.mobile_money %>
+				<span><%= locals.value.object.charite_aumone.jesuschristtv.mobile %></span>
+			</div>
+			<%- locals.value.object.charite_aumone.cheque %>
+				<span><%= locals.value.object.charite_aumone.jesuschristtv.cheque[1] %></span>
+				<%- locals.value.object.charite_aumone.cheque_ %>
+				<span><%= locals.value.object.charite_aumone.jesuschristtv.cheque[0] %></span>
+			</div>
+			<div>
+				<button title="<%= locals.value.object.charite_aumone.btn0.title %>" data-data="sepa" class=" btn prelevement_sepa"><%= locals.value.object.charite_aumone.btn0.html %>
+				</button>
+			</div>
+			<div>
+				<button title="<%= locals.value.object.charite_aumone.btn1.title %>" data-data="bancaire" class="btn carte_bancaire"><%= locals.value.object.charite_aumone.btn1.html %>
+				</button>
+			</div>
+			<div>
+				<button title="<%= locals.value.object.charite_aumone.btn2.title %>" data-data="mobile" class="btn mobile_money"><%= locals.value.object.charite_aumone.btn2.html %>
+				</button>
+			</div>
+			<div>
+				<button title="<%= locals.value.object.charite_aumone.btn3.title %>" data-data="cheque" class="btn cheque"><%= locals.value.object.charite_aumone.btn3.html %>
+				</button>
+			</div>
+		</div>
+	</div>
+</template>
+<template id="auto_promo_tpl">
+	<%- locals.value.object.charite_auto_promo %>
+	<div class="nodisplay"><%= locals.value.object.charite_auto_promo_ %></div>
+</template>

@@ -1,0 +1,489 @@
+<html>
+	<head>
+		<meta charset="utf8">
+		<title>page utilisaufdbuisgbusf
+		</title>
+		<style>
+		</style>
+		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/style_pages.css">
+		<script id="fill_from_db"></script>
+		<script>
+			 let obj={}
+			 <% for(a in locals.value.object){ %>
+				<% if(a=="ok"){ %>
+				obj.<%= a %>={}
+					<% for(b in locals.value.object[a]){ %>
+					obj.<%= a %>.<%= b %>="<%= locals.value.object[a][b] %>"
+					<% } %>
+				<% } else {%>
+				obj.<%= a %>="<%= locals.value.object[a] %>"
+				<% } %>
+			 <% } %>
+		</script>
+	</head>
+	<body id="user" class="form_3">
+		<div id="fb-root"></div>
+		<script>
+			(function(d,s,id){
+				var js,fjs=d.getElementsByTagName(s)[0]
+				if(d.getElementById(id))return;
+				js=d.createElement(s)
+				js.id=id
+				js.src="//connect.facebook.net/en_US/sdk.js#xfbml=1"
+				fjs.parentNode.insertBefore(js,fjs)
+			}(document,'script','facebook-jssdk'))
+		</script>
+		<%- include('header'); %>
+		
+		
+		
+		
+		<nav id="gauche">
+			<% if(locals.value.sameuser){ %>
+			<div class="dropdown">
+				<button id="choix_group" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" title="<%= locals.value.object.pages_user_account.gauche.btns.vos_groupes_ %>"><%= locals.value.object.pages_user_account.gauche.btns.vos_groupes %><span class="caret"></span></button>
+				<ul class="dropdown-menu safe scrolly">
+				<% if(locals.value._username.groups_){ %>
+				<% for(a in locals.value._username.groups){ %>
+				<% if(a!="mes_groupes"){ %>
+				<li>
+					<a href="#" data-data="<%= locals.value._username.groups[a]*locals.value.user_rand %>" class="show_group"><%= a %></a>
+				</li>
+				<% } %>
+				<% } %>
+				<% } else {%>
+				<li><%= locals.value.object.pages_user_account.gauche.btns.no_group %></li>
+				<% } %>
+				</ul>
+			</div>
+			<div class="dropdown">
+				<button id="choix_group" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" title="<%= locals.value.object.pages_user_account.gauche.btns.vos_pages_ %>"><%= locals.value.object.pages_user_account.gauche.btns.vos_pages %><span class="caret"></span></button>
+				<ul class="dropdown-menu safe scrolly">
+				<% if(locals.value.pages_){ %>
+				<% for(a in locals.value.pages){ %>
+				<li>
+					<a href="#" data-data="<%= locals.value.pages[a].id_map*locals.value.user_rand %>" class="show_page"><%= locals.value.pages[a].titre %></a>
+				</li>
+				<% } %>
+				<% } else {%>
+				<li><%= locals.value.object.pages_user_account.gauche.btns.no_page %></li>
+				<% } %>
+				</ul>
+			</div>
+			<button class="btn btn-danger" data-data="create_group"><%= locals.value.object.pages_user_account.gauche.btns.create_group %></button>
+			<button class="btn btn-danger" data-data="create_"><%= locals.value.object.pages_user_account.gauche.btns.create_ %></button>
+			<% } else {%>
+			<button class="btn btn-danger" data-data="msg"><%= locals.value.object.pages_user_account.gauche.btns.sendmsg %></button>
+			<% } %>
+		</nav>
+		
+		<main id="main" class="scrolly">
+		
+		
+		
+			
+			<article id="page" class="upper_contain " data-data="<%= locals.value._username.id*locals.value.user_rand %>" data-data_="<%= locals.value.username*locals.value.user_rand %>" data-_data="<%= locals.value.username_._href %>">
+				<header>
+					<div>
+						<img src="<%= locals.value._username._img_ %>" alt="" class="">
+						<img src="<%= locals.value._username._img %>" alt="" class="">
+						<span><%= locals.value._username.nom %> <%= locals.value._username.prenom %> <%= locals.value._username.pseudo %></span>
+					</div>
+					<h1><%= locals.value._username._titre %></h1>
+					<p class=""><br>
+						<a href="#" title="<%= locals.value.object._all_all.likes.amen %> <%= locals.value.object.pages_user_account.like %>"><i class=""></i> <%= locals.value.object._all_all.likes.amen %> (valeur_a_placer 0)</a>
+						<a href="#" title="<%= locals.value.object._all_all.likes.hosanna %> <%= locals.value.object.pages_user_account.like %>"><i class=""></i> <%= locals.value.object._all_all.likes.hosanna %> (valeur_a_placer 0)</a>
+						<a href="#" title="<%= locals.value.object._all_all.likes.alleluia %> <%= locals.value.object.pages_user_account.like %>"><i class=""></i> <%= locals.value.object._all_all.likes.alleluia %> (valeur_a_placer 0)</a>
+					</p>
+					<% if(!locals.value.sameuser){ %>
+					<button class="btn btn-danger" data-data="follow"><%= locals.value.object.pages_user_account.follow %></button>
+					<button class="btn btn-danger" data-data="follow"><%= locals.value.object.pages_user_account.write_msg %></button>
+					<textarea class="write_msg" placeholder="<%= locals.value.object.pages_user_account.write_msg_ph %>"></textarea>
+					<input type="submit" class="send_msg">
+					<% } else {%>
+					<form action="edit_user" method="POST" class="admin_header_user">
+						<input type="button" class="sh_nex btn btn-danger" value="<%= locals.value.object.pages_user_account.admin.edit_slogan %>">
+						<input name="_titre">
+						<input type="button" class="sh_nex btn btn-danger" value="<%= locals.value.object.pages_user_account.admin.edit_img %>">
+						<button class="nex btn btn-danger"><%= locals.value.object.pages_user_account.modals.create_group.hph_ %></button>
+						<input type="file" name="_img_">
+						<input type="button" class="sh_nex btn btn-danger" value="<%= locals.value.object.pages_user_account.admin.edit_img_ %>">
+						<button class="nex btn btn-danger"><%= locals.value.object.pages_user_account.modals.create_group.hph_ %></button>
+						<input type="file" name="_img">
+					</form>
+					<% } %>
+				</header>
+				<main>
+					<div class="">
+						<h2><%= locals.value.object.pages_user_account.infos.h2 %></h2>
+						<ul>
+							<li><span><%= locals.value.object.pages_user_account.infos.questions.nom %></span> : <span><%= locals.value._username.nom %></span><% if(locals.value.sameuser){ %><button class="btn btn-danger" data-data="edit" data-data_="nom"><%= locals.value.object.pages_user_account.admin.edit %></button><% } %></li>
+							<li><span><%= locals.value.object.pages_user_account.infos.questions.pre %></span> : <span><%= locals.value._username.prenom %></span><% if(locals.value.sameuser){ %><button class="btn btn-danger" data-data="edit" data-data_="prenom"><%= locals.value.object.pages_user_account.admin.edit %></button><% } %></li>
+							<li><span><%= locals.value.object.pages_user_account.infos.questions.pseudo %></span> : <span><%= locals.value._username.pseudo %></span><% if(locals.value.sameuser){ %><button class="btn btn-danger" data-data="edit" data-data_="pseudo"><%= locals.value.object.pages_user_account.admin.edit %></button><% } %></li>
+							<li><span><%= locals.value.object.pages_user_account.infos.questions.age %></span> : <span><%= locals.value._username.informations.birth %> ans</span><% if(locals.value.sameuser){ %><button class="btn btn-danger" data-data="edit" data-data_="age"><%= locals.value.object.pages_user_account.admin.edit %></button><% } %></li>
+							<li><span><%= locals.value.object.pages_user_account.infos.questions.memberfrom %></span> : <span><%= locals.value._username.registered_at %></span><% if(locals.value.sameuser){ %><button class="btn btn-danger" data-data="edit" data-data_="registered_at"><%= locals.value.object.pages_user_account.admin.edit %></button><% } %></li>
+							<li><span><%= locals.value.object.pages_user_account.infos.questions.clerger %></span> : <span><%= locals.value.object.pages_user_account.infos.questions[locals.value._username.clerger] %></span></li>
+							<% if(locals.value._username.clerger==1){ %>
+							<li><span><%= locals.value.object.pages_user_account.infos.questions.poste %></span> : <span><%= locals.value._username.letype %></span><% if(locals.value.sameuser){ %><button class="btn btn-danger" data-data="edit" data-data_="letype"><%= locals.value.object.pages_user_account.admin.edit %></button><% } %></li>
+							<% } %>
+							<li><span>etc</span> : <span>...etc...</span><% if(locals.value.sameuser){ %><button class="btn btn-danger" data-data="edit" data-data_=""><%= locals.value.object.pages_user_account.admin.edit %></button><% } %></li>
+						</ul>
+					</div>
+					<div class="">
+						<h3><%= locals.value.object.pages_user_account.infos.h3 %></h3>
+						<p><%= locals.value._username._descr %></p>
+						<% if(locals.value.sameuser){ %><button class="btn btn-danger" data-data="edit" data-data_="descr"><%= locals.value.object.pages_user_account.admin.edit %></button><% } %>
+					</div>
+					<div class="participed">
+						<h4><%= locals.value.object.pages_user_account.infos.h4_0 %>(<%= locals.value._username.participed_ %>)</h4>
+						<div>
+							<input type="date" class="date_acted _acted" title="<%= locals.value.object.pages_user_account.infos.date_title %>">
+							<input class="search_acted _acted" placeholder="<%= locals.value.object.pages_user_account.infos.search_ph %>">
+							<div class="search_result">
+							</div>
+						</div>
+						<div>
+						<% for(a in locals.value._username.participed){ %>
+						<% for(b in locals.value._username.participed[a]){ %>
+							<div class="added">
+								<%= locals.value.object.pages_user_account.infos.added.participed %>
+								<a href="#<%= locals.value._username.participed[a][b].id %>" data-data="<%= a %>" data-data_="<%= b %>"><%= locals.value.object.pages_user_account.infos.added_[a] %></a>, 
+								<%= locals.value.object.pages_user_account.infos._added[locals.value._username.participed[a][b].cat] %> : <%= locals.value._username.participed[a][b].date %>
+							</div>
+						<% } %>
+						<% } %>
+						</div>
+					</div>
+					<div class="created">
+						<h4><%= locals.value.object.pages_user_account.infos.h4_1 %>(<%= locals.value._username.created_ %>)</h4>
+						<div>
+							<input type="date" class="date_acted _acted" title="<%= locals.value.object.pages_user_account.infos.date_title %>">
+							<input class="search_acted _acted" placeholder="<%= locals.value.object.pages_user_account.infos.search_ph %>">
+							<div class="search_result">
+							</div>
+						</div>
+						<div>
+						<% for(a in locals.value._username.created){ %>
+						<% for(b in locals.value._username.created[a]){ %>
+							<div class="added">
+								<%= locals.value.object.pages_user_account.infos.added.created %>
+								<a href="#<%= locals.value._username.created[a][b].id %>" data-data="<%= a %>" data-data_="<%= b %>"><%= locals.value.object.pages_user_account.infos.added_[a] %></a>, 
+								<%= locals.value.object.pages_user_account.infos._added[locals.value._username.created[a][b].cat] %> : <%= locals.value._username.created[a][b].date %>
+							</div>
+						<% } %>
+						<% } %>
+						</div>
+					</div>
+					<div class="published">
+						<h4><%= locals.value.object.pages_user_account.infos.h4_2 %>(<%= locals.value._username.published_ %>)</h4>
+						<div>
+							<input type="date" class="date_acted _acted" title="<%= locals.value.object.pages_user_account.infos.date_title %>">
+							<input class="search_acted _acted" placeholder="<%= locals.value.object.pages_user_account.infos.search_ph %>">
+							<div class="search_result">
+							</div>
+						</div>
+						<div>
+						<% for(a in locals.value._username.published){ %>
+						<% for(b in locals.value._username.published[a]){ %>
+							<div class="added">
+								<%= locals.value.object.pages_user_account.infos.added.published %>
+								<a href="#<%= locals.value._username.published[a][b].id %>" data-data="<%= a %>" data-data_="<%= b %>"><%= locals.value.object.pages_user_account.infos.added_[a] %></a>, 
+								<%= locals.value.object.pages_user_account.infos._added[locals.value._username.published[a][b].cat] %> : <%= locals.value._username.published[a][b].date %>
+							</div>
+						<% } %>
+						<% } %>
+						</div>
+					</div>
+					<div class="liked">
+						<h4><%= locals.value.object.pages_user_account.infos.h4_3 %>(<%= locals.value._username.liked_ %>)</h4>
+						<div>
+							<input type="date" class="date_acted _acted" title="<%= locals.value.object.pages_user_account.infos.date_title %>">
+							<input class="search_acted _acted" placeholder="<%= locals.value.object.pages_user_account.infos.search_ph %>">
+							<div class="search_result">
+							</div>
+						</div>
+						<div>
+						<% for(a in locals.value._username.liked){ %>
+						<% for(b in locals.value._username.liked[a]){ %>
+							<div class="added">
+								<%= locals.value.object.pages_user_account.infos.added.liked %>
+								<a href="#<%= locals.value._username.liked[a][b].id %>" data-data="<%= a %>" data-data_="<%= b %>"><%= locals.value.object.pages_user_account.infos.added_[a] %></a>, 
+								<%= locals.value.object.pages_user_account.infos._added[locals.value._username.liked[a][b].cat] %> : <%= locals.value._username.liked[a][b].date %>
+							</div>
+						<% } %>
+						<% } %>
+						</div>
+					</div>
+					<div class="shared">
+						<h4><%= locals.value.object.pages_user_account.infos.h4_4 %>(<%= locals.value._username.shared_ %>)</h4>
+						<div>
+							<input type="date" class="date_acted _acted" title="<%= locals.value.object.pages_user_account.infos.date_title %>">
+							<input class="search_acted _acted" placeholder="<%= locals.value.object.pages_user_account.infos.search_ph %>">
+							<div class="search_result">
+							</div>
+						</div>
+						<div>
+						<% for(a in locals.value._username.shared){ %>
+						<% for(b in locals.value._username.shared[a]){ %>
+							<div class="added">
+								<%= locals.value.object.pages_user_account.infos.added.shared %>
+								<a href="#<%= locals.value._username.shared[a][b].id %>" data-data="<%= a %>" data-data_="<%= b %>"><%= locals.value.object.pages_user_account.infos.added_[a] %></a>, 
+								<%= locals.value.object.pages_user_account.infos._added[locals.value._username.shared[a][b].cat] %> : <%= locals.value._username.shared[a][b].date %>
+							</div>
+						<% } %>
+						<% } %>
+						</div>
+					</div>
+					<div class="following">
+						<h5><%= locals.value.object.pages_user_account.infos.h4_5 %>(<%= locals.value._username.following_count %>)</h5>
+						<div>
+							<input type="date" class="date_acted _acted" title="<%= locals.value.object.pages_user_account.infos.date_title %>">
+							<input class="search_acted _acted" placeholder="<%= locals.value.object.pages_user_account.infos.search_ph %>">
+							<div class="search_result">
+							</div>
+						</div>
+						<div>
+						<% for(a in locals.value._username.following){ %>
+							<div class="added">
+								<%= locals.value.object.pages_user_account.infos.added.following %>
+								<a href="#<%= locals.value._username.following[a].id*locals.value.user_rand %>" data-data="<%= a %>"><%= locals.value._username.following[a].user %></a>, 
+								<%= locals.value.object.pages_user_account.infos._added._ %> : <%= locals.value._username.following[a].date %>
+							</div>
+						<% } %>
+						</div>
+					</div>
+					<div class="">
+						<h6><%= locals.value.object.pages_user_account.infos.h6 %></h6>
+						<div>
+						</div>
+					</div>
+				</main>
+				<footer>
+					<h2><%= locals.value.object.pages_user_account.infos.fh2 %></h2>
+					<div id="feu_esprit_points">
+						<%= locals.value.object.pages_user_account.infos.point_foi %>
+						<span class="fire_value" data-data="foi_point"><%= locals.value._username.foi_value %></span>
+						<br>
+						<%= locals.value.object.pages_user_account.infos.point_charite %>
+						<span class="fire_value" data-data="charite_point"><%= locals.value._username.charite_value %></span>
+						<br>
+						<%= locals.value.object.pages_user_account.infos.point_esperance %>
+						<span class="fire_value" data-data="esperance_point"><%= locals.value._username.esperance_value %></span>
+						<br>
+						<%= locals.value.object.pages_user_account.infos.following %>
+						<span class="fire_value" data-data="following"><%= locals.value._username.following_count %></span>
+						<br>
+						<%= locals.value.object.pages_user_account.infos.followed %>
+						<span class="fire_value" data-data="followed"><%= locals.value._username.followed %></span>
+						<br>
+						<%= locals.value.object.pages_user_account.infos.likes %>
+						<span class="fire_value" data-data="likes"><%= locals.value._username.likes_count_ %></span>
+						<br>
+						<%= locals.value.object.pages_user_account.infos.liked_shared %>
+						<span class="fire_value" data-data="liked_shared"><%= locals.value._username.liked_+locals.value._username.shared_ %></span>
+					</div>
+					<div id="feu_esprit" class="tr0 w50 h100">
+						<span class="bl0 w100 h0"></span>
+					</div>
+					<div id="livredor">
+						<h3><%= locals.value.object.pages_user_account.infos.livredor %></h3>
+						<div class="livredor">
+						<% if(locals.value._username.livredor_count!=0){ %>
+							<span class="livredor_count">(locals.value._username.livredor_count)</span>
+						<% for(a in locals.value._username.livredor){ %>
+							<div class="livredor_">
+								<a href="/9/<%= locals.value.object._all_bar_top.button_account.href %>/<%= a %>"><%= a %></a>
+								<%= locals.value._username.livredor[a] %>
+							</div>
+						<% } %>
+						<% } else { %>
+							<div class="livredor_"><%= locals.value.object.pages_user_account.infos.nolivredor %></div>
+						<% } %>
+						</div>
+						<form action="/_/livredor/<%= locals.value.username*locals.value.user_rand %>" method="POST">
+							<input name="user" value="<%= locals.value._username._href %>" type="hidden">
+							<input name="redirect" type="hidden">
+							<textarea name="livredor" placeholder="<%= locals.value.object.pages_user_account.infos.livredorph %><%= locals.value._username._href %>"></textarea>
+							<input type="submit">
+						</form>
+					</div>
+				</footer>
+			</article>
+<!--
+			<div id="accueil" class="active">
+				<h2 class="textS"><%= locals.value.object.pages_user_account.accueil_h2 %></h2>
+				<!--
+				<video src="<%= locals.value.object.pages_user_account.accueil_video.src %>">Une video seo</video>
+				<img src="" alt="" class="">
+				<audio src="<%= locals.value.object.pages_user_account.accueil_audio.src %>">Une musique seo seo</audio>
+				-->
+<!--
+				<section class="flex_between">
+					<a target="_blank" href="<%= locals.value.object.pages_user_account.accueil_lien0.href %>" title="<%= locals.value.object.pages_user_account.accueil_lien0.title %>"><i class="glyphicon glyphicon-asterisk"></i> <%= locals.value.object.pages_user_account.accueil_lien0.html %></a>
+					<a target="_blank" href="<%= locals.value.object.pages_user_account.accueil_lien1.href %>" title="<%= locals.value.object.pages_user_account.accueil_lien1.title %>"><i class="glyphicon glyphicon-asterisk"></i> <%= locals.value.object.pages_user_account.accueil_lien1.html %></a>
+					<a target="_blank" href="<%= locals.value.object.pages_user_account.accueil_lien2.href %>" title="<%= locals.value.object.pages_user_account.accueil_lien2.title %>"><i class="glyphicon glyphicon-asterisk"></i> <%= locals.value.object.pages_user_account.accueil_lien2.html %></a>
+					<a target="_blank" href="<%= locals.value.object.pages_user_account.accueil_lien3.href %>" title="<%= locals.value.object.pages_user_account.accueil_lien3.title %>"><i class="glyphicon glyphicon-asterisk"></i> <%= locals.value.object.pages_user_account.accueil_lien3.html %></a>
+				</section>
+				<figure class="multimedias bg-whites">
+					<h3 class=""><%= locals.value.object.pages_user_account.accueil_h3s[0] %></h3>
+					<h3 class=""><%= locals.value.object.pages_user_account.accueil_h3s[1] %></h3>
+					<h3 class=""><%= locals.value.object.pages_user_account.accueil_h3s[2] %></h3>
+					<iframe src="<%= locals.value.object.pages_user_account.accueil_video.src %>" class="" title="<%= locals.value.object.pages_user_account.accueil_video.title %>">
+					</iframe>
+					<img src="<%= locals.value.object.pages_user_account.accueil_img.src %>" alt="<%= locals.value.object.pages_user_account.accueil_img.alt %>" title="<%= locals.value.object.pages_user_account.accueil_img.title %>" class="">
+					<iframe src="<%= locals.value.object.pages_user_account.accueil_audio.src %>" class="" title="<%= locals.value.object.pages_user_account.accueil_audio.title %>">
+					</iframe>
+				</figure>
+				<p><%- locals.value.object.pages_user_account.accueil_text %></p>
+				<hr>	
+				<button class="btn btn-danger">ACTION</button>
+				<% if(!locals.value.connected||locals.value.connected==0){ %>
+				<div class="loggin">
+				<a href="<%= locals.value.object._all_buttons_log._0.href %>" title="<%= locals.value.object._all_buttons_log._0.title %>" class="btn btn-danger"><%= locals.value.object._all_buttons_log._0.html %></a>
+				</div>
+				<% } %>	
+			</div>
+			
+			
+			
+			
+			<div id="pub1" class="pub">
+			</div>
+-->
+		</main>
+		
+		
+		
+		
+		<%- include('navbar'); %>
+		
+		
+		
+		
+		<%- include('footer'); %>
+		<!--
+		<aside id="droite">
+		</aside>
+		-->
+	<div id="modals">
+	</div>
+	<div>
+		<div id="show_group" class="modal_" data-data="">
+			<div class="modal_box panel-group">
+				<div class="modal_header panel panel-primary">
+					<img src="" alt="" title="">
+					<h4></h4>
+					<div class="descr">
+					</div>
+					<div class="keywords">
+					</div>
+					<% if(locals.value.sameuser){ %>
+					<form action="/_/edit_groupe" method="POST" class="admin_header nodisplay_">
+						<input type="button" class="sh_nex btn btn-danger" value="<%= locals.value.object.pages_user_account.modals.admin_group.edit_titre %>">
+						<input name="titre">
+						<input type="button" class="sh_nex btn btn-danger" value="<%= locals.value.object.pages_user_account.modals.admin_group.edit_descr %>">
+						<textarea name="descr"></textarea>
+						<input type="button" class="sh_nex btn btn-danger" value="<%= locals.value.object.pages_user_account.modals.admin_group.edit_img %>">
+						<button class="nex btn btn-danger"><%= locals.value.object.pages_user_account.modals.create_group.hph_ %></button>
+						<input type="file" name="img">
+						<input type="button" class="sh_nex btn btn-danger" value="<%= locals.value.object.pages_user_account.modals.admin_group.edit_keywords %>">
+						<input name="keywords">
+					</form>
+					<% } %>
+				</div>
+				<div class="modal_content panel panel-warning">
+					<div class="other">
+					</div>
+					<iframe class="tchat">
+					</iframe>
+				</div>
+				<div class="modal_footer panel panel-danger">
+					<ul>
+					</ul>
+					<% if(locals.value.sameuser){ %>
+					<div class="edit_membre nodisplay_">
+						<label for=""><%= locals.value.object.pages_user_account.modals.admin_group.lsup_membre %></label>
+						<input id="" type="button" class="btn btn-danger" value="<%= locals.value.object.pages_user_account.modals.admin_group.sup_membre %>">
+						<input readonly class="form-control">
+						<input type="button" class="nodisplay_" value="<%= locals.value.object.pages_user_account.modals.admin_group.sup_membre_ %>">
+						<label for=""><%= locals.value.object.pages_user_account.modals.admin_group.ladd_freinds %></label>
+						<input id="" type="button" clss="btn btn-danger" value="<%= locals.value.object.pages_user_account.modals.admin_group.add_freinds %>">
+					</div>
+					<div class="nomembre nodisplay_">
+						<div><%= locals.value.object.pages_user_account.modals.admin_group.nomembre %></div>
+					</div>
+					<% } %>
+				</div>
+			</div>
+		</div>
+		<div id="create_group" class="modal_" data-data="">
+			<form action="/_/add_group" method="POST">
+				<input name="ajouteur_" value="<%= locals.value.username*locals.value.user_rand %>" type="hidden">
+				<input name="ajouteur" value="<%= locals.value.username %>" type="hidden">
+				<!--
+				<input name="redirect" value="<%= locals.value.url %>" type="hidden">
+				-->
+				<input name="redirect" type="hidden">
+				<div class="modal_box panel-group">
+					<div class="modal_header panel panel-primary">
+						<h4><%= locals.value.object.pages_user_account.modals.create_group.h4 %></h4>
+						<label for=""><%= locals.value.object.pages_user_account.modals.create_group.hlabel %></label>
+						<input name="titre" placeholder="<%= locals.value.object.pages_user_account.modals.create_group.hph %>">
+						<label for=""><%= locals.value.object.pages_user_account.modals.create_group.hlabel_ %></label>
+						<button type="button" id="" class="nex"><%= locals.value.object.pages_user_account.modals.create_group.hph_ %></button>
+						<input name="img" type="file">
+					</div>
+					<div class="modal_content panel panel-warning">
+						<label for=""><%= locals.value.object.pages_user_account.modals.create_group.clabel %></label>
+						<input name="keywords" type="hidden">
+						<input id="" placeholder="<%= locals.value.object.pages_user_account.modals.create_group.cph %>">
+						<label for=""><%= locals.value.object.pages_user_account.modals.create_group.clabeldescr %></label>
+						<textarea name="descr" placeholder="<%= locals.value.object.pages_user_account.modals.create_group.cphdescr %>"></textarea>
+					</div>
+					<div class="modal_footer panel panel-danger">
+						<input type="submit">
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+		
+		
+		
+		
+		<%- include('user_account_tpls'); %>
+		
+		
+		
+		
+		
+	</body>
+	<%- include('loads'); %>
+	<script>
+	var tinymce_opt={
+		  selector: '',
+		  height: 500,
+		  theme: 'modern',
+		  plugins: [
+			'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+			'searchreplace wordcount visualblocks visualchars code fullscreen',
+			'insertdatetime media nonbreaking save table contextmenu directionality',
+			'emoticons template paste textcolor colorpicker textpattern imagetools codesample toc help'
+		  ],
+		  toolbar1: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+		  toolbar2: 'print preview media | forecolor backcolor emoticons | codesample help',
+		  image_advtab: true,
+		  templates: [
+			{ title: 'Test template 1', content: 'Test 1' },
+			{ title: 'Test template 2', content: 'Test 2' }
+		  ],
+		  content_css: [
+			'apis/tinymce/js/tinymce/css.css',
+			//'tinymce/js/tinymce/codepen.min.css'
+		  ]
+	 }
+	tinymce.init(tinymce_opt);
+	</script>
+	<script src="/js/script_.js"></script>
+</html>

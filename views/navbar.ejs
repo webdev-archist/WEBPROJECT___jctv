@@ -1,0 +1,148 @@
+<nav class="bartop" data-data="<%= locals.value.username %>" data-data_crypt="<%= locals.value._username %>">
+	<div id="button_self" class="small">
+			<a href="/" title="<%= locals.value.object._all_bar_top.button_self.title %>" class="boxSh"><img src="<%= locals.value.object._all_bar_top.button_self.src %>" alt="<%= locals.value.object._all_bar_top.button_self.alt %>" class="img_icon_"></a>
+	<!--
+			<a href="javascript:document.URL" title="<%= locals.value.object._all_bar_top.button_self.title %>" class="boxSh"><img src="<%= locals.value.object._all_bar_top.button_self.src %>" alt="<%= locals.value.object._all_bar_top.button_self.alt %>" class="img_icon_"></a>
+	<!-- LA SEULE DIFFERENCE ENTRE navbar et navbar_ CEST LE HREF DU LIEN CI-DESSUS
+			<a href="/<%= locals.value.object.all_menu.lien0.href %>" title="<%= locals.value.object._all_bar_top.button_self.title %>" class="boxSh"><img src="<%= locals.value.object._all_bar_top.button_self.src %>" alt="<%= locals.value.object._all_bar_top.button_self.alt %>" class="img_icon_"></a>
+	-->
+	</div>
+	<form id="form_top" class="safe" action="javascript:return false;">
+		<!--
+		<button id='af_blog' class="form-control">BLOG</button>
+		<div class="dropdown">
+			<button class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+				<span class="">Action</span>		
+				<i class="caret"></i>		
+			</button>		
+			<div class="dropdown-menu select_element">		
+				<div data-value="foi" title="rechercher dans le blog de la foi"><a href="#" style="background:url(icone/select_foi.png) top left no-repeat;    background-size: contain;"></a></div>		
+				<div data-value="charite" title="rechercher dans le blog de la charite"><a href="#" style="background:url(icone/select_charite.png) top left no-repeat;    background-size: contain;"></a></div>		
+				<div data-value="esperance" title="rechercher dans le blog de l'esperance"><a href="#" style="background:url(icone/select_esperance.png) top left no-repeat;    background-size: contain;"></a></div>		
+				<div data-value="personne" title="rechercher des personne sur le réseaux social"><a href="#" style="background:url(icone/select_personne.png) top left no-repeat;    background-size: contain;"></a></div>
+			</div>		
+		</div>		
+		-->
+		<span class="input input--makiko">
+			<input class="input__field input__field--makiko" type="text" id="input-16">
+			<label class="input__label input__label--makiko" for="input-16">
+				<span class="input__label-content input__label-content--makiko"><%= locals.value.object._all_bar_top.form_top %></span>
+			</label>
+			<div><span class='tr0 close' onclick="$(this).closest('span').removeClass('active')">X</span>
+				<div title="<%= locals.value.object._all_bar_top.form_top %>" data-data="<%= locals.value.object._all_bar_top.form_top %>">
+					<i class="icon file text"></i>
+					<i class="icon image"></i>
+					<i class="icon sound"></i>
+					<i class="icon film"></i>
+					<input type="checkbox" name="multimedias" title="">
+				</div>
+				<div title="<%= locals.value.object._all_bar_top.form_top %>" data-data="<%= locals.value.object._all_bar_top.form_top %>">
+					<i class="icon calendar"></i>
+					<input type="checkbox" name="evenements" title="">
+				</div>
+				<div title="<%= locals.value.object._all_bar_top.form_top %>" data-data="<%= locals.value.object._all_bar_top.form_top %>">
+					<i class="icon comments outline"></i>
+					<input type="checkbox" name="groupes" title="">
+				</div>
+				<div title="<%= locals.value.object._all_bar_top.form_top %>" data-data="<%= locals.value.object._all_bar_top.form_top %>">
+					<i class="icon window restore"></i>
+					<input type="checkbox" name="pages" title="">
+				</div>
+				<div title="<%= locals.value.object._all_bar_top.form_top %>" data-data="<%= locals.value.object._all_bar_top.form_top %>">
+					<i class="icon user"></i>
+					<input type="checkbox" name="membres" title="">
+				</div>
+				<div title="<%= locals.value.object._all_bar_top.form_top %>" data-data="<%= locals.value.object._all_bar_top.form_top %>">
+					<i class="icon browser"></i>
+					<input type="checkbox" name="posts" title="">
+				</div>
+				<div>
+					<input type="checkbox" name="" title="">
+				</div>
+				<hr>
+				<div class="safe"><%= locals.value.object._all_bar_top.form_top %> :
+					<input type="date" name="datefrom">
+				</div>
+				<div class="safe"><%= locals.value.object._all_bar_top.form_top %> :
+					<input type="date" name="dateto">
+				</div>
+				<div id="explain"></div>
+			</div>
+		</span>
+	</form>
+	
+	<div id="alert_top" class="safe">
+		<% if(locals.value.connected==1){ %>
+		<div id="dropdown dropdown_pour_les_mobiles_et_une_fct_jquery_trfere_les_button_ds_ce_dropdown" class="nodisplay">
+		</div>
+		<button id="btn_msgs"><i class="glyphicon glyphicon-envelope"></i><% if(locals.value.connected==1){ %><span class="abadge"><% if(locals.value.alert_top.msgs_number!=0){ %><%= locals.value.alert_top.msgs_number %><% } %></span><span class="nodisplay"><%= locals.value.alert_top.msgs_number_ %></span><% } %></button>
+		<button id="btn_notifs"><i class="glyphicon glyphicon-eye-open"></i><% if(locals.value.connected==1){ %><span class="abadge"></span><% } %></button>
+		<button id="btn_other"><i class="glyphicon glyphicon-globe"></i><% if(locals.value.connected==1){ %><span class="abadge"></span><% } %></button>
+		<div id="alert_top_popups" class="scrolly bg-pg">
+			<div id="alert_top_msgs">
+			<% if(locals.value.alert_top.msgs_number!=0){ %>
+			<% for(a in locals.value.alert_top.msgs){ %>
+				<div class="alert_top_msg <%= locals.value.alert_top.msgs[a].status %>">
+					<span><%= locals.value.alert_top.msgs[a].date %></span>
+					<a class="tr0" target="_blank" href="/9/<%= locals.value.object._all_bar_top.button_account.href %>/<%= locals.value.alert_top.msgs[a].ajouteur %>"><%= locals.value.alert_top.msgs[a].ajouteur %></a>
+					<p><%= locals.value.alert_top.msgs[a].msg %></p>
+				</div>
+			<% } %>
+				<div class="bl0 w100 btn btn-danger btn-xs">
+					<button class="btn btn-danger btn-xs">accéder à tous mes mssahjeuiubeoiuzb</button>
+				</div>
+			</div>
+			<div id="alert_top_notifs">
+			</div>
+			<div id="alert_top_other">
+			</div>
+			<% } %>
+		</div>
+		<% } else {%>
+		<a href="#" class="btn btn-danger"><%= locals.value.object._all_bar_top.not_connect %></a>
+		<% } %>
+	</div>
+	
+	<% if(locals.value.connected==1){ %>
+	<div id="button_account" class="small">
+			<a target="_blank" href="/9/<%= locals.value.object._all_bar_top.button_account.href %>/<%= locals.value.username_._href %>" title="<%= locals.value.object._all_bar_top.button_account.title %>" class="boxSh"><img src="/<%= locals.value.object._all_bar_top.button_account.src %>" alt="<%= locals.value.object._all_bar_top.button_account.alt %>" class="img_icon_"></a>
+	</div>
+	<% } %>
+	<div id="button_map" class="small">
+	</div>
+	<div id="button_iwai" class="small">
+	</div>
+	
+	<div class="safe">
+		<div class="dropdown">
+			<button id="choix_group" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" title="<%= locals.value.object._all_bar_top.mon_compte.btn_ %>"><%= locals.value.object._all_bar_top.mon_compte.btn %><span class="caret"></span></button>
+			<ul class="dropdown-menu safe scrolly">
+			<% if(locals.value.connected==1){ %>
+			<li><a href="#"><%= locals.value.object._all_bar_top.mon_compte.groupes %></a>
+				<ul>
+				<% for(a in locals.value.mon_compte.groups){ %>
+					<li>
+						<a href="/9/<%= locals.value.object._all_bar_top.button_account.href %>/<%= locals.value.mon_compte.groups[a].href_ajouteur %>#!<%= locals.value.mon_compte.groups[a].ajouteur*locals.value.user_rand %>" data-data="<%= locals.value.mon_compte.groups[a].id_group*locals.value.user_rand %>" class="raccourcis_group"><%= locals.value.mon_compte.groups[a].titre %></a>
+					</li>
+				<% } %>
+				</ul>
+			</li>
+			<li><a href="#"><%= locals.value.object._all_bar_top.mon_compte.liens %></a>
+				<ul>
+				<% for(a in locals.value.username_.links){ %>
+					<li>
+						<a href="<%= a %>" data-data=""><%= locals.value.username_.links[a] %></a>
+					</li>
+				<% } %>
+				</ul>
+			</li>
+			<li>
+				<a href="/logout" data-data=""><%= locals.value.object._all_bar_top.mon_compte.deconexion %></a>
+			</li>
+			<% } else {%>
+			<li><%= locals.value.object._all_bar_top.not_connect %></li>
+			<% } %>
+			</ul>
+		</div>
+	</div>
+</nav>

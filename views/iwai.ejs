@@ -1,0 +1,156 @@
+<html>
+	<head>
+		<meta charset="utf8">
+		<title>page celebrakuhiusfguisgv
+		</title>
+		<style>
+		</style>
+		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/style_pages.css">
+		<script id="fill_from_db"></script>
+		<script>
+			 let obj={}
+			 <% for(a in locals.value.object){ %>
+				<% if(a=="ok"){ %>
+				obj.<%= a %>={}
+					<% for(b in locals.value.object[a]){ %>
+					obj.<%= a %>.<%= b %>="<%= locals.value.object[a][b] %>"
+					<% } %>
+				<% } else {%>
+				obj.<%= a %>="<%= locals.value.object[a] %>"
+				<% } %>
+			 <% } %>
+		</script>
+	</head>
+	<body id="iwai" class="form_2">
+		<div id="fb-root"></div>
+		<script>
+			(function(d,s,id){
+				var js,fjs=d.getElementsByTagName(s)[0]
+				if(d.getElementById(id))return;
+				js=d.createElement(s)
+				js.id=id
+				js.src="//connect.facebook.net/en_US/sdk.js#xfbml=1"
+				fjs.parentNode.insertBefore(js,fjs)
+			}(document,'script','facebook-jssdk'))
+		</script>
+		<%- include('header'); %>
+		
+		
+		
+		
+		<nav id="gauche" class="bg-pg">
+			<div class="btn-group">
+				<a class="menu menu_petit btn btn-sm btn-danger" data-tab="['accueil']" title="Retour à la page d'accueil (insérer ce texte dans la bdd)"><i class="glyphicon glyphicon-home"></i></a>
+				<button class="menu_petit btn btn-sm btn-danger" data-tab="['menu']" title="Accéder au menu secondaire" onclick="$('#sousmenu').addClass('active');"><i class="glyphicon glyphicon-align-justify"></i></button>
+				<button class="menu_petit btn btn-sm btn-danger" data-tab="['menu']" title="Visite guidé du site jesus-christ.tv"><i style="font-weight:bold">?</i></button>
+				<button class="nodisplay menu_petit btn btn-sm btn-danger" data-tab="['dropdown']" title=""><i class="	glyphicon glyphicon-plus"></i></button>
+			</div>
+			<div id="counter_iwai" title="<%= locals.value.object.pages_iwai.gauche.counter_h2_title %> : <%= locals.value.iwai_infos.name %>">
+				<h2><%= locals.value.object.pages_iwai.gauche.counter_h2 %></h2>
+				<div class="counter_iwai"><i class="	glyphicon glyphicon-plus"></i><span><%= locals.value.iwai_infos.date %></span></div>
+				<a href="#" class="btn btn-xl btn-danger" title="<%= locals.value.object.pages_iwai.gauche.counter_a_title %> : <%= locals.value.iwai_infos.name %>"><i class="	glyphicon glyphicon-plus"></i><%= locals.value.object.pages_iwai.gauche.counter_a %> <%= locals.value.iwai_name %></a>
+			</div>
+		</nav>
+		<main id="main" class="">
+			
+			
+			
+			<div id="iwai_contain" class="">
+				<iframe src="files/iwai/<%= locals.value.iwai_infos.escape %>.html" class="">
+				</iframe>
+			</div>
+		
+		
+		
+		
+			<div id="accueil" class="active">
+				<h2 class="textS"><%= locals.value.object.pages_iwai.accueil_h2 %></h2>
+				<!--
+				<video src="<%= locals.value.object.pages_iwai.accueil_video.src %>">Une video seo</video>
+				<img src="" alt="" class="">
+				<audio src="<%= locals.value.object.pages_iwai.accueil_audio.src %>">Une musique seo seo</audio>
+				-->
+				<section class="flex_between">
+					<a target="_blank" href="<%= locals.value.object.pages_iwai.accueil_lien0.href %>" title="<%= locals.value.object.pages_iwai.accueil_lien0.title %>"><i class="glyphicon glyphicon-asterisk"></i> <%= locals.value.object.pages_iwai.accueil_lien0.html %></a>
+					<a target="_blank" href="<%= locals.value.object.pages_iwai.accueil_lien1.href %>" title="<%= locals.value.object.pages_iwai.accueil_lien1.title %>"><i class="glyphicon glyphicon-asterisk"></i> <%= locals.value.object.pages_iwai.accueil_lien1.html %></a>
+					<a target="_blank" href="<%= locals.value.object.pages_iwai.accueil_lien2.href %>" title="<%= locals.value.object.pages_iwai.accueil_lien2.title %>"><i class="glyphicon glyphicon-asterisk"></i> <%= locals.value.object.pages_iwai.accueil_lien2.html %></a>
+					<a target="_blank" href="<%= locals.value.object.pages_iwai.accueil_lien3.href %>" title="<%= locals.value.object.pages_iwai.accueil_lien3.title %>"><i class="glyphicon glyphicon-asterisk"></i> <%= locals.value.object.pages_iwai.accueil_lien3.html %></a>
+				</section>
+				<figure class="multimedias bg-whites">
+					<h3 class=""><%= locals.value.object.pages_iwai.accueil_h3s[0] %></h3>
+					<h3 class=""><%= locals.value.object.pages_iwai.accueil_h3s[1] %></h3>
+					<h3 class=""><%= locals.value.object.pages_iwai.accueil_h3s[2] %></h3>
+					<iframe src="<%= locals.value.object.pages_iwai.accueil_video.src %>" class="" title="<%= locals.value.object.pages_iwai.accueil_video.title %>">
+					</iframe>
+					<img src="<%= locals.value.object.pages_iwai.accueil_img.src %>" alt="<%= locals.value.object.pages_iwai.accueil_img.alt %>" title="<%= locals.value.object.pages_iwai.accueil_img.title %>" class="">
+					<iframe src="<%= locals.value.object.pages_iwai.accueil_audio.src %>" class="" title="<%= locals.value.object.pages_iwai.accueil_audio.title %>">
+					</iframe>
+				</figure>
+				<p><%- locals.value.object.pages_iwai.accueil_text %></p>
+				<hr>	
+				<button class="btn btn-danger">ACTION</button>
+				<% if(!locals.value.connected||locals.value.connected==0){ %>
+				<div class="loggin">
+				<a href="<%= locals.value.object._all_buttons_log._0.href %>" title="<%= locals.value.object._all_buttons_log._0.title %>" class="btn btn-danger"><%= locals.value.object._all_buttons_log._0.html %></a>
+				</div>
+				<% } %>	
+			</div>
+			
+			
+			
+			
+			<div id="pub1" class="pub">
+			</div>
+		</main>
+		
+		
+		
+		
+		<%- include('navbar'); %>
+		
+		
+		
+		
+		<%- include('footer'); %>
+		<aside id="droite">
+		</aside>
+		
+		
+		
+		
+		<%- include('iwai_tpls'); %>
+		
+		
+		
+		
+		
+	</body>
+	<%- include('loads'); %>
+	<script>
+	var tinymce_opt={
+		  selector: '',
+		  height: 500,
+		  theme: 'modern',
+		  plugins: [
+			'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+			'searchreplace wordcount visualblocks visualchars code fullscreen',
+			'insertdatetime media nonbreaking save table contextmenu directionality',
+			'emoticons template paste textcolor colorpicker textpattern imagetools codesample toc help'
+		  ],
+		  toolbar1: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+		  toolbar2: 'print preview media | forecolor backcolor emoticons | codesample help',
+		  image_advtab: true,
+		  templates: [
+			{ title: 'Test template 1', content: 'Test 1' },
+			{ title: 'Test template 2', content: 'Test 2' }
+		  ],
+		  content_css: [
+			'apis/tinymce/js/tinymce/css.css',
+			//'tinymce/js/tinymce/codepen.min.css'
+		  ]
+	 }
+	tinymce.init(tinymce_opt);
+	</script>
+	<script src="/js/script_.js"></script>
+</html>

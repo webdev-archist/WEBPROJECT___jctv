@@ -1,0 +1,218 @@
+<html>
+	<head>
+		<meta charset="utf8">
+		<title>accueil
+		</title>
+		<style>
+		</style>
+		<link rel="stylesheet" href="css/style.css">
+		<script id="fill_from_db"></script>
+		<script>
+			 let obj={}
+			 <% for(a in locals.value.object){ %>
+				<% if(a=="foi_livres_h_img"||a=="foi_livres_video"||a=="foi_livres_button_0"||a=="foi_livres_button_1"||a=="foi_livres_button_2"||a=="foi_livres__hs"||a=="foi_livres__hs_"||a=="foi_livres__hs__"||a=="foi_livres__btns"||a=="foi_livres__btns_"||a=="foi_livres__btns__"||a=="foi_livres__s"||a=="foi_livres__sbis"||a=="foi_livres__s_"||a=="foi_livres__themes"
+				||a=="foi_images_h_img"||a=="foi_images_video"||a=="foi_images_button_0"||a=="foi_images__hs"||a=="foi_images__hs_"||a=="foi_images__btns"||a=="foi_images__s"||a=="foi_images__sbis"||a=="foi_images__themes"
+				||a=="foi_musics_h_img"||a=="foi_musics_video"||a=="foi_musics_button_0"||a=="foi_musics_button_1"||a=="foi_musics__hs"||a=="foi_musics__hs_"||a=="foi_musics__btns"||a=="foi_musics__btns_"||a=="foi_musics__s"||a=="foi_musics__s_"||a=="foi_musics__sbis"||a=="foi_musics__themes"
+				||a=="foi_films_h_img"||a=="foi_films_video"||a=="foi_films_button_0"||a=="foi_films_button_1"||a=="foi_films__hs"||a=="foi_films__hs_"||a=="foi_films__btns"||a=="foi_films__btns_"||a=="foi_films__s"||a=="foi_films__themes"
+				||a=="foi_cp_accueil"
+				||a=="foi_rc_accueil"
+				||a=="foi_liens"){ %>
+				obj.<%= a %>={}
+					<% for(b in locals.value.object[a]){ %>
+					obj.<%= a %>.<%= b %>="<%= locals.value.object[a][b] %>"
+					<% } %>
+				<% } else {%>
+				obj.<%= a %>="<%= locals.value.object[a] %>"
+				<% } %>
+			 <% } %>
+		</script>
+	</head>
+	<body id="foi">
+		<div id="fb-root"></div>
+		<script>
+			(function(d,s,id){
+				var js,fjs=d.getElementsByTagName(s)[0]
+				if(d.getElementById(id))return;
+				js=d.createElement(s)
+				js.id=id
+				js.src="//connect.facebook.net/en_US/sdk.js#xfbml=1"
+				fjs.parentNode.insertBefore(js,fjs)
+			}(document,'script','facebook-jssdk'))
+		</script>
+		<%- include('header'); %>
+		
+		
+		
+		
+		<%- include('foi_gauche'); %>
+		
+		
+		
+		
+		<main id="main" class="">
+		
+		
+		
+		
+			<div id="accueil" class="active <% if(locals.value.connected==1){ %>clip clipped<% } %>">
+				<% if(locals.value.connected==1){ %>
+				<div id="posts_action" class="w100 safe">
+					<div id="" class="w25">
+						<button class="btn btn-danger w100 showing" onclick="$(this).closest('#accueil').toggleClass('clipped')"><%= locals.value.object._all_buttons_log.clipping_ %></button>
+						<button class="btn btn-danger w100 clipping" onclick="$(this).closest('#accueil').toggleClass('clipped')"><%= locals.value.object._all_buttons_log.clipping %></button>
+					</div>
+				</div>
+				<% } %>
+				<h2 class="textS"><%= locals.value.object.foi_accueil_h2 %></h2>
+				<!--
+				<video src="<%= locals.value.object.foi_accueil_video.src %>">Une video seo</video>
+				<img src="" alt="" class="">
+				<audio src="<%= locals.value.object.foi_accueil_audio.src %>">Une musique seo seo</audio>
+				-->
+				<section class="flex_between">
+					<a target="_blank" href="<%= locals.value.object.foi_accueil_lien0.href %>" title="<%= locals.value.object.foi_accueil_lien0.title %>"><i class="glyphicon glyphicon-asterisk"></i> <%= locals.value.object.foi_accueil_lien0.html %></a>
+					<a target="_blank" href="<%= locals.value.object.foi_accueil_lien1.href %>" title="<%= locals.value.object.foi_accueil_lien1.title %>"><i class="glyphicon glyphicon-asterisk"></i> <%= locals.value.object.foi_accueil_lien1.html %></a>
+					<a target="_blank" href="<%= locals.value.object.foi_accueil_lien2.href %>" title="<%= locals.value.object.foi_accueil_lien2.title %>"><i class="glyphicon glyphicon-asterisk"></i> <%= locals.value.object.foi_accueil_lien2.html %></a>
+					<a target="_blank" href="<%= locals.value.object.foi_accueil_lien3.href %>" title="<%= locals.value.object.foi_accueil_lien3.title %>"><i class="glyphicon glyphicon-asterisk"></i> <%= locals.value.object.foi_accueil_lien3.html %></a>
+				</section>
+				<figure class="multimedias bg-whites">
+					<h3 class=""><%= locals.value.object.foi_accueil_h3s[0] %></h3>
+					<h3 class=""><%= locals.value.object.foi_accueil_h3s[1] %></h3>
+					<h3 class=""><%= locals.value.object.foi_accueil_h3s[2] %></h3>
+					<iframe src="<%= locals.value.object.foi_accueil_video.src %>" class="" title="<%= locals.value.object.foi_accueil_video.title %>">
+					</iframe>
+					<img src="<%= locals.value.object.foi_accueil_img.src %>" alt="<%= locals.value.object.foi_accueil_img.alt %>" title="<%= locals.value.object.foi_accueil_img.title %>" class="">
+					<iframe src="<%= locals.value.object.foi_accueil_audio.src %>" class="" title="<%= locals.value.object.foi_accueil_audio.title %>">
+					</iframe>
+				</figure>
+				<p><%- locals.value.object.foi_accueil_text %></p>
+				<hr>
+				<% if(locals.value.connected){ %>
+				<ul class="posts safe">
+					<li>
+						<article class="panel-group">
+							<header class="panel panel-primary">
+								<div class="author">
+									<span><img src="artiste_0.jpg" alt="" class="img_icon_"> <a href="#">nom du membre</a></span>
+								</div>
+								<span class="date">Mercredi 27 Août</span>
+								<h3>Titre du post</h3>
+								<a href="#">#charité</a> => <a href="#">#action sociale</a>
+								<a></a>
+							</header>
+							<main class="panel panel-warning">
+								<div class="img">
+									<img src="bible-bahoule.jpg" alt="" class="">
+								</div>
+								<div class="text">
+									contenu du post contenu du post contenu du post contenu du post contenu du post contenu du post contenu du post contenu du post contenu du post contenu du post contenu du post contenu du post contenu du post contenu du post contenu du post contenu du post contenu du post contenu du post contenu du post contenu du post contenu du post contenu du post contenu du post 
+								</div>
+								<div class="react text-center">
+									<a href="#">répondre</a> <a href="#">amen</a> <a href="#">hozanna</a> <a href="#">alleluia</a>
+								</div>
+							</main>
+							<footer class="panel panel-info">
+								<div class="likes">
+									<span><span class="badge">13</span> <i class="glyphicon glyphicon-asterisk" title="réponse(s)"></i></span><span><span class="badge amen">88</span> <i class="glyphicon glyphicon-asterisk" title="amen(s)"></i></span><span><span class="badge hosanna">8</span> <i class="glyphicon glyphicon-asterisk" title="hosanna(s)"></i></span><span><span class="badge alleluia">12</span> <i class="glyphicon glyphicon-asterisk" title="alleluia(s)"></i></span>
+								</div>
+							</footer>
+						</article>
+					</li>
+					<li>
+						<article class="panel-group">
+							<header class="panel panel-primary">
+								<div class="author">
+									<span><img src="artiste_0.jpg" alt="" class="img_icon_"> <a href="#">nom du membre</a></span>
+								</div>
+								<span class="date">Mercredi 27 Août</span>
+								<h3>Titre du post</h3>
+								<a href="#">#charité</a> => <a href="#">#action sociale</a>
+								<a></a>
+							</header>
+							<main class="panel panel-warning">
+								<div class="img">
+									<img src="bible-bahoule.jpg" alt="" class="">
+								</div>
+								<div class="text">
+									contenu du post contenu du post contenu du post contenu du post contenu du post contenu du post contenu du post contenu du post contenu du post contenu du post contenu du post contenu du post contenu du post contenu du post contenu du post contenu du post contenu du post contenu du post contenu du post contenu du post contenu du post contenu du post contenu du post 
+								</div>
+								<div class="react text-center">
+									<a href="#">répondre</a> <a href="#">amen</a> <a href="#">hozanna</a> <a href="#">alleluia</a>
+								</div>
+							</main>
+							<footer class="panel panel-info">
+								<div class="likes">
+									<span><span class="badge">13</span> <i class="glyphicon glyphicon-asterisk" title="réponse(s)"></i></span><span><span class="badge amen">88</span> <i class="glyphicon glyphicon-asterisk" title="amen(s)"></i></span><span><span class="badge hosanna">8</span> <i class="glyphicon glyphicon-asterisk" title="hosanna(s)"></i></span><span><span class="badge alleluia">12</span> <i class="glyphicon glyphicon-asterisk" title="alleluia(s)"></i></span>
+								</div>
+							</footer>
+						</article>
+					</li>
+				</ul>		
+				<% } %>		
+				<% if(!locals.value.connected||locals.value.connected==0){ %>
+				<div class="loggin">
+				<a href="<%= locals.value.object._all_buttons_log._0.href %>" title="<%= locals.value.object._all_buttons_log._0.title %>" class="btn btn-danger"><%= locals.value.object._all_buttons_log._0.html %></a>
+				</div>
+				<% } %>
+			</div>
+			
+			
+			
+			
+			<div id="pub1" class="pub">
+			</div>
+		</main>
+		
+		
+		
+		
+		<%- include('navbar'); %>
+		
+		
+		
+		
+		<%- include('footer'); %>
+		
+		
+		
+		
+		<%- include('foi'); %>
+		
+		
+		
+		
+		<%- include('foi_tpls'); %>
+		
+		
+		
+		
+		
+	</body>
+	<%- include('loads'); %>
+	<script>
+	var tinymce_opt={
+		  selector: '#pc_aj_descr,#main_cp_descr,#mbp_priere,#makehomelie',
+		  height: 500,
+		  theme: 'modern',
+		  plugins: [
+			'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+			'searchreplace wordcount visualblocks visualchars code fullscreen',
+			'insertdatetime media nonbreaking save table contextmenu directionality',
+			'emoticons template paste textcolor colorpicker textpattern imagetools codesample toc help'
+		  ],
+		  toolbar1: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+		  toolbar2: 'print preview media | forecolor backcolor emoticons | codesample help',
+		  image_advtab: true,
+		  templates: [
+			{ title: 'Test template 1', content: 'Test 1' },
+			{ title: 'Test template 2', content: 'Test 2' }
+		  ],
+		  content_css: [
+			'apis/tinymce/js/tinymce/css.css',
+			//'tinymce/js/tinymce/codepen.min.css'
+		  ]
+	 }
+	tinymce.init(tinymce_opt);
+	</script>
+	<script src="js/script.js"></script>
+</html>

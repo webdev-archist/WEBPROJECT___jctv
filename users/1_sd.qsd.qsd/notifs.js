@@ -1,0 +1,1 @@
+var notifs={"solidarite_1":[{"uplet":"participed","titre":"je suis uun exemple potent d'action de solidarité","href":"#void","user_href":"sd.qsd.qsd","user_id":1,"status":"unseen"}]}

@@ -1,0 +1,46 @@
+<html>
+	<head>
+		<meta charset="utf8">
+		<title>accueil
+		</title>
+	<style>
+		#imgs{		}
+		#imgs>img{float:left;width:33.33%;		}
+		#form_info{	border:solid;padding:.5em;
+    position: absolute;
+    top: 50%;
+    bottom: 0;
+    width: 97%;	}
+		#form_info>fieldset{width:40%;HEIGHT:92%;}
+		#form_info>fieldset:first-of-type{float:left}
+		#form_info>fieldset:last-of-type{float:right;}
+		#form_info>fieldset input[type="submit"]{widTH=15%;}
+		#form_info>fieldset input{    float: left;
+    clear: both;
+    margin: .5em}
+	</style>
+	</head>
+	<body>
+	<div id="imgs">
+		<img src="./jesus-misericordieux.JPG" alt="jésus-christ">
+		<img src="./notre-dame-de-toutes-graces.jpg" alt="vierge marie">	
+		<img src="./bible-bahoule.jpg" alt="dieu le père">	
+	</div>
+		<form id="form_info" action="accueil.html" method="post">
+			<fieldset><legend>informations</legend>
+				<input name="nom" placeholder="Votre nom"/>
+				<input name="prenom" placeholder="Votre prenom"/>
+				<input name="email" type="email" placeholder="Votre email"/>
+				<input name="pseudo" placeholder="Votre pseudonyme"/>
+				<input name="pseudo" type="password" placeholder="Votre mot de passe"/>
+			</fieldset>
+			<fieldset><legend>autre</legend>
+				<input name="birth" placeholder="votre date de naissance"/>
+				<input name="addr" placeholder="Votre adresse physique"/>
+				<input name="etc" placeholder="d'autres détails"/>
+			</fieldset>
+			<input type="submit" name="submit" placeholder="d'autres détails"/>
+			
+		</form>
+	</body>
+</html>

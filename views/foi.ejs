@@ -1,0 +1,1167 @@
+<script>
+/*
+var disqus_config=function(){this.page.url="http://localhost:8080/jesus-christ-foi-chretienne";this.page.identifier="teste"}
+(function(){
+	var d=document,s=d.createElemet('script')
+	s.src="https://jesus-christ.tv.disqus.com/embed.js"
+	s.setAttribute("data-timestamp",+new Date())
+	(d.head||d.body).appendChild(s)
+})()
+*/
+</script>
+<div id="teste">
+</div>
+
+
+
+<aside id="droite" class="bg-pg">
+	<% if(locals.value.connected){ %>
+	<form id="droit_priere">
+		<fieldset><label for="blog_priere" class="text-center text-primary"><%= locals.value.object.foi_menu_droit.fieldset %></label>
+			<textarea id="blog_priere" class="form-control" onclick="show_modal('modal_blog_priere');$(modal_blog_priere).find('input[name=redir]').val(document.URL)"></textarea>
+		</fieldset>
+	</form>
+	<button class="btn btn-danger" onclick="show_modal('modal_blog_priere_image');$(modal_blog_priere).find('input[name=redir]').val(document.URL)" title="Déposez une image évoquant Trine sur le blog de la foi"><i class="glyphicon glyphicon-download-alt"></i> <i class="glyphicon glyphicon-picture"></i><br><%= locals.value.object.foi_menu_droit.button0 %></button>
+	<button class="btn btn-danger" onclick="show_modal('modal_blog_priere_audio');$(modal_blog_priere).find('input[name=redir]').val(document.URL)" title="Déposez une musique ou un chant chrétien sur le blog de la foi"><i class="glyphicon glyphicon-download-alt"></i> <i class="glyphicon glyphicon-music"></i><br><%= locals.value.object.foi_menu_droit.button1 %></button>
+	<button class="btn btn-danger" onclick="show_modal('modal_blog_priere_video');$(modal_blog_priere).find('input[name=redir]').val(document.URL)" title="Déposez une vidéo chrétienne sur le blog de la foi"><i class="glyphicon glyphicon-download-alt"></i> <i class="glyphicon glyphicon-facetime-video"></i><br><%= locals.value.object.foi_menu_droit.button2 %></button>
+	<% } %>
+	<% if(!locals.value.connected||locals.value.connected==0){ %>
+	<p class="loggin">
+	<a href="<%= locals.value.object._all_buttons_log._1.href %>" title="<%= locals.value.object._all_buttons_log._1.title %>" class="w btn btn-danger"><%= locals.value.object._all_buttons_log._1.html %></a>
+	</p>
+	<% } %>		
+</aside>
+
+
+
+<div id="modals">
+</div>
+<div>
+	<div id="homelies" class="modal_" data-data="">
+		<div class="modal_box panel-group">
+			<div class="modal_header panel panel-primary">
+				<h4><%= locals.value.object.foi_modals_direct.paroles.header %> : <span></span>, <%= locals.value.object.foi_modals_direct.paroles.header_ %> : <span></span></h4>
+				<h4><%= locals.value.object.foi_modals_direct.paroles.homelies.h_titre %> : <span></span></h4>
+			</div>
+			<div class="safe modal_content panel panel-warning">
+			</div>
+			<div class="modal_footer panel panel-danger">
+				<h4><%= locals.value.object.foi_modals_direct.paroles.homelies.footer_h %></h4>
+				<div class="modal_h_sh_info"><div class="type">
+					<!--
+					<%= locals.value.object.foi_modals_direct.general_header_html.share %><span class="badge">{{count_shares}}</span><%= locals.value.object.foi_modals_direct.general_header_html.times %>
+					-->
+				</div>
+				<div class="likes"><span class="{{amen_}}"><span class="badge amen">{{count_amen}}</span><%= locals.value.object.foi_modals_direct.general_bottom_html.amen %></span><span class="{{hosanna_}}"><span class="badge hosanna">{{count_hosanna}}</span><%= locals.value.object.foi_modals_direct.general_bottom_html.hosanna %></span><span class="{{alleluia_}}"><span class="badge alleluia">{{count_alleluia}}</span><%= locals.value.object.foi_modals_direct.general_bottom_html.alleluia %></span></div></div>
+			</div>
+		</div>
+	</div>
+	<div id="make_homelie" class="modal_">
+		<form action="/poser_logos/homelie" method="POST">
+			<div class="modal_box panel-group">
+				<div class="modal_header panel panel-primary">
+					<h4><%= locals.value.object.foi_modals_direct.paroles.homelies.h_titre_ %></h4>
+				</div>
+				<div class="modal_content panel panel-warning">
+						<input type="hidden" name="user" value="1">
+						<input type="hidden" name="langue" value="fr">
+						<input type="hidden" name="redirect" value="">
+						<label for="homelie_titre">titre_a_entrer_dans_la_bdd</label>				
+						<input id="homelie_titre" name="titre">
+						<label for="makehomelie">titre_a_entrer_dans_la_bdd</label>				
+						<textarea id="makehomelie" name="homelie"></textarea>
+				</div>
+				<div class="modal_footer panel panel-danger">
+					<input type="submit">
+				</div>
+			</div>
+		</form>				
+	</div>
+	<div id="questions" class="modal_">
+		<div class="modal_box panel-group">
+			<div class="modal_header panel panel-primary">
+				<h4><%= locals.value.object.foi_modals_direct.paroles.header %> : <span></span>, <%= locals.value.object.foi_modals_direct.paroles.header_ %> : <span></span></h4>
+				<h4><%= locals.value.object.foi_modals_direct.paroles.questions.h_titre %> : <span></span></h4>
+			</div>
+			<div class="safe modal_content panel panel-warning">
+				<h4><%= locals.value.object.foi_modals_direct.paroles.questions.content %> (<span></span>)</h4>
+				<ul></ul>
+			</div>
+			<div class="modal_footer panel panel-danger">
+				<form action="/poser_logos/reponse" method="POST">
+					<input type="hidden" name="user" value="1">
+					<input type="hidden" name="langue" value="fr">
+					<input type="hidden" name="redirect" value="">
+					<input type="hidden" name="id">
+					<label for="q_rep"><%= locals.value.object.foi_modals_direct.paroles.questions.footer_l %></label>
+					<input id="q_rep" name="rep" class="">
+					<input type="submit">
+				</form>				
+			</div>
+		</div>
+		<% for(a in locals.value.object.foi_modals_direct.paroles.archive){ %>
+			<span class="nodisplay" id="archive_<%= a %>"><%= locals.value.object.foi_modals_direct.paroles.archive[a] %></span>
+		<% } %>
+	</div>
+	<div id="poser_question" class="modal_">
+		<form action="/poser_logos/question" method="POST">
+			<div class="modal_box panel-group">
+				<div class="modal_header panel panel-primary">
+					<h4><%= locals.value.object.foi_modals_direct.paroles.questions.h_titre_ %></h4>
+				</div>
+				<div class="modal_content panel panel-warning">
+						<input type="hidden" name="user" value="1">
+						<input type="hidden" name="langue" value="fr">
+						<input type="hidden" name="redirect" value="">
+						<label for="makequestion">titre_a_entrer_dans_la_bdd</label>	
+						<textarea id="makequestion" name="question" max="255" placeholder="<%= locals.value.object.foi_modals_direct.paroles.questions.ph %>"></textarea>	
+				</div>
+				<div class="modal_footer panel panel-danger">
+					<input type="submit">
+				</div>
+			</div>
+		</form>				
+	</div>
+	<div id="modal_sh_livres" class="modal_ sh">
+		<div class="modal_box panel-group">
+			<div class="modal_header panel panel-primary">
+				<h2>C'est le titre du livre <a href="#">- de "l'auteur du livre"</a></h2>
+				<div class="modal_h_sh_info"><div class="author"><img class="img_icon" target="_blank" src="artiste0.jpg" alt=""><span> <%= locals.value.object.foi_modals_direct.general_header_html.added %> </span><a href="#">auteur</a></div><div class="type"><%= locals.value.object.foi_modals_direct.general_header_html.share %><span class="badge">10</span><%= locals.value.object.foi_modals_direct.general_header_html.times %></div><div class="likes"><span><span class="badge amen">8</span><%= locals.value.object.foi_modals_direct.general_bottom_html.amen %></span><span><span class="badge hosanna">8</span><%= locals.value.object.foi_modals_direct.general_bottom_html.hosanna %></span></span><span><span class="badge alleluia">8</span><%= locals.value.object.foi_modals_direct.general_bottom_html.alleluia %></span></span></div></div>
+				<a href="#"title="<%= locals.value.object.foi_modals_direct.general_header_html.seecoms %>" class="coms"><i class="glyphicon glyphicon-comment"></i></a>
+			</div>
+			<div class="modal_content panel-warning">
+				<p class="">ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description </p>
+				<p class="modal_c_sh_img"><img src="artiste2.jpg" alt=""></p>
+				<div class="modal_c_sh_info">
+					<ul>
+						<li class="isbn">Auteur: <a href="#">Maria Valtorta</a></li>
+						<li class="isbn">Thème: <a href="#">Jésus</a></li>
+						<li class="isbn">ISBN: <a href="#">98778665</a></li>
+						<li class="stars">Critique-presse : <a href="#"><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star-empty"></i></a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="modal_footer panel panel-info">
+				<ul></ul>
+				<p class=""><%= locals.value.object.foi_modals_direct.general_bottom_titre_liens.livres %><br>
+					<a href="#" class="buy" title="<%= locals.value.object.foi_modals_direct.general_bottom_titles.liens.livres_0 %>" data-links="[]"><i class=""></i><%= locals.value.object.foi_modals_direct.general_bottom_html.buy %></a>
+					<a href="#" class="ebook" title="<%= locals.value.object.foi_modals_direct.general_bottom_titles.liens.livres_1 %>" data-links="[]"><i class=""></i><%= locals.value.object.foi_modals_direct.general_bottom_html.ebook %></a>
+					<a href="#" class="dls" title="<%= locals.value.object.foi_modals_direct.general_bottom_titles.liens.livres_2 %>" data-links="[]"><i class=""></i><%= locals.value.object.foi_modals_direct.general_bottom_html._dl %></a>
+					<a href="#" class="files" title="<%= locals.value.object.foi_modals_direct.general_bottom_titles.liens.livres_3 %>" data-links="[]"><i class=""></i><%= locals.value.object.foi_modals_direct.general_bottom_html.files %></a>
+				</p>
+				<p class=""><%= locals.value.object.foi_modals_direct.sharing %><br>
+					<a href="#" title="<%= locals.value.object.foi_modals_direct.general_bottom_titles.share._0 %> <%= locals.value.object.foi_modals_direct.general_bottom_html.share %>"><i class="ui icon facebook"></i> <%= locals.value.object.foi_modals_direct.general_bottom_html.share %></a>
+					<a href="#" title="<%= locals.value.object.foi_modals_direct.general_bottom_titles.share._0 %> <%= locals.value.object.foi_modals_direct.general_bottom_html.tweet %>"><i class="ui icon twitter"></i> <%= locals.value.object.foi_modals_direct.general_bottom_html.tweet %></a>
+					<a href="#" title="<%= locals.value.object.foi_modals_direct.general_bottom_titles.share._0 %> <%= locals.value.object.foi_modals_direct.general_bottom_html.google %>"><i class="ui icon google"></i> <%= locals.value.object.foi_modals_direct.general_bottom_html.google %></a>
+					<a href="#" title="<%= locals.value.object.foi_modals_direct.general_bottom_titles.share._1 %> <%= locals.value.object.foi_modals_direct.general_bottom_html.email %>"><i class="glyphicon glyphicon-envelope"></i> <%= locals.value.object.foi_modals_direct.general_bottom_html.email %></a>
+				</p>
+				<p class=""><%= locals.value.object.foi_modals_direct.like %><br>
+					<a href="#" title="<%= locals.value.object.foi_modals_direct.general_bottom_html.amen %> <%= locals.value.object.foi_modals_direct.general_bottom_titles.like.__ %> <%= locals.value.object.foi_modals_direct.general_bottom_titles.like.livres %>"><i class=""></i> <%= locals.value.object.foi_modals_direct.general_bottom_html.amen %></a>
+					<a href="#" title="<%= locals.value.object.foi_modals_direct.general_bottom_html.hosanna %> <%= locals.value.object.foi_modals_direct.general_bottom_titles.like.__ %> <%= locals.value.object.foi_modals_direct.general_bottom_titles.like.livres %>"><i class=""></i> <%= locals.value.object.foi_modals_direct.general_bottom_html.hosanna %></a>
+					<a href="#" title="<%= locals.value.object.foi_modals_direct.general_bottom_html.alleluia %> <%= locals.value.object.foi_modals_direct.general_bottom_titles.like.__ %> <%= locals.value.object.foi_modals_direct.general_bottom_titles.like.livres %>"><i class=""></i> <%= locals.value.object.foi_modals_direct.general_bottom_html.alleluia %></a>
+				</p>
+			</div>
+			
+		</div>
+	</div>
+	<div id="modal_sh_prieres" class="modal_ sh">
+		<div class="modal_box panel-group">
+			<div class="modal_header panel panel-primary">
+				<h2>C'est le titre du livre</h2>
+				<div class="modal_h_sh_info"><div class="author"><img class="img_icon" target="_blank" src="artiste0.jp=g" alt=""><span> <%= locals.value.object.foi_modals_direct.general_header_html.added %> </span><a href="#">auteur</a></div><div class="type"><%= locals.value.object.foi_modals_direct.general_header_html.share %> <span class="badge">10</span><%= locals.value.object.foi_modals_direct.general_header_html.times %></div><div class="likes"><span><span class="badge amen">8</span><%= locals.value.object.foi_modals_direct.general_bottom_html.amen %></span><span class="badge hosanna">8</span><%= locals.value.object.foi_modals_direct.general_bottom_html.hosanna %></span><span class="badge alleluia">8</span><%= locals.value.object.foi_modals_direct.general_bottom_html.alleluia %></span></div></div>
+				<a href="#"title="<%= locals.value.object.foi_modals_direct.general_header_html.seecoms %>" class="coms"><i class="glyphicon glyphicon-comment"></i></a>
+			</div>
+			<div class="modal_content panel-warning">
+				<p class="">ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description </p>
+				<p class="modal_c_sh_img"><img src="artiste2.jpg" alt=""></p>
+				<div class="modal_c_sh_info">
+					<ul>
+						<li class="isbn">Auteur: <a href="#">Maria Valtorta</a></li>
+						<li class="isbn">Thème: <a href="#">Jésus</a></li>
+						<li class="isbn">ISBN: <a href="#">98778665</a></li>
+						<li class="stars">Critique-presse : <a href="#"><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star-empty"></i></a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="modal_footer panel panel-info">
+				<ul></ul>
+				<p class=""><%= locals.value.object.foi_modals_direct.general_bottom_titre_liens.livres %><br>
+					<a href="#" class="buy" title="<%= locals.value.object.foi_modals_direct.general_bottom_titles.liens.livres_0 %>" data-links="[]"><i class=""></i><%= locals.value.object.foi_modals_direct.general_bottom_html.buy %></a>
+					<a href="#" class="ebook" title="<%= locals.value.object.foi_modals_direct.general_bottom_titles.liens.livres_1 %>" data-links="[]"><i class=""></i><%= locals.value.object.foi_modals_direct.general_bottom_html.ebook %></a>
+					<a href="#" class="dls" title="<%= locals.value.object.foi_modals_direct.general_bottom_titles.liens.livres_2 %>" data-links="[]"><i class=""></i><%= locals.value.object.foi_modals_direct.general_bottom_html._dl %></a>
+					<a href="#" class="files" title="<%= locals.value.object.foi_modals_direct.general_bottom_titles.liens.livres_3 %>" data-links="[]"><i class=""></i><%= locals.value.object.foi_modals_direct.general_bottom_html.files %></a>
+				</p>
+				<p class=""><%= locals.value.object.foi_modals_direct.sharing %><br>
+					<a href="#" title="<%= locals.value.object.foi_modals_direct.general_bottom_titles.share._0 %> <%= locals.value.object.foi_modals_direct.general_bottom_html.share %>"><i class="ui icon facebook"></i> <%= locals.value.object.foi_modals_direct.general_bottom_html.share %></a>
+					<a href="#" title="<%= locals.value.object.foi_modals_direct.general_bottom_titles.share._0 %> <%= locals.value.object.foi_modals_direct.general_bottom_html.tweet %>"><i class="ui icon twitter"></i> <%= locals.value.object.foi_modals_direct.general_bottom_html.tweet %></a>
+					<a href="#" title="<%= locals.value.object.foi_modals_direct.general_bottom_titles.share._0 %> <%= locals.value.object.foi_modals_direct.general_bottom_html.google %>"><i class="ui icon google"></i> <%= locals.value.object.foi_modals_direct.general_bottom_html.google %></a>
+					<a href="#" title="<%= locals.value.object.foi_modals_direct.general_bottom_titles.share._1 %> <%= locals.value.object.foi_modals_direct.general_bottom_html.email %>"><i class="glyphicon glyphicon-envelope"></i> <%= locals.value.object.foi_modals_direct.general_bottom_html.email %></a>
+				</p>
+				<p class=""><%= locals.value.object.foi_modals_direct.like %><br>
+					<a href="#" title="<%= locals.value.object.foi_modals_direct.general_bottom_html.amen %> <%= locals.value.object.foi_modals_direct.general_bottom_titles.like.__ %> <%= locals.value.object.foi_modals_direct.general_bottom_titles.like.livres %>"><i class=""></i> <%= locals.value.object.foi_modals_direct.general_bottom_html.amen %></a>
+					<a href="#" title="<%= locals.value.object.foi_modals_direct.general_bottom_html.hosanna %> <%= locals.value.object.foi_modals_direct.general_bottom_titles.like.__ %> <%= locals.value.object.foi_modals_direct.general_bottom_titles.like.livres %>"><i class=""></i> <%= locals.value.object.foi_modals_direct.general_bottom_html.hosanna %></a>
+					<a href="#" title="<%= locals.value.object.foi_modals_direct.general_bottom_html.alleluia %> <%= locals.value.object.foi_modals_direct.general_bottom_titles.like.__ %> <%= locals.value.object.foi_modals_direct.general_bottom_titles.like.livres %>"><i class=""></i> <%= locals.value.object.foi_modals_direct.general_bottom_html.alleluia %></a>
+				</p>
+			</div>
+			
+		</div>
+	</div>
+	<div id="modal_sh_images" class="modal_ sh">
+		<div class="modal_box panel-group">
+			<div class="modal_header panel panel-primary">
+				<h2>C'est le titre de l'image</h2>
+				<div class="modal_h_sh_info"><div class="author"><img class="img_icon" target="_blank" src="artiste0.jp=g" alt=""><span> <%= locals.value.object.foi_modals_direct.general_header_html.added %> </span><a href="#">auteur</a></div><div class="type"><%= locals.value.object.foi_modals_direct.general_header_html.share %> <span class="badge">10</span><%= locals.value.object.foi_modals_direct.general_header_html.times %></div><div class="likes"><span><span class="badge amen">8</span><%= locals.value.object.foi_modals_direct.general_bottom_html.amen %></span><span class="badge hosanna">8</span><%= locals.value.object.foi_modals_direct.general_bottom_html.hosanna %></span><span class="badge alleluia">8</span><%= locals.value.object.foi_modals_direct.general_bottom_html.alleluia %></span></div></div>
+				<a href="#"title="<%= locals.value.object.foi_modals_direct.general_header_html.seecoms %>" class="coms"><i class="glyphicon glyphicon-comment"></i></a>
+			</div>
+			<div class="modal_content panel-warning">
+				<p class="">ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description </p>
+				<p class="modal_c_sh_img"><img src="jesus-misericordieux.jpg" alt=""></p>
+				<div class="modal_c_sh_info">
+					<ul>
+					</ul>
+				</div>
+			</div>
+			<div class="modal_footer panel panel-info">
+				<ul></ul>
+				<p class=""><%= locals.value.object.foi_modals_direct.general_bottom_titre_liens.images %><br>
+					<a href="#" class="buy" title="<%= locals.value.object.foi_modals_direct.general_bottom_titles.images_0 %> 1024x800,720x330,420x180" data-type="[420,720,1080]"><i class="glyphicon glyphicon-download-alt"></i> <%= locals.value.object.foi_modals_direct.general_bottom_html.buy %></a>
+					<a href="#" class="dls" title="<%= locals.value.object.foi_modals_direct.general_bottom_titles.images %> 1024x800,720x330,420x180" data-type="[420,720,1080]"><i class="glyphicon glyphicon-download-alt"></i> 1024x800,720x330,420x180</a>
+					<a href="#" class="files" title="<%= locals.value.object.foi_modals_direct.general_bottom_titles.images_ %>" data-type=""><i class="glyphicon "></i> <%= locals.value.object.foi_modals_direct.general_bottom_html.watch %></a>
+				</p>
+				<p class=""><%= locals.value.object.foi_modals_direct.sharing %><br>
+					<a href="#" title="<%= locals.value.object.foi_modals_direct.general_bottom_titles.share._0 %> <%= locals.value.object.foi_modals_direct.general_bottom_html.share %>"><i class="ui icon facebook"></i> <%= locals.value.object.foi_modals_direct.general_bottom_html.share %></a>
+					<a href="#" title="<%= locals.value.object.foi_modals_direct.general_bottom_titles.share._0 %> <%= locals.value.object.foi_modals_direct.general_bottom_html.tweet %>"><i class="ui icon twitter"></i> <%= locals.value.object.foi_modals_direct.general_bottom_html.tweet %></a>
+					<a href="#" title="<%= locals.value.object.foi_modals_direct.general_bottom_titles.share._0 %> <%= locals.value.object.foi_modals_direct.general_bottom_html.google %>"><i class="ui icon google"></i> <%= locals.value.object.foi_modals_direct.general_bottom_html.google %></a>
+					<a href="#" title="<%= locals.value.object.foi_modals_direct.general_bottom_titles.share._1 %> <%= locals.value.object.foi_modals_direct.general_bottom_html.email %>"><i class="glyphicon glyphicon-envelope"></i> <%= locals.value.object.foi_modals_direct.general_bottom_html.email %></a>
+				</p>
+				<p class=""><%= locals.value.object.foi_modals_direct.like %><br>
+					<a href="#" title="<%= locals.value.object.foi_modals_direct.general_bottom_html.amen %> <%= locals.value.object.foi_modals_direct.general_bottom_titles.like.__ %><%= locals.value.object.foi_modals_direct.general_bottom_titles.like.livres %>"><i class=""></i> <%= locals.value.object.foi_modals_direct.general_bottom_html.amen %></a>
+					<a href="#" title="<%= locals.value.object.foi_modals_direct.general_bottom_html.hosanna %> <%= locals.value.object.foi_modals_direct.general_bottom_titles.like.__ %><%= locals.value.object.foi_modals_direct.general_bottom_titles.like.livres %>"><i class=""></i> <%= locals.value.object.foi_modals_direct.general_bottom_html.hosanna %></a>
+					<a href="#" title="<%= locals.value.object.foi_modals_direct.general_bottom_html.alleluia %> <%= locals.value.object.foi_modals_direct.general_bottom_titles.like.__ %><%= locals.value.object.foi_modals_direct.general_bottom_titles.like.livres %>"><i class=""></i> <%= locals.value.object.foi_modals_direct.general_bottom_html.alleluia %></a>
+				</p>
+			</div>
+			
+		</div>
+	</div>
+	<div id="modal_sh_musics" class="modal_ sh">
+		<div class="modal_box panel-group">
+			<div class="modal_header panel panel-primary">
+				<h2>Bob Marley</h2>
+				<div class="modal_h_sh_info"><div class="author"><img class="img_icon" target="_blank" src="artiste0.jp=g" alt=""><span> <%= locals.value.object.foi_modals_direct.general_header_html.added %> </span><a href="#">auteur</a></div><div class="type"><%= locals.value.object.foi_modals_direct.general_header_html.share %> <span class="badge">10</span><%= locals.value.object.foi_modals_direct.general_header_html.times %></div><div class="likes"><span><span class="badge amen">8</span><%= locals.value.object.foi_modals_direct.general_bottom_html.amen %></span><span class="badge hosanna">8</span><%= locals.value.object.foi_modals_direct.general_bottom_html.hosanna %></span><span class="badge alleluia">8</span><%= locals.value.object.foi_modals_direct.general_bottom_html.alleluia %></span></div></div>
+				<a href="#"title="<%= locals.value.object.foi_modals_direct.general_header_html.seecoms %>" class="coms"><i class="glyphicon glyphicon-comment"></i></a>
+			</div>
+			<div class="modal_content panel-warning">
+				<p class="">ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description </p>
+				<p class="modal_c_sh_img"><img src="passion_christ.jpg" alt=""></p>
+				<div class="modal_c_sh_info">
+					<ul>
+						<li class="dalbum">De l'album: <a href="#">jinvente klkchose</a></li>
+						<li class="duree">Durée: <a href="#">4m05</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="modal_footer panel panel-info">
+				<ul></ul>
+				<p class=""><%= locals.value.object.foi_modals_direct.general_bottom_titre_liens.musics %><br>
+					<a href="#" class="buy" title="<%= locals.value.object.foi_modals_direct.general_bottom_titles.musics_0 %> mp3,ogg,..." data-type="['exemlpe1.fr','exemple2.fr']"><i class="glyphicon glyphicon-music"></i> <%= locals.value.object.foi_modals_direct.general_bottom_html.buy %></a>
+					<a href="#" class="dls" title="<%= locals.value.object.foi_modals_direct.general_bottom_titles.musics_1 %>" data-type="['exemlpe1.fr','exemple2.fr']"><i class="glyphicon glyphicon-music"></i> <%= locals.value.object.foi_modals_direct.general_bottom_html._dl %></a>
+					<a href="#" class="listen" title="<%= locals.value.object.foi_modals_direct.general_bottom_titles.musics_2 %>" data-type="['exemlpe1.fr','exemple2.fr']"><i class="glyphicon glyphicon-music"></i> <%= locals.value.object.foi_modals_direct.general_bottom_html.listen %></a>
+				</p>
+				<p class=""><%= locals.value.object.foi_modals_direct.sharing %><br>
+					<a href="#" title="<%= locals.value.object.foi_modals_direct.general_bottom_titles.share._0 %> <%= locals.value.object.foi_modals_direct.general_bottom_html.share %>"><i class="ui icon facebook"></i> <%= locals.value.object.foi_modals_direct.general_bottom_html.share %></a>
+					<a href="#" title="<%= locals.value.object.foi_modals_direct.general_bottom_titles.share._0 %> <%= locals.value.object.foi_modals_direct.general_bottom_html.tweet %>"><i class="ui icon twitter"></i> <%= locals.value.object.foi_modals_direct.general_bottom_html.tweet %></a>
+					<a href="#" title="<%= locals.value.object.foi_modals_direct.general_bottom_titles.share._0 %> <%= locals.value.object.foi_modals_direct.general_bottom_html.google %>"><i class="ui icon google"></i> <%= locals.value.object.foi_modals_direct.general_bottom_html.google %></a>
+					<a href="#" title="<%= locals.value.object.foi_modals_direct.general_bottom_titles.share._1 %> <%= locals.value.object.foi_modals_direct.general_bottom_html.email %>"><i class="glyphicon glyphicon-envelope"></i> <%= locals.value.object.foi_modals_direct.general_bottom_html.email %></a>
+				</p>
+				<p class=""><%= locals.value.object.foi_modals_direct.like %><br>
+					<a href="#" title="<%= locals.value.object.foi_modals_direct.general_bottom_html.amen %> <%= locals.value.object.foi_modals_direct.general_bottom_titles.like.__ %><%= locals.value.object.foi_modals_direct.general_bottom_titles.like.livres %>"><i class=""></i> <%= locals.value.object.foi_modals_direct.general_bottom_html.amen %></a>
+					<a href="#" title="<%= locals.value.object.foi_modals_direct.general_bottom_html.hosanna %> <%= locals.value.object.foi_modals_direct.general_bottom_titles.like.__ %><%= locals.value.object.foi_modals_direct.general_bottom_titles.like.livres %>"><i class=""></i> <%= locals.value.object.foi_modals_direct.general_bottom_html.hosanna %></a>
+					<a href="#" title="<%= locals.value.object.foi_modals_direct.general_bottom_html.alleluia %> <%= locals.value.object.foi_modals_direct.general_bottom_titles.like.__ %><%= locals.value.object.foi_modals_direct.general_bottom_titles.like.livres %>"><i class=""></i> <%= locals.value.object.foi_modals_direct.general_bottom_html.alleluia %></a>
+				</p>
+			</div>
+			
+		</div>
+	</div>
+	<div id="modal_sh_chants" class="modal_ sh">
+		<div class="modal_box panel-group">
+			<div class="modal_header panel panel-primary">
+				<h2>Bob Marley</h2>
+				<div class="modal_h_sh_info"><div class="author"><img class="img_icon" target="_blank" src="artiste0.jp=g" alt=""><span> <%= locals.value.object.foi_modals_direct.general_header_html.added %> </span><a href="#">auteur</a></div><div class="type"><%= locals.value.object.foi_modals_direct.general_header_html.share %> <span class="badge">10</span><%= locals.value.object.foi_modals_direct.general_header_html.times %></div><div class="likes"><span><span class="badge amen">8</span><%= locals.value.object.foi_modals_direct.general_bottom_html.amen %></span><span class="badge hosanna">8</span><%= locals.value.object.foi_modals_direct.general_bottom_html.hosanna %></span><span class="badge alleluia">8</span><%= locals.value.object.foi_modals_direct.general_bottom_html.alleluia %></span></div></div>
+				<a href="#"title="<%= locals.value.object.foi_modals_direct.general_header_html.seecoms %>" class="coms"><i class="glyphicon glyphicon-comment"></i></a>
+			</div>
+			<div class="modal_content panel-warning">
+				<p class="">ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description </p>
+				<p class="modal_c_sh_img"><img src="passion_christ.jpg" alt=""></p>
+				<div class="modal_c_sh_info">
+					<ul>
+						<li class="dalbum">De l'album: <a href="#">jinvente klkchose</a></li>
+						<li class="duree">Durée: <a href="#">4m05</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="modal_footer panel panel-info">
+				<ul></ul>
+				<p class=""><%= locals.value.object.foi_modals_direct.general_bottom_titre_liens.musics %><br>
+					<a href="#" class="buy" title="<%= locals.value.object.foi_modals_direct.general_bottom_titles.musics_0 %> mp3,ogg,..." data-type="['exemlpe1.fr','exemple2.fr']"><i class="glyphicon glyphicon-music"></i> <%= locals.value.object.foi_modals_direct.general_bottom_html.buy %></a>
+					<a href="#" class="dls" title="<%= locals.value.object.foi_modals_direct.general_bottom_titles.musics_1 %>" data-type="['exemlpe1.fr','exemple2.fr']"><i class="glyphicon glyphicon-music"></i> <%= locals.value.object.foi_modals_direct.general_bottom_html._dl %></a>
+					<a href="#" class="listen" title="<%= locals.value.object.foi_modals_direct.general_bottom_titles.musics_2 %>" data-type="['exemlpe1.fr','exemple2.fr']"><i class="glyphicon glyphicon-music"></i> <%= locals.value.object.foi_modals_direct.general_bottom_html.listen %></a>
+				</p>
+				<p class=""><%= locals.value.object.foi_modals_direct.sharing %><br>
+					<a href="#" title="<%= locals.value.object.foi_modals_direct.general_bottom_titles.share._0 %> <%= locals.value.object.foi_modals_direct.general_bottom_html.share %>"><i class="ui icon facebook"></i> <%= locals.value.object.foi_modals_direct.general_bottom_html.share %></a>
+					<a href="#" title="<%= locals.value.object.foi_modals_direct.general_bottom_titles.share._0 %> <%= locals.value.object.foi_modals_direct.general_bottom_html.tweet %>"><i class="ui icon twitter"></i> <%= locals.value.object.foi_modals_direct.general_bottom_html.tweet %></a>
+					<a href="#" title="<%= locals.value.object.foi_modals_direct.general_bottom_titles.share._0 %> <%= locals.value.object.foi_modals_direct.general_bottom_html.google %>"><i class="ui icon google"></i> <%= locals.value.object.foi_modals_direct.general_bottom_html.google %></a>
+					<a href="#" title="<%= locals.value.object.foi_modals_direct.general_bottom_titles.share._1 %> <%= locals.value.object.foi_modals_direct.general_bottom_html.email %>"><i class="glyphicon glyphicon-envelope"></i> <%= locals.value.object.foi_modals_direct.general_bottom_html.email %></a>
+				</p>
+				<p class=""><%= locals.value.object.foi_modals_direct.like %><br>
+					<a href="#" title="<%= locals.value.object.foi_modals_direct.general_bottom_html.amen %> <%= locals.value.object.foi_modals_direct.general_bottom_titles.like.__ %><%= locals.value.object.foi_modals_direct.general_bottom_titles.like.livres %>"><i class=""></i> <%= locals.value.object.foi_modals_direct.general_bottom_html.amen %></a>
+					<a href="#" title="<%= locals.value.object.foi_modals_direct.general_bottom_html.hosanna %> <%= locals.value.object.foi_modals_direct.general_bottom_titles.like.__ %><%= locals.value.object.foi_modals_direct.general_bottom_titles.like.livres %>"><i class=""></i> <%= locals.value.object.foi_modals_direct.general_bottom_html.hosanna %></a>
+					<a href="#" title="<%= locals.value.object.foi_modals_direct.general_bottom_html.alleluia %> <%= locals.value.object.foi_modals_direct.general_bottom_titles.like.__ %><%= locals.value.object.foi_modals_direct.general_bottom_titles.like.livres %>"><i class=""></i> <%= locals.value.object.foi_modals_direct.general_bottom_html.alleluia %></a>
+				</p>
+			</div>
+			
+		</div>
+	</div>
+	<div id="modal_sh_films" class="modal_ sh">
+		<div class="modal_box panel-group">
+			<div class="modal_header panel panel-primary">
+				<h2>La passion du Christ</h2>
+				<div class="modal_h_sh_info"><div class="author"><img class="img_icon" target="_blank" src="artiste0.jp=g" alt=""><span> <%= locals.value.object.foi_modals_direct.general_header_html.added %> </span><a href="#">auteur</a></div><div class="type"><%= locals.value.object.foi_modals_direct.general_header_html.share %> <span class="badge">10</span><%= locals.value.object.foi_modals_direct.general_header_html.times %></div><div class="likes"><span><span class="badge amen">8</span><%= locals.value.object.foi_modals_direct.general_bottom_html.amen %></span><span class="badge hosanna">8</span><%= locals.value.object.foi_modals_direct.general_bottom_html.hosanna %></span><span class="badge alleluia">8</span><%= locals.value.object.foi_modals_direct.general_bottom_html.alleluia %></span></div></div>
+				<a href="#"title="<%= locals.value.object.foi_modals_direct.general_header_html.seecoms %>" class="coms"><i class="glyphicon glyphicon-comment"></i></a>
+			</div>
+			<div class="modal_content panel-warning">
+				<p class="">ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description </p>
+				<p class="modal_c_sh_img"><img src="passion_christ.jpg" alt=""></p>
+				<div class="modal_c_sh_info">
+					<ul>
+						<li class="sortie">Sortie en: <a href="#">2002</a></li>
+						<li class="stars">Critique presse: <a href="#"><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star-empty"></i></a></li>
+						<li class="duree">Durée: <a href="#">2H05</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="modal_footer panel panel-info">
+				<ul></ul>
+				<p class=""><%= locals.value.object.foi_modals_direct.general_bottom_titre_liens.musics %><br>
+					<a href="#" class="buy" title="<%= locals.value.object.foi_modals_direct.general_bottom_titles.films_0 %>" data-type="['exemple1.fr','exemple2.fr']"><i class="glyphicon glyphicon-download-alt"></i> <%= locals.value.object.foi_modals_direct.general_bottom_html.buy %></a>
+					<a href="#" class="dls" title="<%= locals.value.object.foi_modals_direct.general_bottom_titles.films_1 %>" data-type="['exemple1.fr','exemple2.fr']"><i class="glyphicon glyphicon-facetime-video"></i> <%= locals.value.object.foi_modals_direct.general_bottom_html._dl %></a>
+					<a href="#" class="watch" title="<%= locals.value.object.foi_modals_direct.general_bottom_titles.films_2 %>" data-type="['exemple1.fr','exemple2.fr']"><i class="glyphicon glyphicon-facetime-video"></i> <%= locals.value.object.foi_modals_direct.general_bottom_html.watch_ %></a>
+				</p>
+				<p class=""><%= locals.value.object.foi_modals_direct.sharing %><br>
+					<a href="#" title="<%= locals.value.object.foi_modals_direct.general_bottom_titles.share._0 %> <%= locals.value.object.foi_modals_direct.general_bottom_html.share %>"><i class="ui icon facebook"></i> <%= locals.value.object.foi_modals_direct.general_bottom_html.share %></a>
+					<a href="#" title="<%= locals.value.object.foi_modals_direct.general_bottom_titles.share._0 %> <%= locals.value.object.foi_modals_direct.general_bottom_html.tweet %>"><i class="ui icon twitter"></i> <%= locals.value.object.foi_modals_direct.general_bottom_html.tweet %></a>
+					<a href="#" title="<%= locals.value.object.foi_modals_direct.general_bottom_titles.share._0 %> <%= locals.value.object.foi_modals_direct.general_bottom_html.google %>"><i class="ui icon google"></i> <%= locals.value.object.foi_modals_direct.general_bottom_html.google %></a>
+					<a href="#" title="<%= locals.value.object.foi_modals_direct.general_bottom_titles.share._1 %> <%= locals.value.object.foi_modals_direct.general_bottom_html.email %>"><i class="glyphicon glyphicon-envelope"></i> <%= locals.value.object.foi_modals_direct.general_bottom_html.email %></a>
+				</p>
+				<p class=""><%= locals.value.object.foi_modals_direct.like %><br>
+					<a href="#" title="<%= locals.value.object.foi_modals_direct.general_bottom_html.amen %> <%= locals.value.object.foi_modals_direct.general_bottom_titles.like.__ %><%= locals.value.object.foi_modals_direct.general_bottom_titles.like.films %>"><i class=""></i> <%= locals.value.object.foi_modals_direct.general_bottom_html.amen %></a>
+					<a href="#" title="<%= locals.value.object.foi_modals_direct.general_bottom_html.hosanna %> <%= locals.value.object.foi_modals_direct.general_bottom_titles.like.__ %><%= locals.value.object.foi_modals_direct.general_bottom_titles.like.films %>"><i class=""></i> <%= locals.value.object.foi_modals_direct.general_bottom_html.hosanna %></a>
+					<a href="#" title="<%= locals.value.object.foi_modals_direct.general_bottom_html.alleluia %> <%= locals.value.object.foi_modals_direct.general_bottom_titles.like.__ %><%= locals.value.object.foi_modals_direct.general_bottom_titles.like.films %>"><i class=""></i> <%= locals.value.object.foi_modals_direct.general_bottom_html.alleluia %></a>
+				</p>
+			</div>
+			
+		</div>
+	</div>
+	<div id="modal_sh_courtms" class="modal_ sh">
+		<div class="modal_box panel-group">
+			<div class="modal_header panel panel-primary">
+				<h2>La passion du Christ</h2>
+				<div class="modal_h_sh_info"><div class="author"><img class="img_icon" target="_blank" src="artiste0.jp=g" alt=""><span> <%= locals.value.object.foi_modals_direct.general_header_html.added %> </span><a href="#">auteur</a></div><div class="type"><%= locals.value.object.foi_modals_direct.general_header_html.share %> <span class="badge">10</span><%= locals.value.object.foi_modals_direct.general_header_html.times %></div><div class="likes"><span><span class="badge amen">8</span><%= locals.value.object.foi_modals_direct.general_bottom_html.amen %></span><span class="badge hosanna">8</span><%= locals.value.object.foi_modals_direct.general_bottom_html.hosanna %></span><span class="badge alleluia">8</span><%= locals.value.object.foi_modals_direct.general_bottom_html.alleluia %></span></div></div>
+				<a href="#"title="<%= locals.value.object.foi_modals_direct.general_header_html.seecoms %>" class="coms"><i class="glyphicon glyphicon-comment"></i></a>
+			</div>
+			<div class="modal_content panel-warning">
+				<p class="">ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description ici une longue description </p>
+				<p class="modal_c_sh_img"><img src="passion_christ.jpg" alt=""></p>
+				<div class="modal_c_sh_info">
+					<ul>
+						<li class="sortie">Sortie en: <a href="#">2002</a></li>
+						<li class="stars">Critique presse: <a href="#"><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star-empty"></i></a></li>
+						<li class="duree">Durée: <a href="#">2H05</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="modal_footer panel panel-info">
+				<ul></ul>
+				<p class=""><%= locals.value.object.foi_modals_direct.general_bottom_titre_liens.musics %><br>
+					<a href="#" class="buy" title="<%= locals.value.object.foi_modals_direct.general_bottom_titles.films_0 %>" data-type="['exemple1.fr','exemple2.fr']"><i class="glyphicon glyphicon-download-alt"></i> <%= locals.value.object.foi_modals_direct.general_bottom_html.buy %></a>
+					<a href="#" class="dls" title="<%= locals.value.object.foi_modals_direct.general_bottom_titles.films_1 %>" data-type="['exemple1.fr','exemple2.fr']"><i class="glyphicon glyphicon-facetime-video"></i> <%= locals.value.object.foi_modals_direct.general_bottom_html._dl %></a>
+					<a href="#" class="watch" title="<%= locals.value.object.foi_modals_direct.general_bottom_titles.films_2 %>" data-type="['exemple1.fr','exemple2.fr']"><i class="glyphicon glyphicon-facetime-video"></i> <%= locals.value.object.foi_modals_direct.general_bottom_html.watch_ %></a>
+				</p>
+				<p class=""><%= locals.value.object.foi_modals_direct.sharing %><br>
+					<a href="#" title="<%= locals.value.object.foi_modals_direct.general_bottom_titles.share._0 %> <%= locals.value.object.foi_modals_direct.general_bottom_html.share %>"><i class="ui icon facebook"></i> <%= locals.value.object.foi_modals_direct.general_bottom_html.share %></a>
+					<a href="#" title="<%= locals.value.object.foi_modals_direct.general_bottom_titles.share._0 %> <%= locals.value.object.foi_modals_direct.general_bottom_html.tweet %>"><i class="ui icon twitter"></i> <%= locals.value.object.foi_modals_direct.general_bottom_html.tweet %></a>
+					<a href="#" title="<%= locals.value.object.foi_modals_direct.general_bottom_titles.share._0 %> <%= locals.value.object.foi_modals_direct.general_bottom_html.google %>"><i class="ui icon google"></i> <%= locals.value.object.foi_modals_direct.general_bottom_html.google %></a>
+					<a href="#" title="<%= locals.value.object.foi_modals_direct.general_bottom_titles.share._1 %> <%= locals.value.object.foi_modals_direct.general_bottom_html.email %>"><i class="glyphicon glyphicon-envelope"></i> <%= locals.value.object.foi_modals_direct.general_bottom_html.email %></a>
+				</p>
+				<p class=""><%= locals.value.object.foi_modals_direct.like %><br>
+					<a href="#" title="<%= locals.value.object.foi_modals_direct.general_bottom_html.amen %> <%= locals.value.object.foi_modals_direct.general_bottom_titles.like.__ %><%= locals.value.object.foi_modals_direct.general_bottom_titles.like.films %>"><i class=""></i> <%= locals.value.object.foi_modals_direct.general_bottom_html.amen %></a>
+					<a href="#" title="<%= locals.value.object.foi_modals_direct.general_bottom_html.hosanna %> <%= locals.value.object.foi_modals_direct.general_bottom_titles.like.__ %><%= locals.value.object.foi_modals_direct.general_bottom_titles.like.films %>"><i class=""></i> <%= locals.value.object.foi_modals_direct.general_bottom_html.hosanna %></a>
+					<a href="#" title="<%= locals.value.object.foi_modals_direct.general_bottom_html.alleluia %> <%= locals.value.object.foi_modals_direct.general_bottom_titles.like.__ %><%= locals.value.object.foi_modals_direct.general_bottom_titles.like.films %>"><i class=""></i> <%= locals.value.object.foi_modals_direct.general_bottom_html.alleluia %></a>
+				</p>
+			</div>
+			
+		</div>
+	</div>
+	
+	
+	
+	<% if(locals.value.connected){ %>
+	<div id="modal_aj_livres" class="modal_ aj">
+		<div class="modal_box panel-group">
+			<form action="/jesus-christ-foi-chretienne" method="POST" enctype="multipart/form-data">
+				<input type="submit">
+				<input type="hidden" name="requete" value="livres">
+				<input type="hidden" name="type" value="0">
+				<input type="hidden" name="ajouteur" value="2">
+				<input type="hidden" name="langue" value="fr">
+				<input type="hidden" name="href" value="">
+				<div class="modal_header panel panel-primary">
+					<div>
+						<label for="lh_aj_titre"><%= locals.value.object.foi_modals_save.general.h_0.label %><%= locals.value.object.foi_modals_save.livres.general0 %></label>
+						<input id="lh_aj_titre" name="titre" class="form-control" placeholder="<%= locals.value.object.foi_modals_save.general.h_0.ph %><%= locals.value.object.foi_modals_save.livres.general0 %>"/>
+					</div>
+					<div>
+						<label for="lh_aj_title"><%= locals.value.object.foi_modals_save.general.h_0__.label %></label>
+						<input id="lh_aj_title" name="title" class="form-control" placeholder="<%= locals.value.object.foi_modals_save.general.h_0__.ph %>"/>
+					</div>
+					<div>
+						<label for="lh_aj_auteur"><%= locals.value.object.foi_modals_save.general.h_1.label %> <%= locals.value.object.foi_modals_save.livres.general0 %></label>
+						<input id="lh_aj_auteur" name="auteur" class="form-control" placeholder="<%= locals.value.object.foi_modals_save.general.h_1.ph %><%= locals.value.object.foi_modals_save.livres.general0 %>"/>
+					</div>
+					<div>
+						<label for="lh_aj_img" class='nex'><%= locals.value.object.foi_modals_save.general.h_2.label %> <%= locals.value.object.foi_modals_save.livres.general0 %></label><br>
+						<button type="button" class="btn btn-danger nex"><%= locals.value.object.foi_modals_save.general.h_2.ph %>..</button>
+						<input id="lh_aj_img" name="img" type="file"/>
+					</div>
+				</div>
+				<div class="modal_content">
+					<label for="lc_aj_Cdescr"><%= locals.value.object.foi_modals_save.general.m_input0 %><%= locals.value.object.foi_modals_save.livres.general0 %></label>
+					<textarea id="lc_aj_Cdescr" name="short_descr" class="form-control"></textarea>
+					<label for="lc_aj_descr"><%= locals.value.object.foi_modals_save.general.m_input1 %><%= locals.value.object.foi_modals_save.livres.general0 %></label>
+					<textarea id="lc_aj_descr" name="descr" class="form-control"></textarea>
+					<label for="lh_aj_imgs" class='nex'><%= locals.value.object.foi_modals_save.general.h_2__.label %> <%= locals.value.object.foi_modals_save.livres.general0 %></label><br>
+					<button type="button" class="btn btn-danger nex"><%= locals.value.object.foi_modals_save.general.h_2__.ph %>..</button>
+					<input id="lh_aj_imgs" name="imgs" type="file" multiple />
+					<label for="lc_aj_theme"><%= locals.value.object.foi_modals_save.general.m_select.label0 %><%= locals.value.object.foi_modals_save.livres.general3 %></label>
+					<select id="lc_aj_theme" class="form-control" onchange="$(this).next().next().val(this.value);$(this).next().next().next().val(this.selectedIndex-1)">
+						<option value="void" selected><%= locals.value.object.foi_modals_save.general.m_select.ph0 %></option>
+						<option value="<%= locals.value.object.foi_modals_save.livres.m_select.option0_ %>"><%= locals.value.object.foi_modals_save.livres.m_select.option0 %></option>
+						<option value="<%= locals.value.object.foi_modals_save.livres.m_select.option1_ %>"><%= locals.value.object.foi_modals_save.livres.m_select.option1 %></option>
+						<option value="<%= locals.value.object.foi_modals_save.livres.m_select.option2_ %>"><%= locals.value.object.foi_modals_save.livres.m_select.option2 %></option>
+						<option value="<%= locals.value.object.foi_modals_save.livres.m_select.option3_ %>"><%= locals.value.object.foi_modals_save.livres.m_select.option3 %></option>
+						<option value="<%= locals.value.object.foi_modals_save.livres.m_select.option4_ %>"><%= locals.value.object.foi_modals_save.livres.m_select.option4 %></option>
+						<option value="<%= locals.value.object.foi_modals_save.livres.m_select.option5_ %>"><%= locals.value.object.foi_modals_save.livres.m_select.option5 %></option>
+						<option value="<%= locals.value.object.foi_modals_save.livres.m_select.option6_ %>"><%= locals.value.object.foi_modals_save.livres.m_select.option6 %></option>
+					</select>
+					<label for="lc_aj_theme_"><%= locals.value.object.foi_modals_save.general.m_select.label_ %></label>
+					<input id="lc_aj_theme_" name="theme" class="form-control" onblur="if($(this).prev().prev().val()!=this.value)$(this).next().val(19)" placeholder="<%= locals.value.object.foi_modals_save.general.m_select.ph0_ %><%= locals.value.object.foi_modals_save.livres.general3 %>">
+					<input name="theme_" type="hidden">
+					<label for="lc_aj_zone"><%= locals.value.object.foi_modals_save.general.m_select.label %><%= locals.value.object.foi_modals_save.livres.general0 %></label>
+					<select id="lc_aj_zone" class="form-control" onchange="$(this).next().next().val(this.value);$(this).next().next().next().val(this.selectedIndex-1)">
+						<option value="void" selected><%= locals.value.object.foi_modals_save.general.m_select.ph %></option>
+						<option value="<%= locals.value.object.foi_modals_save.livres.m_select_.option0_ %>"><%= locals.value.object.foi_modals_save.livres.m_select_.option0 %></option>
+						<option value="<%= locals.value.object.foi_modals_save.livres.m_select_.option1_ %>"><%= locals.value.object.foi_modals_save.livres.m_select_.option1 %></option>
+						<option value="<%= locals.value.object.foi_modals_save.livres.m_select_.option2_ %>"><%= locals.value.object.foi_modals_save.livres.m_select_.option2 %></option>
+						<option value="<%= locals.value.object.foi_modals_save.livres.m_select_.option3_ %>"><%= locals.value.object.foi_modals_save.livres.m_select_.option3 %></option>
+					</select>
+					<label for="lc_aj_zone_"><%= locals.value.object.foi_modals_save.general.m_select.label_ %></label>
+					<input id="lc_aj_zone_" name="zone" class="form-control" onblur="if($(this).prev().prev().val()!=this.value)$(this).next().val(19)" placeholder="<%= locals.value.object.foi_modals_save.general.m_select.ph_ %><%= locals.value.object.foi_modals_save.livres.general0 %>">
+					<input name="zone_" type="hidden">
+					<label for="lc_aj_isbn"><%= locals.value.object.foi_modals_save.livres.m_input2.label %><%= locals.value.object.foi_modals_save.livres.general0 %></label>
+					<input id="lc_aj_isbn" name="isbn" placeholder="<%= locals.value.object.foi_modals_save.livres.m_input2.ph %>" class="form-control">
+					<hr>
+					<label for="lc_aj_infos"><%= locals.value.object.foi_modals_save.general.m_input2.label %><%= locals.value.object.foi_modals_save.livres.general2 %><%= locals.value.object.foi_modals_save.livres.m_input3 %></label>
+					<input id="lc_aj_infos" class="infos form-control" onblur='if(this.obj)lc_aj_infos__.value=JSON.stringify(this.obj).replace(/"/g,"\\\"")' placeholder="<%= locals.value.object.foi_modals_save.general.m_input2.ph %>" class="form-control">
+					<label for="lc_aj_infos_">Les informations que vous avez entrées<br>...à l'aide dune fonction javascript...</label>
+					<input id="lc_aj_infos_" class="form-control" readonly>
+					<input id="lc_aj_infos__" type="hidden" name="infos" value="{}">
+				</div>
+				<div class="modal_footer panel panel-info">
+					<input type="hidden" name="links" class="links" value="{}">
+					<div>
+						<label for="lf_aj_lien"><%= locals.value.object.foi_modals_save.livres.f_input0.label %></label><br>
+						<input id='lf_aj_lien' name='buy' class="form-control" placeholder="<%= locals.value.object.foi_modals_save.livres.f_input0.ph %>"/>
+					</div>
+					<div>
+						<label for="lf_aj_lien_"><%= locals.value.object.foi_modals_save.livres.f_input1.label %></label><br>
+						<input id='lf_aj_lien_' name='ebook' class="form-control" placeholder="<%= locals.value.object.foi_modals_save.livres.f_input1.ph %>"/>
+					</div>
+					<div>
+						<label for="lf_aj_lien__"><%= locals.value.object.foi_modals_save.livres.f_input2.label %></label><br>
+						<input id='lf_aj_lien__' name='dls' class="form-control" placeholder="<%= locals.value.object.foi_modals_save.livres.f_input2.ph %>"/>
+					</div>
+					<div>
+						<label for='lf_aj_lien___' class="nex"><%= locals.value.object.foi_modals_save.livres.f_input3.label %></label><br>
+						<button type="button" class='btn btn-danger nex nex_'><%= locals.value.object.foi_modals_save.livres.f_input3.ph %>..</button> 
+						<input id='lf_aj_lien___' name='files' type='file' class="" multiple />
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div id="modal_aj_prieres" class="modal_ aj">
+		<div class="modal_box panel-group">
+			<form action="/jesus-christ-foi-chretienne" method="POST" enctype="multipart/form-data">
+				<input type="submit">
+				<input type="hidden" name="requete" value="livres">
+				<input type="hidden" name="type" value="1">
+				<input type="hidden" name="ajouteur" value="2">
+				<input type="hidden" name="langue" value="fr">
+				<input type="hidden" name="href" value="">
+				<div class="modal_header four panel panel-primary">
+					<div>
+						<label for="ph_aj_titre"><%= locals.value.object.foi_modals_save.general.h_0.label %><%= locals.value.object.foi_modals_save.livres.general1 %></label>
+						<input id="ph_aj_titre" name="titre" class="form-control" placeholder="<%= locals.value.object.foi_modals_save.general.h_0.ph %><%= locals.value.object.foi_modals_save.livres.general1 %>"/>
+					</div>
+					<div>
+						<label for="ph_aj_title"><%= locals.value.object.foi_modals_save.general.h_0__.label %></label>
+						<input id="ph_aj_title" name="title" class="form-control" placeholder="<%= locals.value.object.foi_modals_save.general.h_0__.ph %>"/>
+					</div>
+					<div>
+						<label for="ph_aj_auteur"><%= locals.value.object.foi_modals_save.general.h_1.label %> <%= locals.value.object.foi_modals_save.livres.general1 %></label>
+						<input id="ph_aj_auteur" name="auteur" class="form-control" placeholder="<%= locals.value.object.foi_modals_save.general.h_1.ph %><%= locals.value.object.foi_modals_save.livres.general1 %>"/>
+					</div>
+					<div>
+						<label class="nex" ><%= locals.value.object.foi_modals_save.general.h_2.label %> <%= locals.value.object.foi_modals_save.livres.general1 %></label><br>
+						<button type="button" class="btn btn-danger nex"><%= locals.value.object.foi_modals_save.general.h_2.ph %>..</button>
+						<input id="ph_aj_img" name="img" type="file"/>
+					</div>
+				</div>
+				<div class="modal_content">
+					<label for="pc_aj_Cdescr"><%= locals.value.object.foi_modals_save.general.m_input0 %><%= locals.value.object.foi_modals_save.livres.general1 %></label>
+					<textarea id="pc_aj_Cdescr" name="short_descr" class="form-control"></textarea>
+					<label for="pc_aj_descr"><%= locals.value.object.foi_modals_save.livres.m_input1 %></label>
+					<textarea id="pc_aj_descr" name="descr" class="form-control" max="1000"></textarea>
+					<label for="pc_aj_theme"><%= locals.value.object.foi_modals_save.general.m_select.label %><%= locals.value.object.foi_modals_save.livres.general1 %></label>
+					<select id="pc_aj_theme" onchange="$(this).next().next().val(this.value);$(this).next().next().next().val(this.selectedIndex)" class="form-control">
+						<option value="void" selected><%= locals.value.object.foi_modals_save.general.m_select.ph %></option>
+						<option value="<%= locals.value.object.foi_modals_save.livres.m_select1.option0_ %>"><%= locals.value.object.foi_modals_save.livres.m_select1.option0 %></option>
+						<option value="<%= locals.value.object.foi_modals_save.livres.m_select1.option1_ %>"><%= locals.value.object.foi_modals_save.livres.m_select1.option1 %></option>
+					</select>
+					<label for="pc_aj_theme_"><%= locals.value.object.foi_modals_save.general.m_select.label_ %></label>
+					<input id="pc_aj_theme_" name="theme" class="form-control" onblur="if($(this).prev().prev().val()!=this.value)$(this).next().val(19)" placeholder="<%= locals.value.object.foi_modals_save.general.m_select.ph_ %><%= locals.value.object.foi_modals_save.livres.general0 %>">
+					<input name="theme_" type="hidden">
+					<hr>
+					<label for="pc_aj_infos"><%= locals.value.object.foi_modals_save.general.m_input2.label %><%= locals.value.object.foi_modals_save.livres.general1 %><%= locals.value.object.foi_modals_save.livres.m_input3_ %></label>
+					<input id="pc_aj_infos" class="infos form-control" placeholder="<%= locals.value.object.foi_modals_save.general.m_input2.ph %>" class="form-control">
+					<label for="pc_aj_infos_">Les informations que vous avez entrées<br>...à l'aide dune fonction javascript...</label>
+					<input id="pc_aj_infos_" class="form-control" readonly>
+					<input id="pc_aj_infos__" type="hidden" name="infos" value="{}">
+				</div>
+				<div class="modal_footer panel panel-info">
+					<input type="hidden" name="links" class="links" value="{}">
+					<div>
+						<label for="pf_aj_lien"><%= locals.value.object.foi_modals_save.livres.f_input0.label %></label><br>
+						<input id='pf_aj_lien' name='buy' class="form-control" placeholder="<%= locals.value.object.foi_modals_save.livres.f_input0.ph %>"/>
+					</div>
+					<div>
+						<label for="pf_aj_lien_"><%= locals.value.object.foi_modals_save.livres.f_input1.label %></label><br>
+						<input id='pf_aj_lien_' name='ebook' class="form-control" placeholder="<%= locals.value.object.foi_modals_save.livres.f_input1.ph %>"/>
+					</div>
+					<div>
+						<label for="pf_aj_lien__"><%= locals.value.object.foi_modals_save.livres.f_input2.label %></label><br>
+						<input id='pf_aj_lien__' name='dls' class="form-control" placeholder="<%= locals.value.object.foi_modals_save.livres.f_input2.ph %>"/>
+					</div>
+					<div>
+						<label for='pf_aj_lien___' class="nex"><%= locals.value.object.foi_modals_save.livres.f_input3.label %></label><br>
+						<button type="button" class="btn btn-danger nex nex_"><%= locals.value.object.foi_modals_save.livres.f_input3.ph %>..</button> 
+						<input id='pf_aj_lien___' name='files' type='file' class=""/>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div id="modal_aj_images" class="modal_ aj">
+		<div class="modal_box panel panel-group">
+			<form action="/jesus-christ-foi-chretienne" method="POST" enctype="multipart/form-data">
+				<input type="submit">
+				<input type="hidden" name="requete" value="images">
+				<input type="hidden" name="ajouteur" value="2">
+				<input type="hidden" name="href" value="">
+				<div class="modal_header panel panel-primary">
+					<div>
+						<label for="ih_aj_titre"><%= locals.value.object.foi_modals_save.general.h_0.label %><%= locals.value.object.foi_modals_save.images.general0 %></label>
+						<input id="ih_aj_titre" name="titre" class="form-control" placeholder="<%= locals.value.object.foi_modals_save.general.h_0.ph %><%= locals.value.object.foi_modals_save.images.general0 %>" required >
+					</div>
+					<div>
+						<label for="ih_aj_title"><%= locals.value.object.foi_modals_save.general.h_0__.label %></label>
+						<input id="ih_aj_title" name="title" class="form-control" placeholder="<%= locals.value.object.foi_modals_save.general.h_0__.ph %>"/>
+					</div>
+					<div>
+						<label for="ih_aj_auteur"><%= locals.value.object.foi_modals_save.general.h_1_.label %></label>
+						<input id="ih_aj_auteur" name="auteur" class="form-control" placeholder="<%= locals.value.object.foi_modals_save.general.h_1_.ph %>"/>
+					</div>
+					<div>
+						<label class="nex"><%= locals.value.object.foi_modals_save.general.h_2.label %><%= locals.value.object.foi_modals_save.images.general0 %></label><br>
+						<button type="button" class="btn btn-danger nex"><%= locals.value.object.foi_modals_save.general.h_2.ph %>..</button>
+						<input id="ih_aj_img" name="img" type="file"/>
+					</div>
+				</div>
+				<div class="modal_content">
+					<label for="ic_aj_Cdescr"><%= locals.value.object.foi_modals_save.general.m_input0 %><%= locals.value.object.foi_modals_save.images.general0 %></label>
+					<textarea id="lc_aj_Cdescr" name="short_descr" class="form-control"></textarea>
+					<label for="ic_aj_descr"><%= locals.value.object.foi_modals_save.general.m_input1 %><%= locals.value.object.foi_modals_save.images.general0 %></label>
+					<textarea id="ic_aj_descr" name="descr" class="form-control"></textarea>
+					<label for="ic_aj_theme"><%= locals.value.object.foi_modals_save.general.m_select.label %><%= locals.value.object.foi_modals_save.images.general0 %></label>
+					<select id="ic_aj_theme" onchange="$(this).next().next().val(this.value);$(this).next().next().next().val(this.selectedIndex)" class="form-control">
+						<option value="void" selected><%= locals.value.object.foi_modals_save.general.m_select.ph %><%= locals.value.object.foi_modals_save.images.general0 %></option>
+						<option value="<%= locals.value.object.foi_modals_save.images.m_select.option1_ %>"><%= locals.value.object.foi_modals_save.images.m_select.option1 %></option>
+						<option value="<%= locals.value.object.foi_modals_save.images.m_select.option2_ %>"><%= locals.value.object.foi_modals_save.images.m_select.option2 %></option>
+						<option value="<%= locals.value.object.foi_modals_save.images.m_select.option3_ %>"><%= locals.value.object.foi_modals_save.images.m_select.option3 %></option>
+						<option value="<%= locals.value.object.foi_modals_save.images.m_select.option4_ %>"><%= locals.value.object.foi_modals_save.images.m_select.option4 %></option>
+						<option value="<%= locals.value.object.foi_modals_save.images.m_select.option5_ %>"><%= locals.value.object.foi_modals_save.images.m_select.option5 %></option>
+						<option value="<%= locals.value.object.foi_modals_save.images.m_select.option6_ %>"><%= locals.value.object.foi_modals_save.images.m_select.option6 %></option>
+					</select>
+					<label for="pc_aj_theme_"><%= locals.value.object.foi_modals_save.general.m_select.label_ %></label>
+					<input id="pc_aj_theme_" name="theme" class="form-control" onblur="if($(this).prev().prev().val()!=this.value)$(this).next().val(19)" placeholder="<%= locals.value.object.foi_modals_save.general.m_select.ph_ %><%= locals.value.object.foi_modals_save.images.general0 %>">
+					<input name="theme_" type="hidden">
+					<label for="ic_aj_type"><%= locals.value.object.foi_modals_save.images.m_select_.label %></label>
+					<select id="ic_aj_type" class="form-control" onchange="$(this).next().next().val(this.value);$(this).next().next().next().val(this.selectedIndex-1)">
+						<option value="void" selected><%= locals.value.object.foi_modals_save.images.m_select_.ph %></option>
+						<option value="<%= locals.value.object.foi_modals_save.images.m_select_.option0_ %>"><%= locals.value.object.foi_modals_save.images.m_select_.option0 %></option>
+						<option value="<%= locals.value.object.foi_modals_save.images.m_select_.option1_ %>"><%= locals.value.object.foi_modals_save.images.m_select_.option1 %></option>
+						<option value="<%= locals.value.object.foi_modals_save.images.m_select_.option2_ %>"><%= locals.value.object.foi_modals_save.images.m_select_.option2 %></option>
+						<option value="<%= locals.value.object.foi_modals_save.images.m_select_.option3_ %>"><%= locals.value.object.foi_modals_save.images.m_select_.option3 %></option>
+						<option value="<%= locals.value.object.foi_modals_save.images.m_select_.option4_ %>"><%= locals.value.object.foi_modals_save.images.m_select_.option4 %></option>
+					</select>
+					<label for="ic_aj_type_"><%= locals.value.object.foi_modals_save.general.m_select.label_ %></label>
+					<input id="ic_aj_type_" name="type" class="form-control" onblur="if($(this).prev().prev().val()!=this.value)$(this).next().val(19)" placeholder="<%= locals.value.object.foi_modals_save.general.m_select.ph_ %><%= locals.value.object.foi_modals_save.images.general0 %>">
+					<input name="type_" type="hidden">
+					<hr>
+					<label for="ic_aj_infos"><%= locals.value.object.foi_modals_save.general.m_input2.label %><%= locals.value.object.foi_modals_save.images.general0 %><%= locals.value.object.foi_modals_save.images.m_input2 %></label>
+					<input id="ic_aj_infos" name="ic_aj_infos" class="infos form-control" placeholder="<%= locals.value.object.foi_modals_save.general.m_input2.ph %>" class="form-control">
+					<label for="ic_aj_infos_">Les informations que vous avez entrées<br>...à l'aide dune fonction javascript...</label>
+					<input id="ic_aj_infos_" class="form-control" readonly>
+					<input id="ic_aj_infos__" type="hidden" name="infos" value="{}">
+				</div>
+				<div class="modal_footer panel panel-info">
+					<input type="hidden" name="links" class="links" value="{}">
+					<div>
+						<label for="if_aj_lien"><%= locals.value.object.foi_modals_save.images.f_input0.label %></label><br>
+						<input id='if_aj_lien' name='buy' class="form-control" placeholder="<%= locals.value.object.foi_modals_save.images.f_input0.ph %>"/>
+					</div>
+					<div>
+						<label for="if_aj_lien_"><%= locals.value.object.foi_modals_save.images.f_input1.label %></label><br>
+						<input id='if_aj_lien_' name='dls' class="form-control" placeholder="<%= locals.value.object.foi_modals_save.images.f_input1.ph %>"/>
+					</div>
+					<div>
+						<label for='if_aj_lien__' class="nex"><%= locals.value.object.foi_modals_save.images.f_input2.label %></label><br>
+						<button type="button" class="btn btn-danger nex nex_"><%= locals.value.object.foi_modals_save.images.f_input2.ph %>..</button> 
+						<input id='if_aj_lien__' name='files' type='file' class="" multiple>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div id="modal_aj_musics" class="modal_ aj">
+		<div class="modal_box panel-group">
+			<form action="/jesus-christ-foi-chretienne" method="POST" enctype="multipart/form-data">
+				<input type="submit">
+				<input type="hidden" name="requete" value="musics">
+				<input type="hidden" name="type" value="0">
+				<input type="hidden" name="ajouteur" value="2">
+				<input type="hidden" name="href" value="">
+				<div class="modal_header panel panel-primary">
+					<div>
+						<label for="mh_aj_titre"><%= locals.value.object.foi_modals_save.musics.h_input0.label %><%= locals.value.object.foi_modals_save.musics.general3 %></label>
+						<input id="mh_aj_titre" name="titre" class="form-control" placeholder="<%= locals.value.object.foi_modals_save.musics.h_input0.ph %><%= locals.value.object.foi_modals_save.musics.general3 %>"/>
+					</div>
+					<div>
+						<label for="mh_aj_auteur"><%= locals.value.object.foi_modals_save.musics.h_input1.label %><%= locals.value.object.foi_modals_save.musics.general3 %></label>
+						<input id="mh_aj_auteur" name="titre_" class="form-control" placeholder="<%= locals.value.object.foi_modals_save.musics.h_input1.ph %><%= locals.value.object.foi_modals_save.musics.general3 %>"/>
+					</div>
+					<div>
+						<label class="nex"><%= locals.value.object.foi_modals_save.general.h_2.label %><%= locals.value.object.foi_modals_save.musics.general3 %></label><br>
+						<button type="button" class="btn btn-danger nex"><%= locals.value.object.foi_modals_save.general.h_2.ph %>..</button>
+						<input id="mh_aj_img" name="img" type="file"/>
+					</div>
+				</div>
+				<div class="modal_content">
+					<label for="mc_aj_Cdescr"><%= locals.value.object.foi_modals_save.general.m_input0 %><%= locals.value.object.foi_modals_save.musics.general3 %></label>
+					<textarea id="mc_aj_Cdescr" name="short_descr" class="form-control"></textarea>
+					<label for="mc_aj_descr"><%= locals.value.object.foi_modals_save.general.m_input1 %><%= locals.value.object.foi_modals_save.musics.general3 %></label>
+					<textarea id="mc_aj_descr" name="descr" class="form-control"></textarea>
+					<label for="lh_aj_imgs" class='nex'><%= locals.value.object.foi_modals_save.general.h_2__.label %> <%= locals.value.object.foi_modals_save.musics.general3 %></label><br>
+					<button type="button" class="btn btn-danger nex"><%= locals.value.object.foi_modals_save.general.h_2__.ph %>..</button>
+					<input id="lh_aj_imgs" name="imgs" type="file" multiple />
+					<label for="mc_aj_style"><%= locals.value.object.foi_modals_save.musics.m_select.label %></label>
+					<select id="mc_aj_style" onchange="$(this).next().next().val(this.value);$(this).next().next().next().val(this.selectedIndex-1)" name="mc_aj_style" class="form-control">
+						<option value="void" selected><%= locals.value.object.foi_modals_save.musics.m_select.ph %><%= locals.value.object.foi_modals_save.musics.general3 %></option>
+						<option value="<%= locals.value.object.foi_modals_save.musics.m_select.option0_ %>"><%= locals.value.object.foi_modals_save.musics.m_select.option0 %></option>
+						<option value="<%= locals.value.object.foi_modals_save.musics.m_select.option1_ %>"><%= locals.value.object.foi_modals_save.musics.m_select.option1 %></option>
+						<option value="<%= locals.value.object.foi_modals_save.musics.m_select.option2_ %>"><%= locals.value.object.foi_modals_save.musics.m_select.option2 %></option>
+						<option value="<%= locals.value.object.foi_modals_save.musics.m_select.option3_ %>"><%= locals.value.object.foi_modals_save.musics.m_select.option3 %></option>
+					</select>
+					<label for="mc_aj_style_"><%= locals.value.object.foi_modals_save.musics.m_select.label_ %></label>
+					<input id="mc_aj_style_" name="style" class="form-control" onblur="if($(this).prev().prev().val()!=this.value)$(this).next().val(19)" placeholder="<%= locals.value.object.foi_modals_save.musics.m_select.ph_ %><%= locals.value.object.foi_modals_save.musics.general3 %>">
+					<input type="hidden" name="style_">
+					<label for="mc_aj_zone"><%= locals.value.object.foi_modals_save.musics.m_select_.label %><%= locals.value.object.foi_modals_save.musics.general3 %></label>
+					<select id="mc_aj_zone" name="zone" class="form-control">
+						<option value="void" selected><%= locals.value.object.foi_modals_save.musics.m_select_.ph %><%= locals.value.object.foi_modals_save.musics.general3 %></option>
+						<option value="<%= locals.value.object.foi_modals_save.musics.m_select_.option0_ %>"><%= locals.value.object.foi_modals_save.musics.m_select_.option0 %></option>
+						<option value="<%= locals.value.object.foi_modals_save.musics.m_select_.option1_ %>"><%= locals.value.object.foi_modals_save.musics.m_select_.option1 %></option>
+						<option value="<%= locals.value.object.foi_modals_save.musics.m_select_.option2_ %>"><%= locals.value.object.foi_modals_save.musics.m_select_.option2 %></option>
+						<option value="<%= locals.value.object.foi_modals_save.musics.m_select_.option3_ %>"><%= locals.value.object.foi_modals_save.musics.m_select_.option3 %></option>
+						<option value="<%= locals.value.object.foi_modals_save.musics.m_select_.option4_ %>"><%= locals.value.object.foi_modals_save.musics.m_select_.option4 %></option>
+					</select>
+					<label for="mc_aj_langue"><%= locals.value.object.foi_modals_save.musics.m_input3.label %><%= locals.value.object.foi_modals_save.musics.general4 %></label>
+					<label for="mc_aj_langue"><%= locals.value.object.foi_modals_save.musics.m_select__.label %><%= locals.value.object.foi_modals_save.musics.general4 %></label>
+					<select id="mc_aj_langue" name="langue" class="form-control" onchange="$(this).next().val(this.selectedIndex-1)">
+						<option value="void" selected><%= locals.value.object.foi_modals_save.musics.m_select__.ph %><%= locals.value.object.foi_modals_save.musics.general3 %></option>
+						<option value="<%= locals.value.object.foi_modals_save.musics.m_select__.option0_ %>"><%= locals.value.object.foi_modals_save.musics.m_select__.option0 %></option>
+						<option value="<%= locals.value.object.foi_modals_save.musics.m_select__.option1_ %>"><%= locals.value.object.foi_modals_save.musics.m_select__.option1 %></option>
+						<option value="<%= locals.value.object.foi_modals_save.musics.m_select__.option2_ %>"><%= locals.value.object.foi_modals_save.musics.m_select__.option2 %></option>
+						<option value="<%= locals.value.object.foi_modals_save.musics.m_select__.option3_ %>"><%= locals.value.object.foi_modals_save.musics.m_select__.option3 %></option>
+						<option value="<%= locals.value.object.foi_modals_save.musics.m_select__.option4_ %>"><%= locals.value.object.foi_modals_save.musics.m_select__.option4 %></option>
+						<option value="<%= locals.value.object.foi_modals_save.musics.m_select__.option5_ %>"><%= locals.value.object.foi_modals_save.musics.m_select__.option5 %></option>
+						<option value="<%= locals.value.object.foi_modals_save.musics.m_select__.option6_ %>"><%= locals.value.object.foi_modals_save.musics.m_select__.option6 %></option>
+						<option value="<%= locals.value.object.foi_modals_save.musics.m_select__.option7_ %>"><%= locals.value.object.foi_modals_save.musics.m_select__.option7 %></option>
+					</select>
+					<input type="hidden" name="zone_">
+					<hr>
+					<label for="mc_aj_infos"><%= locals.value.object.foi_modals_save.general.m_input2.label %><%= locals.value.object.foi_modals_save.musics.general4 %> <%= locals.value.object.foi_modals_save.musics.m_input4 %></label>
+					<input id="mc_aj_infos" name="mc_aj_infos" class="infos form-control" placeholder="___miss_in_sql_model___" class="form-control">
+					<label for="mc_aj_infos_">Les informations que vous avez entrées<br>...à l'aide dune fonction javascript...</label>
+					<input id="mc_aj_infos_" class="form-control" readonly>
+					<input id="mc_aj_infos__" type="hidden" name="infos" value="{}">
+				</div>
+				<div class="modal_footer panel panel-info">
+					<input type="hidden" name="links" class="links" value="{}">
+					<div>
+						<label for="mf_aj_buy"><%= locals.value.object.foi_modals_save.musics.f_input0.label %></label><br>
+						<input id='mf_aj_buy' name='buy' class="form-control" placeholder="<%= locals.value.object.foi_modals_save.musics.f_input0.ph %>"/>
+					</div>
+					<div>
+						<label for="mf_aj_listen"><%= locals.value.object.foi_modals_save.musics.f_input1.label %></label><br>
+						<input id='mf_aj_listen' name='listen' class="form-control" placeholder="<%= locals.value.object.foi_modals_save.musics.f_input1.ph %>"/>
+					</div>
+					<div>
+						<label for="mf_aj_dl"><%= locals.value.object.foi_modals_save.musics.f_input2.label %></label><br>
+						<input id='mf_aj_dl' name='dls' class="form-control" placeholder="<%= locals.value.object.foi_modals_save.musics.f_input2.ph %>"/>
+					</div>
+					<div>
+						<label for="mf_aj_load"><%= locals.value.object.foi_modals_save.musics.f_input3.label %></label><br>
+						<button type="button" class="btn btn-danger nex nex_"><%= locals.value.object.foi_modals_save.musics.f_input3.ph %>..</button> 
+						<input id='mf_aj_load' name='files' type="file" multiple>
+					</div>
+					<div>
+						<label for="mf_aj_infos"><%= locals.value.object.foi_modals_save.musics.f_input4.label %></label><br>
+						<input id='mf_aj_infos' name='news' class="form-control" placeholder="<%= locals.value.object.foi_modals_save.musics.f_input4.ph %>"/>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div id="modal_aj_chants" class="modal_ aj">
+		<div class="modal_box panel-group">
+			<form action="/jesus-christ-foi-chretienne" method="POST" enctype="multipart/form-data">
+				<input type="submit">
+				<input type="hidden" name="requete" value="musics">
+				<input type="hidden" name="type" value="1">
+				<input type="hidden" name="ajouteur" value="2">
+				<input type="hidden" name="href" value="">
+				<div class="modal_header panel panel-primary">
+					<div>
+						<label for="cah_aj_titre"><%= locals.value.object.foi_modals_save.general.h_0.label %><%= locals.value.object.foi_modals_save.musics.general0 %></label>
+						<input id="cah_aj_titre" name="titre" class="form-control" placeholder="<%= locals.value.object.foi_modals_save.general.h_0.ph %><%= locals.value.object.foi_modals_save.musics.general0 %>"/>
+					</div>
+					<div>
+						<label for="cah_aj_auteur"><%= locals.value.object.foi_modals_save.general.h_1.label %><%= locals.value.object.foi_modals_save.musics.general0 %></label>
+						<input id="cah_aj_auteur" name="auteur" class="form-control" placeholder="<%= locals.value.object.foi_modals_save.general.h_1.ph %><%= locals.value.object.foi_modals_save.musics.general0 %>"/>
+					</div>
+					<div>
+						<label class="nex"><%= locals.value.object.foi_modals_save.general.h_2.label %><%= locals.value.object.foi_modals_save.musics.general1 %></label><br>
+						<button type="button" class="btn btn-danger nex"><%= locals.value.object.foi_modals_save.general.h_2.ph %>..</button>
+						<input id="cah_aj_img" name="img" type="file"/>
+					</div>
+				</div>
+				<div class="modal_content">
+					<label for="cac_aj_Cdescr"><%= locals.value.object.foi_modals_save.general.m_input0 %><%= locals.value.object.foi_modals_save.musics.general0 %></label>
+					<textarea id="cac_aj_Cdescr" name="short_descr" class="form-control"></textarea>
+					<label for="cac_aj_descr"><%= locals.value.object.foi_modals_save.general.m_input1 %><%= locals.value.object.foi_modals_save.musics.general0 %></label>
+					<textarea id="cac_aj_descr" name="descr" class="form-control"></textarea>
+					<label for="lh_aj_imgs" class='nex'><%= locals.value.object.foi_modals_save.general.h_2__.label %> <%= locals.value.object.foi_modals_save.musics.general3 %></label><br>
+					<button type="button" class="btn btn-danger nex"><%= locals.value.object.foi_modals_save.general.h_2__.ph %>..</button>
+					<input id="lh_aj_imgs" name="imgs" type="file" multiple />
+					<label for="cac_aj_style"><%= locals.value.object.foi_modals_save.musics.m_select.label %></label>
+					<select id="cac_aj_style" onchange="$(this).next().next().val(this.value);$(this).next().next().next().val(this.selectedIndex)" name="cac_aj_style" class="form-control">
+						<option value="void"><%= locals.value.object.foi_modals_save.musics.m_select.ph %><%= locals.value.object.foi_modals_save.musics.general0 %></option>
+						<option value="<%= locals.value.object.foi_modals_save.musics.m_select.option0_ %>"><%= locals.value.object.foi_modals_save.musics.m_select.option0 %></option>
+						<option value="<%= locals.value.object.foi_modals_save.musics.m_select.option1_ %>"><%= locals.value.object.foi_modals_save.musics.m_select.option1 %></option>
+						<option value="<%= locals.value.object.foi_modals_save.musics.m_select.option2_ %>"><%= locals.value.object.foi_modals_save.musics.m_select.option2 %></option>
+						<option value="<%= locals.value.object.foi_modals_save.musics.m_select.option3_ %>"><%= locals.value.object.foi_modals_save.musics.m_select.option3 %></option>
+					</select>
+					<label for="cac_aj_style_"><%= locals.value.object.foi_modals_save.musics.m_select.label_ %></label>
+					<input id="cac_aj_style_" name="style" class="form-control" onblur="if($(this).prev().prev().val()!=this.value)$(this).next().val(19)" placeholder="<%= locals.value.object.foi_modals_save.musics.m_select.ph_ %><%= locals.value.object.foi_modals_save.musics.general0 %>">
+					<input type="hidden" name="style_">
+					<label for="cac_aj_zone"><%= locals.value.object.foi_modals_save.musics.m_select_.label %><%= locals.value.object.foi_modals_save.musics.general0 %></label>
+					<select id="cac_aj_zone" name="zone" class="form-control">
+						<option value="void" selected><%= locals.value.object.foi_modals_save.musics.m_select_.ph %><%= locals.value.object.foi_modals_save.musics.general0 %></option>
+						<option value="<%= locals.value.object.foi_modals_save.musics.m_select_.option0_ %>"><%= locals.value.object.foi_modals_save.musics.m_select_.option0 %></option>
+						<option value="<%= locals.value.object.foi_modals_save.musics.m_select_.option1_ %>"><%= locals.value.object.foi_modals_save.musics.m_select_.option1 %></option>
+						<option value="<%= locals.value.object.foi_modals_save.musics.m_select_.option2_ %>"><%= locals.value.object.foi_modals_save.musics.m_select_.option2 %></option>
+						<option value="<%= locals.value.object.foi_modals_save.musics.m_select_.option3_ %>"><%= locals.value.object.foi_modals_save.musics.m_select_.option3 %></option>
+						<option value="<%= locals.value.object.foi_modals_save.musics.m_select_.option4_ %>"><%= locals.value.object.foi_modals_save.musics.m_select_.option4 %></option>
+					</select>
+					<label for="cac_aj_langue"><%= locals.value.object.foi_modals_save.musics.m_input3.label %><%= locals.value.object.foi_modals_save.musics.general5 %></label>
+					<select id="cac_aj_langue" name="langue" class="form-control">
+						<option value="void" selected><%= locals.value.object.foi_modals_save.musics.m_select__.ph %><%= locals.value.object.foi_modals_save.musics.general3 %></option>
+						<option value="<%= locals.value.object.foi_modals_save.musics.m_select__.option0_ %>"><%= locals.value.object.foi_modals_save.musics.m_select__.option0 %></option>
+						<option value="<%= locals.value.object.foi_modals_save.musics.m_select__.option1_ %>"><%= locals.value.object.foi_modals_save.musics.m_select__.option1 %></option>
+						<option value="<%= locals.value.object.foi_modals_save.musics.m_select__.option2_ %>"><%= locals.value.object.foi_modals_save.musics.m_select__.option2 %></option>
+						<option value="<%= locals.value.object.foi_modals_save.musics.m_select__.option3_ %>"><%= locals.value.object.foi_modals_save.musics.m_select__.option3 %></option>
+						<option value="<%= locals.value.object.foi_modals_save.musics.m_select__.option4_ %>"><%= locals.value.object.foi_modals_save.musics.m_select__.option4 %></option>
+						<option value="<%= locals.value.object.foi_modals_save.musics.m_select__.option5_ %>"><%= locals.value.object.foi_modals_save.musics.m_select__.option5 %></option>
+						<option value="<%= locals.value.object.foi_modals_save.musics.m_select__.option6_ %>"><%= locals.value.object.foi_modals_save.musics.m_select__.option6 %></option>
+						<option value="<%= locals.value.object.foi_modals_save.musics.m_select__.option7_ %>"><%= locals.value.object.foi_modals_save.musics.m_select__.option7 %></option>
+					</select>
+					<hr>
+					<label for="cac_aj_infos"><%= locals.value.object.foi_modals_save.general.m_input2.label %><%= locals.value.object.foi_modals_save.musics.general0 %> <%= locals.value.object.foi_modals_save.musics.m_input4_ %></label>
+					<input id="cac_aj_infos" name="cac_aj_infos" placeholder="___miss_in_sql_model___" class="infos form-control">
+					<label for="mc_aj_infos_">Les informations que vous avez entrées<br>...à l'aide dune fonction javascript...</label>
+					<input id="mc_aj_infos_" class="form-control" readonly>
+					<input id="mc_aj_infos__" type="hidden" name="infos" value="{}">
+				</div>
+				<div class="modal_footer panel panel-info">
+					<input type="hidden" name="links" class="links" value="{}">
+					<div>
+						<label for="caf_aj_buy"><%= locals.value.object.foi_modals_save.musics.f_input0.label %></label><br>
+						<input id='caf_aj_buy' name='buy' class="form-control" placeholder="<%= locals.value.object.foi_modals_save.musics.f_input0.ex %>"/>
+					</div>
+					<div>
+						<label for="caf_aj_listen"><%= locals.value.object.foi_modals_save.musics.f_input1.label %></label><br>
+						<input id='caf_aj_listen' name='listen' class="form-control" placeholder="<%= locals.value.object.foi_modals_save.musics.f_input1.ex %>"/>
+					</div>
+					<div>
+						<label for="caf_aj_dl"><%= locals.value.object.foi_modals_save.musics.f_input2.label %></label><br>
+						<input id='caf_aj_dl' name='dls' class="form-control" placeholder="<%= locals.value.object.foi_modals_save.musics.f_input2.ex %>"/>
+					</div>
+					<div>
+						<label for="caf_aj_load"><%= locals.value.object.foi_modals_save.musics.f_input3.label %></label><br>
+						<button type="button" class="btn btn-danger nex nex_"><%= locals.value.object.foi_modals_save.musics.f_input3.ph %>..</button> 
+						<input id='caf_aj_load' name='files' type="file" multiple>
+					</div>
+					<div>
+						<label for="caf_aj_infos"><%= locals.value.object.foi_modals_save.musics.f_input4.label %></label><br>
+						<input id='caf_aj_infos' name='news' class="form-control" placeholder="<%= locals.value.object.foi_modals_save.musics.f_input4.ex %>"/>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div id="modal_aj_films" class="modal_ aj">
+		<div class="modal_box panel-group">
+			<form action="/jesus-christ-foi-chretienne" method="POST" enctype="multipart/form-data">
+				<input type="submit">
+				<input type="hidden" name="requete" value="films">
+				<input type="hidden" name="type" value="0">
+				<input type="hidden" name="ajouteur" value="2">
+				<input type="hidden" name="langue" value="fr">
+				<input type="hidden" name="href" value="">
+				<div class="modal_header panel panel-primary">
+					<div>
+						<label for="fh_aj_titre"><%= locals.value.object.foi_modals_save.general.h_0.label %><%= locals.value.object.foi_modals_save.films.general0 %></label>
+						<input id="fh_aj_titre" name="titre" class="form-control" placeholder="<%= locals.value.object.foi_modals_save.general.h_0.ph %><%= locals.value.object.foi_modals_save.films.general0 %>"/>
+					</div>
+					<div>
+						<label for="fh_aj_title"><%= locals.value.object.foi_modals_save.general.h_0__.label %></label>
+						<input id="fh_aj_title" name="title" class="form-control" placeholder="<%= locals.value.object.foi_modals_save.general.h_0__.ph %>"/>
+					</div>
+					<div>
+						<label for="fh_aj_auteur"><%= locals.value.object.foi_modals_save.films.h_input1.label %><%= locals.value.object.foi_modals_save.films.general0 %></label>
+						<input id="fh_aj_auteur" name="auteur" class="form-control" placeholder="<%= locals.value.object.foi_modals_save.films.h_input1.ph %><%= locals.value.object.foi_modals_save.films.general0 %>"/>
+					</div>
+					<div>
+						<label class="nex"><%= locals.value.object.foi_modals_save.general.h_2.label %><%= locals.value.object.foi_modals_save.films.h_input2 %></label><br>
+						<button type="button" class="btn btn-danger nex"><%= locals.value.object.foi_modals_save.general.h_2.ph %>..</button>
+						<input id="fh_aj_img" name="img" type="file"/>
+					</div>
+				</div>
+				<div class="modal_content">
+					<label for="fc_aj_Cdescr"><%= locals.value.object.foi_modals_save.general.m_input0 %><%= locals.value.object.foi_modals_save.films.general0 %></label>
+					<textarea id="fc_aj_Cdescr" name="short_descr" class="form-control"></textarea>
+					<label for="fc_aj_descr"><%= locals.value.object.foi_modals_save.general.m_input1 %><%= locals.value.object.foi_modals_save.films.general0 %></label>
+					<textarea id="fc_aj_descr" name="descr" class="form-control"></textarea>
+					<label for="fc_aj_theme"><%= locals.value.object.foi_modals_save.films.m_select.label %><%= locals.value.object.foi_modals_save.films.general0 %><%= locals.value.object.foi_modals_save.films.m_select.label_ %></label>
+					<select id="fc_aj_theme" onchange="$(this).next().next().val(this.value);$(this).next().next().next().val(this.selectedIndex)" name="fc_aj_style" class="form-control">
+						<option value="void" selected><%= locals.value.object.foi_modals_save.films.m_select.ph %></option>
+						<option value="<%= locals.value.object.foi_modals_save.films.m_select.option0_ %>"><%= locals.value.object.foi_modals_save.films.m_select.option0 %></option>
+						<option value="<%= locals.value.object.foi_modals_save.films.m_select.option1_ %>"><%= locals.value.object.foi_modals_save.films.m_select.option1 %></option>
+						<option value="<%= locals.value.object.foi_modals_save.films.m_select.option2_ %>"><%= locals.value.object.foi_modals_save.films.m_select.option2 %></option>
+						<option value="<%= locals.value.object.foi_modals_save.films.m_select.option3_ %>"><%= locals.value.object.foi_modals_save.films.m_select.option3 %></option>
+						<option value="<%= locals.value.object.foi_modals_save.films.m_select.option4_ %>"><%= locals.value.object.foi_modals_save.films.m_select.option4 %></option>
+					</select>
+					<label for="fc_aj_style_"><%= locals.value.object.foi_modals_save.films.m_select.__label %></label>
+					<input id="fc_aj_style_" name="theme" class="form-control" onblur="if($(this).prev().prev().val()!=this.value)$(this).next().val(19)" placeholder="<%= locals.value.object.foi_modals_save.films.m_select.ph_ %>">
+					<input type="hidden" name="theme_">
+					<label for="fc_aj_date"><%= locals.value.object.foi_modals_save.films.m_input2.label %></label>
+					<input id="fc_aj_date" name="date" maxlength="4" pattern="...." class="form-control" placeholder="<%= locals.value.object.foi_modals_save.films.m_input2.ph %><%= locals.value.object.foi_modals_save.films.general0 %>">
+					<!--
+					<label for="fc_aj_duree"><%= locals.value.object.foi_modals_save.films.m_input3.label %><%= locals.value.object.foi_modals_save.films.general0 %></label>
+					<input id="fc_aj_duree" name="fc_aj_duree" class="form-control" placeholder="<%= locals.value.object.foi_modals_save.films.m_input3.ph %><%= locals.value.object.foi_modals_save.films.general0 %>">
+					-->
+					<hr>
+					<label for="fc_aj_infos"><%= locals.value.object.foi_modals_save.general.m_input2.label %><%= locals.value.object.foi_modals_save.films.general0 %><%= locals.value.object.foi_modals_save.films.m_input4 %></label>
+					<input id="fc_aj_infos" name="fc_aj_infos" placeholder="___miss_in_sql_model___" class="infos form-control">
+					<label for="fc_aj_infos_">Les informations que vous avez entrées<br>...à l'aide dune fonction javascript...</label>
+					<input id="fc_aj_infos_" class="form-control" readonly>
+					<input id="fc_aj_infos__" type="hidden" name="infos" value="{}">
+				</div>
+				<div class="modal_footer panel panel-info">
+					<input type="hidden" name="links" class="links" value="{}">
+					<div>
+						<label for="ff_aj_lien"><%= locals.value.object.foi_modals_save.films.f_input0.label %></label><br>
+						<input id='ff_aj_lien' name='buy' class="form-control" placeholder="<%= locals.value.object.foi_modals_save.films.f_input0.ph %>"/>
+					</div>
+					<div>
+						<label for="ff_aj_achat"><%= locals.value.object.foi_modals_save.films.f_input1.label %></label><br>
+						<input id='ff_aj_achat' name='watch' class="form-control" placeholder="<%= locals.value.object.foi_modals_save.films.f_input1.ph %>"/>
+					</div>
+					<div>
+						<label for="ff_aj_dl"><%= locals.value.object.foi_modals_save.films.f_input2.label %></label><br>
+						<input id='ff_aj_dl' name='dls' class="form-control" placeholder="<%= locals.value.object.foi_modals_save.films.f_input2.ph %>"/>
+					</div>
+					<div>
+						<label for="ff_aj_stream"><%= locals.value.object.foi_modals_save.films.f_input3.label %></label><br>
+						<input id='ff_aj_stream' name='news' class="form-control" placeholder="<%= locals.value.object.foi_modals_save.films.f_input3.ph %>"/>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div id="modal_aj_enseignements" class="modal_ aj">
+		<div class="modal_box panel-group">
+			<form action="/jesus-christ-foi-chretienne" method="POST" enctype="multipart/form-data">
+				<input type="submit">
+				<input type="hidden" name="requete" value="films">
+				<input type="hidden" name="type" value="1">
+				<input type="hidden" name="ajouteur" value="2">
+				<input type="hidden" name="langue" value="fr">
+				<input type="hidden" name="href" value="">
+				<input type="hidden" name="date" value="">
+				<div class="modal_header panel panel-primary">
+					<div>
+						<label for="oeh_aj_titre"><%= locals.value.object.foi_modals_save.general.h_0_.label %><%= locals.value.object.foi_modals_save.films.general1 %></label>
+						<input id="oeh_aj_titre" name="titre" class="form-control" placeholder="<%= locals.value.object.foi_modals_save.general.h_0_.ph %><%= locals.value.object.foi_modals_save.films.general1 %>"/>
+					</div>
+					<div>
+						<label for="oeh_aj_title"><%= locals.value.object.foi_modals_save.general.h_0__.label %></label>
+						<input id="oeh_aj_title" name="title" class="form-control" placeholder="<%= locals.value.object.foi_modals_save.general.h_0__.ph %>"/>
+					</div>
+					<div>
+						<label for="oeh_aj_auteur"><%= locals.value.object.foi_modals_save.general.h_1_.label %><%= locals.value.object.foi_modals_save.films.general1 %></label>
+						<input id="oeh_aj_auteur" name="auteur" class="form-control" placeholder="<%= locals.value.object.foi_modals_save.general.h_1_.ph %><%= locals.value.object.foi_modals_save.films.general1 %>"/>
+					</div>
+					<div>
+						<label class="nex"><%= locals.value.object.foi_modals_save.general.h_2_.label %></label><br>
+						<button type="button" class="btn btn-danger nex"><%= locals.value.object.foi_modals_save.general.h_2.ph %>..</button>
+						<input id="img" name="img" type="file"/>
+					</div>
+				</div>
+				<div class="modal_content">
+					<label for="oec_aj_Cdescr"><%= locals.value.object.foi_modals_save.general.m_input0 %><%= locals.value.object.foi_modals_save.films.general1 %></label>
+					<textarea id="oec_aj_Cdescr" name="short_descr" class="form-control"></textarea>
+					<label for="oec_aj_descr"><%= locals.value.object.foi_modals_save.general.m_input1 %><%= locals.value.object.foi_modals_save.films.general1 %></label>
+					<textarea id="oec_aj_descr" name="descr" class="form-control"></textarea>
+					<label for="oec_aj_theme"><%= locals.value.object.foi_modals_save.films.m_select._label %><%= locals.value.object.foi_modals_save.films.general1 %></label>
+					<select id="oec_aj_theme" onchange="$(this).next().next().val(this.value);$(this).next().next().next().val(this.selectedIndex)" class="form-control">
+						<option value="void" selected><%= locals.value.object.foi_modals_save.films.m_select.ph %></option>
+						<option value="<%= locals.value.object.foi_modals_save.musics.m_select.option0_ %>"><%= locals.value.object.foi_modals_save.films.m_select.option0 %></option>
+						<option value="<%= locals.value.object.foi_modals_save.musics.m_select.option1_ %>"><%= locals.value.object.foi_modals_save.films.m_select.option1 %></option>
+						<option value="<%= locals.value.object.foi_modals_save.musics.m_select.option2_ %>"><%= locals.value.object.foi_modals_save.films.m_select.option2 %></option>
+						<option value="<%= locals.value.object.foi_modals_save.musics.m_select.option3_ %>"><%= locals.value.object.foi_modals_save.films.m_select.option3 %></option>
+						<option value="<%= locals.value.object.foi_modals_save.musics.m_select.option4_ %>"><%= locals.value.object.foi_modals_save.films.m_select.option4 %></option>
+					</select>
+					<label for="oec_aj_theme_"><%= locals.value.object.foi_modals_save.films.m_select.__label %></label>
+					<input id="oec_aj_theme_" name="theme" class="form-control" onblur="if($(this).prev().prev().val()!=this.value)$(this).next().val(19)" placeholder="<%= locals.value.object.foi_modals_save.films.m_select.ph_ %>">
+					<input type="hidden" name="theme_">
+					<label for="oec_aj_langue"><%= locals.value.object.foi_modals_save.films.m_input5 %><%= locals.value.object.foi_modals_save.films.general2 %></label>
+					<!--
+					CE SELECT EST COPIE SUR musics
+					-->
+					<select id="oec_aj_langue" name="langue_" class="form-control">
+						<option value="void" selected><%= locals.value.object.foi_modals_save.musics.m_select__.ph %> <%= locals.value.object.foi_modals_save.films.general1 %></option>
+						<option value="<%= locals.value.object.foi_modals_save.musics.m_select__.option0_ %>"><%= locals.value.object.foi_modals_save.musics.m_select__.option0 %></option>
+						<option value="<%= locals.value.object.foi_modals_save.musics.m_select__.option1_ %>"><%= locals.value.object.foi_modals_save.musics.m_select__.option1 %></option>
+						<option value="<%= locals.value.object.foi_modals_save.musics.m_select__.option2_ %>"><%= locals.value.object.foi_modals_save.musics.m_select__.option2 %></option>
+						<option value="<%= locals.value.object.foi_modals_save.musics.m_select__.option3_ %>"><%= locals.value.object.foi_modals_save.musics.m_select__.option3 %></option>
+						<option value="<%= locals.value.object.foi_modals_save.musics.m_select__.option4_ %>"><%= locals.value.object.foi_modals_save.musics.m_select__.option4 %></option>
+						<option value="<%= locals.value.object.foi_modals_save.musics.m_select__.option5_ %>"><%= locals.value.object.foi_modals_save.musics.m_select__.option5 %></option>
+						<option value="<%= locals.value.object.foi_modals_save.musics.m_select__.option6_ %>"><%= locals.value.object.foi_modals_save.musics.m_select__.option6 %></option>
+						<option value="<%= locals.value.object.foi_modals_save.musics.m_select__.option7_ %>"><%= locals.value.object.foi_modals_save.musics.m_select__.option7 %></option>
+					</select>
+					<hr>
+					<label for="oec_aj_infos"><%= locals.value.object.foi_modals_save.general.m_input2.label %><%= locals.value.object.foi_modals_save.films.general1 %><%= locals.value.object.foi_modals_save.films.m_input4_ %></label>
+					<input id="oec_aj_infos" name="oec_aj_infos" placeholder="___miss_in_sql_model___" class="infos form-control">
+					<label for="oec_aj_infos_">Les informations que vous avez entrées<br>...à l'aide dune fonction javascript...</label>
+					<input id="oec_aj_infos_" class="form-control" readonly>
+					<input id="oec_aj_infos__" type="hidden" name="infos" value="{}">
+				</div>
+				<div class="modal_footer panel panel-info">
+					<input type="hidden" name="links" class="links" value="{}">
+					<div>
+						<label for="oef_aj_lien"><%= locals.value.object.foi_modals_save.films.f_input0.label %></label><br>
+						<input id='oef_aj_lien' name='buy' class="form-control" placeholder="<%= locals.value.object.foi_modals_save.films.f_input0.ph %>"/>
+					</div>
+					<div>
+						<label for="oef_aj_achat"><%= locals.value.object.foi_modals_save.films.f_input1.label %></label><br>
+						<input id='oef_aj_achat' name='watch' class="form-control" placeholder="<%= locals.value.object.foi_modals_save.films.f_input1.ph %>"/>
+					</div>
+					<div>
+						<label for="oef_aj_dl"><%= locals.value.object.foi_modals_save.films.f_input2.label %></label><br>
+						<input id='oef_aj_dl' name='dls' class="form-control" placeholder="<%= locals.value.object.foi_modals_save.films.f_input2.ph %>"/>
+					</div>
+					<div>
+						<label for="oef_aj_stream"><%= locals.value.object.foi_modals_save.films.f_input3.label %></label><br>
+						<input id='oef_aj_stream' name='news' class="form-control" placeholder="<%= locals.value.object.foi_modals_save.films.f_input3.ph %>"/>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	
+	
+	
+	<div id="modal_blog_priere" class="modal_ blog">
+		<div class="modal_box panel-group">
+			<form action="/murs" method="POST" enctype="multipart/form-data">
+				<input name='langue' type="hidden" value="fr">
+				<input name='mur' type="hidden" value="foi">
+				<input name='type' type="hidden" value="priere">
+				<input name='redir' type="hidden" value="">
+				<input name='href' type="hidden" value="">
+				<input name='ajouteur' type="hidden" value="1">
+				<div class="modal_header panel panel-danger">
+					<h2 class=""><%= locals.value.object.foi_modals_droite.priere.h2 %></h2>
+					<p class=""><%= locals.value.object.foi_modals_droite.p %></p>
+				</div>
+				<div class="modal_content">
+					<div>
+						<p><%= locals.value.object.foi_modals_droite.priere.p %></p>
+						<p>
+							<input id="mbp_type" name='titre' type="radio" value="priere" selected> <label for="mbp_type"><%= locals.value.object.foi_modals_droite.priere.label0 %></label>
+						</p>
+						<p>
+							<input id="mbp_type_" name='titre' type="radio" value="benediction"> <label for="mbp_type_"><%= locals.value.object.foi_modals_droite.priere.label1 %></label>
+						</p>
+						<p>
+							<input id="mbp_type__" name='titre' type="radio" value="intention"> <label for="mbp_type__"><%= locals.value.object.foi_modals_droite.priere.label2 %></label>
+						</p>
+						<p>
+							<input id="mbp_type___" name='titre' type="radio" value="pardon"> <label for="mbp_type___"><%= locals.value.object.foi_modals_droite.priere.label4 %></label>
+						</p>
+					</div>
+					<div>
+						<label for="mbp_priere"><%= locals.value.object.foi_modals_droite.priere.label_ %></label>
+						<textarea id="mbp_priere" name="texte" class="form-control" onchange="alert('ok')"></textarea>
+					</div>
+				</div>
+				<div class="modal_footer panel panel-danger">
+					<button class="btn btn-danger href"><%= locals.value.object.all_textes.droite.send %></button>
+					<button type="button" class="btn btn-danger"><%= locals.value.object.all_textes.droite.save %></button>
+					<button type="button" class="btn btn-danger"><%= locals.value.object.all_textes.droite.prev %></button>
+					<a href="#" title=""><%= locals.value.object.all_textes.droite.terms %></a>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div id="modal_blog_priere_image" class="modal_ blog">
+		<div class="modal_box panel-group">
+			<form action="/murs" method="POST" enctype="multipart/form-data">
+				<input name='langue' type="hidden" value="fr">
+				<input name='mur' type="hidden" value="foi">
+				<input name='type' type="hidden" value="image">
+				<input name='redir' type="hidden" value="">
+				<input name='href' type="hidden" value="">
+				<input name='ajouteur' type="hidden" value="1">
+				<div class="modal_header panel panel-danger">
+					<h2 class=""><%= locals.value.object.foi_modals_droite.image.h2 %></h2>
+					<p class=""><%= locals.value.object.foi_modals_droite.p %></p>
+				</div>
+				<div class="modal_content">
+					<label for="mbi_titre"><%= locals.value.object.foi_modals_droite.image.label_titre %></label>
+					<input id='mbi_titre' name="titre" class="form-control href"/>
+					<label for="mbi_com"><%= locals.value.object.foi_modals_droite.image.label_com %></label>
+					<textarea id="mbi_com" name="texte" class="form-control"></textarea>
+					<label onclick="$(this).next()[0].click()"><%= locals.value.object.foi_modals_droite.image.label_file %></label><br>
+					<button type="button" class="nex btn btn-danger" onclick="$(this).next()[0].click()"><%= locals.value.object.foi_modals_droite.add %></button>
+					<input id='mbi_image' name="mult" type="file"/>
+					<label for="$(this).next()[0].click()"><%= locals.value.object.foi_modals_droite.image.label_url.label %></label>
+					<input id='mbi_image_' name="mult_" pattern="" placeholder="<%= locals.value.object.foi_modals_droite.image.label_url.ph %>" class="form-control"/>
+				</div>
+				<div class="modal_footer panel panel-danger">
+					<button class="btn btn-danger"><%= locals.value.object.all_textes.droite.send %></button>
+					<button type="button" class="btn btn-danger"><%= locals.value.object.all_textes.droite.save %></button>
+					<button type="button" class="btn btn-danger"><%= locals.value.object.all_textes.droite.prev %></button>
+					<a href="#" title=""><%= locals.value.object.all_textes.droite.terms %></a>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div id="modal_blog_priere_audio" class="modal_ blog">
+		<div class="modal_box panel-group">
+			<form action="/murs" method="POST" enctype="multipart/form-data">
+				<input name='langue' type="hidden" value="fr">
+				<input name='mur' type="hidden" value="foi">
+				<input name='type' type="hidden" value="audio">
+				<input name='redir' type="hidden" value="">
+				<input name='href' type="hidden" value="">
+				<input name='ajouteur' type="hidden" value="1">
+				<div class="modal_header panel panel-danger">
+					<h2 class=""><%= locals.value.object.foi_modals_droite.audio.h2 %></h2>
+					<p class=""><%= locals.value.object.foi_modals_droite.p %></p>
+				</div>
+				<div class="modal_content">
+					<label for="mba_titre"><%= locals.value.object.foi_modals_droite.audio.label_titre %></label>
+					<input id='mba_titre' name="titre" class="form-control href"/>
+					<label for="mba_com"><%= locals.value.object.foi_modals_droite.audio.label_com %></label>
+					<textarea id="mba_com" name="texte" class="form-control"></textarea>
+					<label onclick="$(this).next()[0].click()"><%= locals.value.object.foi_modals_droite.audio.label_file %></label><br>
+					<button type="button" class="nex btn btn-danger" onclick="$(this).next()[0].click()"><%= locals.value.object.foi_modals_droite.add %></button>
+					<input id='mba_audio' name="mult" type="file"/>
+					<label for="mba_audio_"><%= locals.value.object.foi_modals_droite.audio.label_url.label %></label><br>
+					<input id='mba_audio_' name="mult_" pattern="" placeholder="<%= locals.value.object.foi_modals_droite.audio.label_url.ph %>" class="form-control"/>
+				</div>
+				<div class="modal_footer panel panel-danger">
+					<button class="btn btn-danger"><%= locals.value.object.all_textes.droite.send %></button>
+					<button type="button" class="btn btn-danger"><%= locals.value.object.all_textes.droite.save %></button>
+					<button type="button" class="btn btn-danger"><%= locals.value.object.all_textes.droite.prev %></button>
+					<a href="#" title=""><%= locals.value.object.all_textes.droite.terms %></a>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div id="modal_blog_priere_video" class="modal_ blog">
+		<div class="modal_box panel-group">
+			<form action="/murs" method="POST" enctype="multipart/form-data">
+				<input name='langue' type="hidden" value="fr">
+				<input name='mur' type="hidden" value="foi">
+				<input name='type' type="hidden" value="video">
+				<input name='redir' type="hidden" value="">
+				<input name='href' type="hidden" value="">
+				<input name='ajouteur' type="hidden" value="1">
+				<div class="modal_header panel panel-danger">
+					<h2 class=""><%= locals.value.object.foi_modals_droite.video.h2 %></h2>
+					<p class=""><%= locals.value.object.foi_modals_droite.p %></p>
+				</div>
+				<div class="modal_content">
+					<label for="mbv_titre"><%= locals.value.object.foi_modals_droite.audio.label_titre %></label>
+					<input id='mbv_titre' name="titre" class="form-control href"/>
+					<label for="mbv_com"><%= locals.value.object.foi_modals_droite.audio.label_com %></label>
+					<textarea id="mbv_com" name="texte" class="form-control"></textarea>
+					<label onclick="$(this).next()[0].click()"><%= locals.value.object.foi_modals_droite.audio.label_file %></label><br>
+					<button type="button" class="nex btn btn-danger" onclick="$(this).next()[0].click()"><%= locals.value.object.foi_modals_droite.add %></button>
+					<input id='mbv_video' name="mult" type="file"/>
+					<label for="mbv_video_"><%= locals.value.object.foi_modals_droite.audio.label_url.label %></label><br>
+					<input id='mbv_video_' name="mult_" pattern="" placeholder="<%= locals.value.object.foi_modals_droite.audio.label_url.ph %>" class="form-control"/>
+				</div>
+				<div class="modal_footer panel panel-danger">
+					<button class="btn btn-danger"><%= locals.value.object.all_textes.droite.send %></button>
+					<button type="button" class="btn btn-danger"><%= locals.value.object.all_textes.droite.save %></button>
+					<button type="button" class="btn btn-danger"><%= locals.value.object.all_textes.droite.prev %></button>
+					<a href="#" title=""><%= locals.value.object.all_textes.droite.terms %></a>
+				</div>
+			</form>
+		</div>
+	</div>
+	<% } %>
+</div>

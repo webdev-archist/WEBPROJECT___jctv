@@ -1,0 +1,10 @@
+<header>  
+	<h1><%= locals.value.object.foi_menu_h1 %><%= locals.value.object.charite_menu_h1 %><%= locals.value.object.esperance_menu_h1 %><%= locals.value.object.pages_iwai_menu_h1 %><%= locals.value.object.pages_map_menu_h1 %><%= locals.value.object.pages_user_account_menu_h1 %></h1>
+	<menu id="menu">
+	<% for(a in locals.value.object.all_menu){ %>
+		<% if(locals.value.object.all_menu[a].href){ %>
+		<a href="<%= locals.value._ + "/"+ locals.value.object.all_menu[a].href %>" title="<%= locals.value.object.all_menu[a].title %>"><h2 class=""><strong><%= locals.value.object.all_menu[a].html %></strong></h2><img src="<%= locals.value.object.all_menu[a].src %>" alt="<%= locals.value.object.all_menu[a].alt %>"></a>
+		<% } %>
+	<% } %>
+	</menu>
+</header>

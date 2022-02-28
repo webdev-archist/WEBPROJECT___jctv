@@ -1,0 +1,67 @@
+<aside id="droite" class="bg-pg">
+	<% if(locals.value.connected){ %>
+	<p>
+		<%= locals.value.object.esperance_menu_droit.p %>
+	</p>
+	<div>
+		<fieldset>
+			<label for="droit_a_btn"><%= locals.value.object.esperance_menu_droit._1 %></label>
+			<input id="droit_a_btn" class="form-control" placeholder="http://exemple1.fr/">
+		</fieldset>
+	</div>
+	<div>
+		<fieldset>
+			<label for="droit_a_btn_"><%= locals.value.object.esperance_menu_droit._2 %></label>
+			<input id="droit_a_btn_" class="form-control" placeholder="http://radio.net/p=">
+		</fieldset>
+	</div>
+	<div>
+		<fieldset>
+			<label for="droit_a_btn_"><%= locals.value.object.esperance_menu_droit._3 %></label>
+			<input id="droit_a_btn_" class="form-control" placeholder="http://youtube.com/v=">
+		</fieldset>
+	</div>
+	<% } %>
+	<% if(!locals.value.connected||locals.value.connected==0){ %>
+	<p class="loggin">
+	<a href="<%= locals.value.object._all_buttons_log._1.href %>" title="<%= locals.value.object._all_buttons_log._1.title %>" class="w btn btn-danger"><%= locals.value.object._all_buttons_log._1.html %></a>
+	</p>
+	<% } %>		
+</aside>
+
+
+
+
+<div id="modals">
+</div>
+<div>
+	<div id="lire_la_suite" class="modal_">
+	</div>
+	<%- locals.value.object.esperance_sauver_ %>
+	<% if(locals.value.connected){ %>
+	<div id="modal_aj_murs" class="mur modal_">
+		<div class="modal_box panel-group">
+			<form action="/murs" method="POST">
+				<input name='langue' type="hidden" value="fr">
+				<input name='mur' type="hidden" value="esperance">
+				<input name='type' type="hidden" value="">
+				<input name='href' type="hidden" value="">
+				<input name='ajouteur' type="hidden" value="1">
+				<div class="modal_header panel panel-primary">
+					<label for="modal_url">Entrer l'URL ici</label>
+					<input id="modal_url" class="form-control" placeholder="http://exemple1.fr/"/>
+				</div>
+				<div class="modal_content panel panel-danger">
+					<textarea class="form-control" placeholder="Faite éventuellement une description"></textarea>
+				</div>
+				<div class="modal_footer panel panel-danger">
+					<button class="btn btn-danger href"><%= locals.value.object.all_textes.droite.send %></button>
+					<button type="button" class="btn btn-danger"><%= locals.value.object.all_textes.droite.save %></button>
+					<button type="button" class="btn btn-danger"><%= locals.value.object.all_textes.droite.prev %></button>
+					<a href="#" title=""><%= locals.value.object.all_textes.droite.terms %></a>
+				</div>
+			</form>
+		</div>
+	</div>
+	<% } %>
+</div>

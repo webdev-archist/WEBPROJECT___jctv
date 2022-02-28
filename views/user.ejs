@@ -1,0 +1,131 @@
+<html>
+	<head>
+		<meta charset="utf8">
+		<title>accueil
+		</title>
+		<style>
+		</style>
+		<link rel="stylesheet" href="/css/style.css">
+		<script id="fill_from_db"></script>
+		<script>
+		</script>
+	</head>
+	<body id="charite">
+		<%- include('header'); %>
+		
+		
+		
+		
+		
+		
+		
+		
+		<main id="main" class="">
+			<article id="page" class="upper_contain ">
+				<header>
+					<div>
+						<img src="<%= locals.value.user._img_ %>" alt="" class="">
+						<img src="<%= locals.value.user._img %>" alt="" class="">
+						<span><%= locals.value.user.nom %> <%= locals.value.user.prenom %> <%= locals.value.user.pseudo %></span>
+					</div>
+					<h1><%= locals.value.user._titre %></h1>
+				</header>
+				<main>
+					<h2>Mes informations personnelles</h2>
+					<ul>
+						<li><span>Nom</span> : <span>ACHI</span></li>
+						<li><span>Prénom</span> : <span>Agnissan</span></li>
+						<li><span>Pseudo</span> : <span>archist</span></li>
+						<li><span>Âge</span> : <span>29 ans</span></li>
+						<li><span>Membre depuis</span> : <span>23 Janvier 2018</span></li>
+						<li><span>etc</span> : <span>...etc...</span></li>
+						<li><span>etc</span> : <span>...etc...</span></li>
+						<li><span>etc</span> : <span>...etc...</span></li>
+					</ul>
+					<h3>La description de chrétien et de personne que je fais de moi</h3>
+					<p>La description de chrétien et de personne que je fais de moiLa description de chrétien et de personne que je fais de moiLa description de chrétien et de personne que je fais de moiLa description de chrétien et de personne que je fais de moiLa description de chrétien et de personne que je fais de moiLa description de chrétien et de personne que je fais de moiLa description de chrétien et de personne que je fais de moiLa description de chrétien et de personne que je fais de moiLa description de chrétien et de personne que je fais de moiLa description de chrétien et de personne que je fais de moiLa description de chrétien et de personne que je fais de moiLa description de chrétien et de personne que je fais de moiLa description de chrétien et de personne que je fais de moiLa description de chrétien et de personne que je fais de moiLa description de chrétien et de personne que je fais de moi</p>
+					<h4>Ce que a quoi j'ai participé sur jesus-christ.tv</h4>
+					<div>
+					</div>
+					<h5>Ce que j'ai partagé sur jesus-christ.tv</h5>
+					<div>
+					</div>
+					<h6>Ce que j'ai aimé sur jesus-christ.tv</h6>
+					<div>
+					</div>
+				</main>
+				<footer>
+					<h2>Vos points dans la foi, l'espérance et la charité</h2>
+					<div>
+						Vous avez 10 points dans la foi
+						<br>
+						Vous avez 143 points dans la charité
+						<br>
+						Vous avez 18 points dans l'espérance
+					</div>
+				</footer>
+			</article>
+		</main>
+		
+		
+		
+		
+		<%- include('navbar'); %>
+		
+		
+		
+		
+		<%- include('footer'); %>
+		
+		
+		
+		
+		
+	</body>
+	<%- include('loads'); %>
+	<script>
+	tinymce.init({
+		  selector: '',
+		  height: 500,
+		  theme: 'modern',
+		  plugins: [
+			'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+			'searchreplace wordcount visualblocks visualchars code fullscreen',
+			'insertdatetime media nonbreaking save table contextmenu directionality',
+			'emoticons template paste textcolor colorpicker textpattern imagetools codesample toc help'
+		  ],
+		  toolbar1: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+		  toolbar2: 'print preview media | forecolor backcolor emoticons | codesample help',
+		  image_advtab: true,
+		  templates: [
+			{ title: 'Test template 1', content: 'Test 1' },
+			{ title: 'Test template 2', content: 'Test 2' }
+		  ],
+		  content_css: [
+			'apis/tinymce/js/tinymce/css.css',
+			//'tinymce/js/tinymce/codepen.min.css'
+		  ]
+	 });
+	</script>
+	<script src="js/script.js"></script>
+	<!--
+	<script>
+		 var p=document.getElementsByTagName('link')
+		 var pp=document.getElementsByTagName('script')
+		 var ppp=document.getElementsByTagName('img')
+		 for(a=0;a<p.length;a++){
+			p[a].href=p[a].href.replace("css/","../css/")
+			p[a].href=p[a].href.replace("apis/","../apis/")
+		}
+		 for(a=0;a<pp.length;a++){
+			pp[a].src=pp[a].src.replace("js/","../js/")
+			pp[a].src=pp[a].src.replace("apis/","../apis/")
+			pp[a].src=pp[a].src.replace("apis/","../apis/")
+		}
+		 for(a=0;a<ppp.length;a++){
+			ppp[a].src=ppp[a].src.replace("imgs/","../imgs/")
+			ppp[a].src=ppp[a].src.replace("tmp1/","../tmp1/")
+		}
+	</script>
+	-->
+</html>

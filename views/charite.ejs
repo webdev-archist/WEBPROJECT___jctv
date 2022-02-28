@@ -1,0 +1,75 @@
+<aside id="droite" class="bg-warning">
+	<% if(locals.value.connected){ %>
+	<button class="btn btn-danger" title="<%= locals.value.object.charite_menu_droit.title %>"><i class="glyphicon glyphicon-pencil"></i><br><%= locals.value.object.charite_menu_droit.html %></button>
+	<button class="btn btn-danger" style="height:1px"></button>
+	<% } %>
+	<% if(!locals.value.connected||locals.value.connected==0){ %>
+	<p class="loggin">
+	<a href="<%= locals.value.object._all_buttons_log._1.href %>" title="<%= locals.value.object._all_buttons_log._1.title %>" class="w btn btn-danger"><%= locals.value.object._all_buttons_log._1.html %></a>
+	</p>
+	<% } %>		
+</aside>
+
+
+
+
+<div id="modals">
+</div>
+<div>
+	<div id="share" class="modal_ bg-whitestext-center boxSh_ scrolly">
+		<label for="modal_s_descr">Insérer un commentaire ici</label>
+		<textarea id="modal_s_descr" name="texte"></textarea>
+		<input type="submit">
+	</div>
+	<div id="b_presentation" class="modal_ bg-pg p2 text-center boxSh_ scrolly">
+		<form action="benevolat" method="POST" enctype="multipart/form-data" class="dis">
+			<button class="btn btn-danger" disabled onmousedown="if($(this).next().next().val()=='')return false"><%= locals.value.object.charite_tpls.b_p_btn0 %></button>
+			<button class="btn btn-danger" title="<%- locals.value.object.charite_tpls.b_p_btn1_ %>" type="button" onclick="$(this).next().trigger('click');alert($(this).next().val());$(this).prev().removeAttr('disabled');$(this).prev().addClass('text_actived');"><%= locals.value.object.charite_tpls.b_p_btn1 %></button>
+			<input type="file" name="cvs" class="nodisplay" multiple>
+			<input type="hidden" name="ajouteur" class="ajouteur_input">
+			<input type="hidden" name="id" class="id_input">
+			<input type="hidden" name="redirect" class="redirect_input">
+			<span class="text_actived {{response}}"><%= locals.value.object.charite_tpls.already %></span>
+		</form>
+		<h4></h4>
+		<div></div>
+	</div>
+	<% if(locals.value.connected){ %>
+	<div id="modal_aj_blog" class="blog modal_">
+		<div class="modal_box panel-group">
+			<form action="/murs" method="POST" enctype="multipart/form-data">
+				<input name='langue' type="hidden" value="fr">
+				<input name='mur' type="hidden" value="charite">
+				<input name='href' type="hidden" value="">
+				<input name='redirect' type="hidden">
+				<input name='ajouteur' type="hidden" value="1">
+				<div class="modal_header panel panel-primary">
+					<div class="">
+						<label for="modal_c_titre">Titre de votre action caritative</label>
+						<input id="modal_c_titre" name="titre"" class="href" class="form-control" placeholder="Des sdf réabilités le dimanche pour l'église"/>
+					</div>
+					<select name="type">
+						<option value="void" selected>Choisir un type</option>
+						<option value="charite">Charité</option>
+						<option value="solidarite">Solidarité</option>
+						<option value="social">Sociale</option>
+						<option value="benevolat">Bénévolat</option>
+					</select>
+				</div>
+				<div class="modal_content panel panel-warning">
+					<div>
+						<label for="modal_c_descr">Decrivez haut en couleur votre action caritative</label>
+						<textarea id="modal_c_descr" name="texte"></textarea>
+					</div>
+				</div>
+				<div class="modal_footer panel panel-danger">
+					<button class="btn btn-danger"><%= locals.value.object.all_textes.droite.send %></button>
+					<button type="button" class="btn btn-danger"><%= locals.value.object.all_textes.droite.save %></button>
+					<button type="button" class="btn btn-danger"><%= locals.value.object.all_textes.droite.prev %></button>
+					<a href="#" title=""><%= locals.value.object.all_textes.droite.terms %></a>
+				</div>
+			</form>
+		</div>
+	</div>
+	<% } %>
+</div>

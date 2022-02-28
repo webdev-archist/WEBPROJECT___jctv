@@ -1,0 +1,536 @@
+<template id="template_type_1">
+	<article class="zero panel-group">
+		<header class="panel panel-primary">
+			<img src="{{h_img.src}}" alt="{{h_img.alt}}" title="{{h_img.title}}" class="">
+			<h2 class="textS">{{h_h2}}</h2>
+			<menu class="t0 w100 flex_around">
+				<a target="_blank" href="/0/{{nav.un}}" title="{{f_a0.title}}" class="{{nav.un_}}"><i class="glyphicon glyphicon-arrow-up"></i><span>{{nav._un}}</span></a>
+				<a target="_blank" href="/0/{{nav.trois}}" title="{{f_a2.title}}" class="{{nav.trois_}}"><i class="glyphicon glyphicon-arrow-up"></i><span>{{nav._trois}}</span></a>
+				<a target="_blank" href="/0/{{nav.deux}}" title="{{f_a1.title}}" class="{{nav.deux_}}"><i class="glyphicon glyphicon-arrow-up"></i><span>{{nav._deux}}</span></a>
+			</menu>
+		</header>
+		<main class="panel panel-warning">
+			<div class="">
+				<iframe src="{{m_video.src}}" title="{{m_video.title}}" class=""></iframe>
+			</div>
+			<div class="">
+				<p class="">{{{m_p}}}</p>
+			</div>
+		</main>
+		<footer class="panel panel-info">
+			<h2 class="">{{f_h2}}</h2>
+			<a href="{{f_a0.href}}" title="{{f_a0.title}}" class="btn btn-danger">{{f_a0.html}}</a>
+			<a href="{{f_a2.href}}" title="{{f_a2.title}}" class="btn btn-danger">{{f_a2.html}}</a>
+			<a href="{{f_a1.href}}" title="{{f_a1.title}}" class="btn btn-danger">{{f_a1.html}}</a>
+		</footer>
+	</article>
+</template>
+<template id="template_type_1_">
+	<div class="">
+		<h2>{{h2}}</h2>
+		<ul class="main_0 add">
+			<h3 class="h31">{{h3}}</h3>
+			<h3 class="h32">{{h3_}}</h3>
+			<h3 class="h33">{{h3__}}</h3>
+		</ul>
+		<div class="foi_options">
+			<div class="btn-group" data-theme="{{theme}}" data-zone="{{zone}}">
+				<a href="{{btn0href}}" title="{{btn0title}}" class="btn btn-sm btn-info"><i class="glyphicon glyphicon-ok"></i> <h4>{{btn0html}}</h4>	</a>	
+				<a href="{{btn1href}}" title="{{btn1title}}" class="btn btn-sm btn-info"><i class="	glyphicon glyphicon-globe"></i> <h4>{{btn1html}}</h4></a>	
+				<a href="{{btn2href}}" title="{{btn2title}}" class="btn btn-sm btn-info"><i class="	glyphicon glyphicon-download-alt"></i> <h4>{{btn2html}}</h4></a>	
+				<a href="{{btn3href}}" title="{{btn3title}}" class="btn btn-sm btn-info"><i class="	glyphicon glyphicon-plus"></i> <h4>{{btn3html}}</h4></a>	
+				<button class="btn btn-sm btn-info" onclick="$(this).parent().parent().parent().find('ul').toggleClass('add')"><i class="	glyphicon glyphicon-plus"></i></button>	
+			</div>
+			<select class="">
+				<option value="void" selected>{{void}}</option>
+				<option value="_0">{{_0}}</option>
+				<option value="_1">{{_1}}</option>
+				<option value="_2">{{_2}}</option>
+				<option value="_3">{{_3}}</option>
+				<option value="_4">{{_4}}</option>
+				<option value="_5">{{_5}}</option>
+				<option value="_6">{{_6}}</option>
+				<option value="_7">{{_7}}</option>
+				<option value="_8">{{_8}}</option>
+				<option value="_9">{{_9}}</option>
+				<option value="_19">{{autre}}</option>
+			</select>	
+			<select class="musics">
+				<option value="void" selected>{{_void}}</option>
+				<option value="_0">{{__0}}</option>
+				<option value="_1">{{__1}}</option>
+				<option value="_2">{{__2}}</option>
+				<option value="_3">{{__3}}</option>
+				<option value="_4">{{__4}}</option>
+				<option value="_5">{{__5}}</option>
+				<option value="_6">{{__6}}</option>
+				<option value="_7">{{__7}}</option>
+				<option value="_8">{{__8}}</option>
+				<option value="_9">{{__9}}</option>
+				<option value="_19">{{_autre}}</option>
+			</select>	
+			<input class="musics" placeholder="{{input}}" data-position:"top" data-tooltip="<%= locals.value.object.foi_tpls.mult.input_tooltip %>">
+		</div>
+		<span class="close" onclick="$(this).parent().slideUp();$('#{{id}} .zero').slideDown();">X</span>
+	</div>
+</template>
+<template id="template_type_2">
+	<article class="trbl0 text-center safe_" style="padding:1em;padding-top:10%">
+	{{{p}}}
+	</article>
+	<div class="ui labeled button">
+		<a href="{{btn_0_href}}" title="{{btn_0_title}}" class="col-md-9 ui basic red button"><i class="icon edit"></i> {{btn_0_html}}</a>	
+		<span class="ui red left pointing label">{{badge_0}}</span>	
+	</div>
+	<div class="ui labeled button">
+		<a href="{{btn_1_href}}" title="{{btn_1_title}}" class="col-md-9 ui basic green button"><i class="icon edit"></i> {{btn_1_html}}</a>	
+		<span class="ui green left pointing label">{{badge_1}}</span>	
+	</div>
+	<div class="self_buttons" data-position="bottom" data-tooltip="">
+		<div class="nodisplay">
+			 <% for(a in locals.value.object.foi_tpls.self_btn_tooltips){ %>
+				<% for(b in locals.value.object.foi_tpls.self_btn_tooltips[a]){ %>
+					<span class="<%= a %>"><%= locals.value.object.foi_tpls.self_btn_tooltips[a][b] %></span>
+				<% } %>
+			 <% } %>
+		</div>
+		<button class="ui button"><i class="icon help circle outline"></i></button>	
+		<button class="ui button present_img"><i class="icon image"></i></button>	
+		<button class="ui button present_p"><i class="icon text"></i></button>	
+	</div>
+	<img class="pub mult" src="{{mult_src}}" alt="{{mult_alt}}" title="{{mult_title}}">
+	<ul class="main_2">
+	</ul>
+	<article class="publications safe">
+		<h1 class="">
+		</h1>
+		<header class="">
+			<img class="img-responsive ui centered image" src="coeur_immacule.jpg" alt="" />
+			<h2>
+			</h2>
+			<button class="btn btn-danger join" title="<%= locals.value.object.foi_rc_ul_titles[2] %>"><%= locals.value.object.foi_modals_direct.participe %></button>
+			<span class="nodisplay" title="<%= locals.value.object.foi_tpls.rc.unjoin_ %>"><%= locals.value.object.foi_tpls.rc.unjoin %></span>
+		</header>
+		<main>
+			<menu class="ui labeled icon menu">
+				<a class="item" onclick="$(this).closest('main').find('.un').slideToggle();$(this).closest('main').find('.cinq').slideUp();$(this).closest('main').find('.deux').slideUp();$(this).closest('main').find('.trois').slideUp();$(this).closest('main').find('.quatre').slideUp()">
+					<i class="announcement icon"></i>
+					<%= locals.value.object.foi_tpls.cp.publi._0 %>
+				</a>
+				<a class="item" onclick="$(this).closest('main').find('.deux').slideToggle();$(this).closest('main').find('.cinq').slideUp();$(this).closest('main').find('.un').slideUp();$(this).closest('main').find('.trois').slideUp();$(this).closest('main').find('.quatre').slideUp()">
+					<i class="info icon"></i>
+					<%= locals.value.object.foi_tpls.cp.publi._1 %>
+				</a>
+				<a class="item" onclick="$(this).closest('main').find('.trois').slideToggle();$(this).closest('main').find('.cinq').slideUp();$(this).closest('main').find('.deux').slideUp();$(this).closest('main').find('.un').slideUp();$(this).closest('main').find('.quatre').slideUp()">
+					<i class="prieur"></i>
+					<%= locals.value.object.foi_tpls.cp.publi._2 %>
+				</a>
+				<a class="item" onclick="$(this).closest('main').find('.quatre').slideToggle();$(this).closest('main').find('.cinq').slideUp();$(this).closest('main').find('.deux').slideUp();$(this).closest('main').find('.un').slideUp();$(this).closest('main').find('.trois').slideUp()">
+					<i class="comment icon"></i>
+					<%= locals.value.object.foi_tpls.cp.publi._3 %>
+				</a>
+				<a class="item" onclick="$(this).closest('main').find('.cinq').slideToggle();$(this).closest('main').find('.deux').slideUp();$(this).closest('main').find('.un').slideUp();$(this).closest('main').find('.trois').slideUp()">
+					<i class="file pdf outline icon"></i>
+					<%= locals.value.object.foi_tpls.cp.publi._4 %>
+				</a>
+			</menu>
+			<div class="un">
+			</div>
+			<div class="deux">
+			</div>
+			<div class="trois">
+				<ul></ul>
+				<h3></h3>
+				<p></p>
+				<div class="priere"></div>
+			</div>
+			<div class="quatre">
+				<h3></h3>
+				<p></p>
+				<div class="comments">
+				</div>
+			</div>
+			<div class="cinq">
+				<h3></h3>
+				<p class="nodisplay_"><%= locals.value.object.foi_tpls.cp.no_publi %></p>
+				<a href="#" onclick="$(this).closest('article').find('footer').slideDown()"><%= locals.value.object.foi_tpls.cp.publi0 %></a>
+				<ul class="publications_"></ul>
+				<div class="publication">
+				</div>
+			</div>
+		</main>
+		<footer>
+			<form action="/publication" method="POST">
+				<label for="publi_titre"><%= locals.value.object.foi_tpls.cp.publi_form_label %></label>
+				<input id="publi_titre" name="titre" class="form-control">
+				<label for="publi_text"><%= locals.value.object.foi_tpls.cp.publi_form_label_ %></label>
+				<textarea name="texte" id="publi_text"></textarea>
+			</form>
+		</footer>
+	</article>
+</template>
+<template id="template_type_2_ul">
+	<li class="col-xs-5 col-md-4" data-data="{{_id}}">
+		<div class="w100 tl0">{{participants_count}} <%= locals.value.object.foi_tpls.cp.inscripts %></div>
+		<a href="{{href}}" title="{{titre}}">
+			<header class="">
+					<h2 class="">{{titre}}</h2>
+			</header>
+			<div class="">
+				<img class="img-responsive" src="{{img}}" title="{{titre}}" alt="{{titre}}">
+			</div>
+			<div class="text-center scrolly h25">
+				<p>{{short_descr}}</p>
+			</div>
+			<button class="btn btn-danger join abs" style='bottom:3em' title="<%= locals.value.object.foi_rc_ul_titles[2] %>"><%= locals.value.object.foi_modals_direct.participe %></button>
+			<span class="nodisplay" title="<%= locals.value.object.foi_tpls.rc.unjoin_ %>"><%= locals.value.object.foi_tpls.rc.unjoin %></span>
+			<div class="lire_suite btn btn-danger bl0 w100"><span><%= locals.value.object.foi_tpls.cp.lire_suite %></span></div>
+		</a>
+		<div class="modal_h_sh_info"><div class="type"><%= locals.value.object.foi_modals_direct.general_header_html.share %><span class="badge">{{count_shares}}</span><%= locals.value.object.foi_modals_direct.general_header_html.times %></div><div class="likes"><span class="{{amen_}}"><span class="badge amen">{{count_amen}}</span><%= locals.value.object.foi_modals_direct.general_bottom_html.amen %></span><span class="{{hosanna_}}"><span class="badge hosanna">{{count_hosanna}}</span><%= locals.value.object.foi_modals_direct.general_bottom_html.hosanna %></span><span class="{{alleluia_}}"><span class="badge alleluia">{{count_alleluia}}</span><%= locals.value.object.foi_modals_direct.general_bottom_html.alleluia %></span></div></div>
+		<div class="pcm_last">
+			<a href="{{ajouteur_href}}" title="{{_ajouteur}}" target="_blank">
+				<!--
+				<div class="ui avatar image {{ajouteurs_sprite_src}}"><span>{{ajouteur_}}</span></div>
+				-->
+				<div class="ui avatar image ">
+					<img src="{{ajouteur_src}}" title="{{ajouteur_title}}" alt="{{ajouteur_alt}}">
+				</div>
+				<div>{{ajouteur_}}</div>
+			</a>
+			<hr class='separator'/>
+			<nav>
+				<div><i class="prieur"></i><span class="badge">{{badge}}</span> <%= locals.value.object.foi_tpls.cp.prieurs %></div>
+				<a href='{{href}}' class="ui button"><%= locals.value.object.foi_tpls.cp.voir %></a>
+			</nav>
+		</div>
+		<a class="tr0 ouside boxSh" href="{{_href_}}" title="{{ancre_title}}"><i class="glyphicon glyphicon-arrow-up"></i></a>
+	</li>
+</template>
+<template id="template_type_2_ul_">
+	<li class="col-md-4" data-data="{{_id}}">
+		<div class="ui card">
+			<div class="content">
+				<div class="right floated meta">{{jour}}, {{heure}}</div>
+				<a href="{{ajouteur_href}}" class="ui avatar image" title="{{_ajouteur}}">
+					<img src="{{ajouteur_src}}" title="{{ajouteur_title}}" alt="{{ajouteur_alt}}"> {{ajouteur_}}
+				</a>
+			</div>
+			<div class="image">
+				<img src="{{img}}" alt="{{activite}}" title="{{activite}}">
+			</div>
+			<h2 class="text-center">{{activite}}</h2>
+			<div class="content">
+				<span class="right floated">
+					<div class="modal_h_sh_info"><div class="type"><%= locals.value.object.foi_modals_direct.general_header_html.share %><span class="badge">{{count_shares}}</span><%= locals.value.object.foi_modals_direct.general_header_html.times %></div><div class="likes"><span class="{{amen_}}"><span class="badge amen">{{count_amen}}</span><%= locals.value.object.foi_modals_direct.general_bottom_html.amen %></span><span class="{{hosanna_}}"><span class="badge hosanna">{{count_hosanna}}</span><%= locals.value.object.foi_modals_direct.general_bottom_html.hosanna %></span><span class="{{alleluia_}}"><span class="badge alleluia">{{count_alleluia}}</span><%= locals.value.object.foi_modals_direct.general_bottom_html.alleluia %></span></div></div>
+				</span>
+				<i class="comment icon"></i>
+				{{comments_count}} <%= locals.value.object.foi_modals_direct.comments %>
+				<div class="ui large transparent left icon text-center">
+				<!-- onclick="$(this).closest('li').find('.comments').slideDown()" -->
+					<button class="btn btn-danger btn-xs talk" ><%= locals.value.object.foi_modals_direct.add_coms %></button>
+				</div>
+			</div>
+			<div class="extra content">
+				<div class="ui large transparent left icon text-center">
+					<button class="btn btn-danger join" onclick="alert('fonction a faire')" title="<%= locals.value.object.foi_rc_ul_titles[2] %>"><%= locals.value.object.foi_modals_direct.participe %></button>
+					<span class="nodisplay" title="<%= locals.value.object.foi_tpls.rc.unjoin_ %>"><%= locals.value.object.foi_tpls.rc.unjoin %></span>
+				</div>
+				<hr class="separator"/>
+				<div class="">
+					<div class="left floated" title="<%= locals.value.object.foi_rc_ul_titles[0] %>">
+						<i class="user icon"></i>
+						<span>{{participants_count}}</span>
+					</div>
+					<div class="right floated" title="<%= locals.value.object.foi_rc_ul_titles[1] %>">
+						 <i class="users icon"></i>
+						<span>{{nombre}}</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="comments trbl0 z1 text-center nodisplay_"><span class="close" onclick="$(this.parentNode).slideUp()">X</span><h2><%= locals.value.object.foi_modals_direct.descr %></h2><p class="scrolly_">{{descr}}</p><hr><div class="scrolly"></div><textarea class="bl0 w100"></textarea></div>
+		<a class="tr0 ouside boxSh" target="_blank" href="{{_href_}}" title="{{ancre_title}}"><i class="glyphicon glyphicon-arrow-up"></i></a>
+	</li>
+</template>
+<template id="template_rc_form">
+	<form action="/jesus-christ-foi-chretienne" method="POST" enctype="multipart/form-data">
+		<input type="hidden" name="href" value="fr">
+		<input type="hidden" name="langue" value="fr">
+		<input type="hidden" name="requete" value="rc">
+		<input type="hidden" name="ajouteur" value="2">
+		<fieldset><legend>1°) <%= locals.value.object.foi_rc_form._1.titre %></legend>
+			<p><%= locals.value.object.foi_rc_form._1.p %></p>
+			<div class="inputTextEffects">
+				<label for=""><%= locals.value.object.foi_rc_form._1.label %></label>
+				<div class="dropdown">
+					<button class="btn dropdown-toggle" data-toggle="dropdown"><%= locals.value.object.foi_rc_form._1.btn %><span class="caret"></span></button>
+					<ul class="dropdown-menu safe">
+						<li class="item" data-index="0" data-value="<%= locals.value.object.foi_rc_form._1.s._0_ %>" onclick="rc_ok.value=this.getAttribute('data-value');rc_img.value=this.getAttribute('data-index')"><a href="#"><%= locals.value.object.foi_rc_form._1.s._0 %></a></li>
+						<li class="item" data-index="1" data-value="<%= locals.value.object.foi_rc_form._1.s._1_ %>" onclick="rc_ok.value=this.getAttribute('data-value');rc_img.value=this.getAttribute('data-index');"><a href="#"><%= locals.value.object.foi_rc_form._1.s._1 %></a></li>
+						<li class="item" data-index="2" data-value="<%= locals.value.object.foi_rc_form._1.s._2_ %>" onclick="rc_ok.value=this.getAttribute('data-value');rc_img.value=this.getAttribute('data-index');"><a href="#"><%= locals.value.object.foi_rc_form._1.s._2 %></a></li>
+						<li class="item" data-index="3" data-value="<%= locals.value.object.foi_rc_form._1.s._3_ %>" onclick="rc_ok.value=this.getAttribute('data-value');rc_img.value=this.getAttribute('data-index');"><a href="#"><%= locals.value.object.foi_rc_form._1.s._3 %></a></li>
+						<li class="item" data-index="4" data-value="<%= locals.value.object.foi_rc_form._1.s._4_ %>" onclick="rc_ok.value=this.getAttribute('data-value');rc_img.value=this.getAttribute('data-index');"><a href="#"><%= locals.value.object.foi_rc_form._1.s._4 %></a></li>
+						<li class="item" data-index="5" data-value="<%= locals.value.object.foi_rc_form._1.s._5_ %>" onclick="rc_ok.value=this.getAttribute('data-value');rc_img.value=this.getAttribute('data-index');"><a href="#"><%= locals.value.object.foi_rc_form._1.s._5 %></a></li>
+						<li class="item" data-index="6" data-value="<%= locals.value.object.foi_rc_form._1.s._6_ %>" onclick="rc_ok.value=this.getAttribute('data-value');rc_img.value=this.getAttribute('data-index');"><a href="#"><%= locals.value.object.foi_rc_form._1.s._6 %></a></li>
+					</ul>
+				</div>
+				<div class="ui corner label" title="<%= locals.value.object.foi_modals_save.general.corner._0 %>">
+					<i class="asterisk icon"></i>
+				</div>
+			</div>
+			<div class="inputTextEffects">
+				<span class="input input--nao">
+					<input id="rc_activite" name="rc_activite" class="input__field input__field--nao blu" onblur="rc_img.value=9" type="text">
+					<label class="input__label input__label--nao" for="rc_activite">
+						<span class="input__label-content input__label-content--nao"><%= locals.value.object.foi_rc_form._1.label_ %></span>
+					</label>
+					<svg class="graphic graphic--nao" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">
+						<path d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0"></path>
+					</svg>
+				</span>
+				<div class="ui corner label optional" title="<%= locals.value.object.foi_modals_save.general.corner._1 %>">
+					<i class="asterisk icon"></i>
+				</div>
+			</div>
+			<input id="rc_ok" name="activite" value="" readonly class="form-control">
+			<input id="rc_img" type="hidden" name="img">
+		</fieldset>
+		<fieldset><legend>2°) <%= locals.value.object.foi_rc_form._3.titre %></legend>
+			<p><%= locals.value.object.foi_rc_form._3.titre %></p>
+			<div class="inputTextEffects">
+				<label for="rc_nombre"><%= locals.value.object.foi_rc_form._3.label %></label>
+				<input id="rc_nombre" name="nombre" type="number" min="0" max="20" class="form-control">
+				<div class="ui corner label" title="<%= locals.value.object.foi_modals_save.general.corner._0 %>">
+					<i class="asterisk icon"></i>
+				</div>
+			</div>
+		</fieldset>
+		<fieldset><legend>3°) <%= locals.value.object.foi_rc_form._4.titre %></legend>
+			<p><%= locals.value.object.foi_rc_form._4.p %></p>
+			<select class="form-control">
+				<option value="void" selected><%= locals.value.object.foi_rc_form._4.s.ph %></option>
+			</select>	
+			<div class="inputTextEffects">
+				<span class="input input--nao">
+					<input id="rc_pays" name="pays" class="input__field input__field--nao" type="text">
+					<label class="input__label input__label--nao" for="rc_pays">
+						<span class="input__label-content input__label-content--nao"><%= locals.value.object.foi_rc_form._4.label %></span>
+					</label>
+					<svg class="graphic graphic--nao" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">
+						<path d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0"></path>
+					</svg>
+				</span>
+				<span class="input input--nao">
+					<input id="rc_ville" name="ville" class="input__field input__field--nao" type="text">
+					<label class="input__label input__label--nao" for="rc_ville">
+						<span class="input__label-content input__label-content--nao"><%= locals.value.object.foi_rc_form._4.label_ %></span>
+					</label>
+					<svg class="graphic graphic--nao" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">
+						<path d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0"></path>
+					</svg>
+				</span>
+				<div class="ui corner label" title="<%= locals.value.object.foi_modals_save.general.corner._0 %>">
+					<i class="asterisk icon"></i>
+				</div>
+			</div>
+		</fieldset>
+		<fieldset><legend>4°) <%= locals.value.object.foi_rc_form._2.titre %></legend>
+			<p><%= locals.value.object.foi_rc_form._2.p %></p>
+			<div class="inputTextEffects">
+				<label for="rc_jour"><%= locals.value.object.foi_rc_form._2.label %></label>
+				<input id="rc_jour" name="jour"  type="date" class="form-control">
+				<label for="rc_heure"><%= locals.value.object.foi_rc_form._2.label_ %></label>
+				<input id="rc_heure" name="heure" type="time" class="form-control">
+				<label for="rc_lieu"><%= locals.value.object.foi_rc_form._2.label__ %></label>
+				<input id="rc_lieu" name="lieu" placeholder="<%= locals.value.object.foi_rc_form._2.ph %>" class="form-control">
+				<div class="ui corner label" title="<%= locals.value.object.foi_modals_save.general.corner._0 %>">
+					<i class="asterisk icon"></i>
+				</div>
+				<input id="rc_date" name="date" type="hidden">
+			</div>
+		</fieldset>
+		<fieldset><legend>5°) <%= locals.value.object.foi_rc_form._5.titre %></legend>
+			<p><%= locals.value.object.foi_rc_form._5.p %></p>
+			<div class="inputTextEffects">
+				<label class="" for="rc_activite"><%= locals.value.object.foi_rc_form._5.label %></label>
+				<textarea id="rc_descr" name="descr" ></textarea>
+				<div class="ui corner label" title="<%= locals.value.object.foi_modals_save.general.corner._0 %>">
+					<i class="asterisk icon"></i>
+				</div>
+			</div>
+		</fieldset>
+		<fieldset><legend>6°) <%= locals.value.object.foi_modals_save.general.validate %></legend>
+			<div class="ui slider checkbox">
+				<input type="checkbox" name="appouver" id="main_rc_check"> <label for="main_rc_check"><%= locals.value.object.foi_modals_save.general.approuver %></label>
+			</div>
+			<div>
+				<button type="button" class="ui yellow basic button"><%= locals.value.object.foi_modals_save.general.approuver_._0 %></button>
+				<button type="button" class="ui blue basic button"><%= locals.value.object.foi_modals_save.general.approuver_._1 %></button>
+				<button class="ui green button"><%= locals.value.object.foi_modals_save.general.approuver_._2 %></button>
+			</div>
+		</fieldset>
+	</form>
+</template>
+<template id="template_cp_form">
+	<form action="/add_priere" method="POST" class="safe nodisplay_ w100 h100 z100 bg-whites pr">
+		<input type="hidden" name="langue" value="fr">
+		<input type="hidden" name="ajouteur" value="2">
+		<input type="hidden" name="redirect">
+		<span onclick="$(this).parent().slideUp();$(this).parent().next().slideDown();" class="close">X</span>
+		<h3><%= locals.value.object.foi_cp_form.add.p %></h3>
+		<label for="add_priere_titre"><%= locals.value.object.foi_cp_form.add.label %></label>
+		<input id="add_priere_titre" placeholder="<%= locals.value.object.foi_cp_form.add.ph %>" name="titre">
+		<label for="add_priere_priere"><%= locals.value.object.foi_cp_form.add.label_ %></label>
+		<textarea id="add_priere_priere" name="priere"></textarea>
+		<input type="submit" onkeydown="$(this).parent().find('input[name=redirect]').val(document.URL)">
+	</form>
+	<form action="/jesus-christ-foi-chretienne" method="POST" enctype="multipart/form-data">
+		<input type="hidden" name="href" value="fr">
+		<input type="hidden" name="langue" value="fr">
+		<input type="hidden" name="requete" value="cp">
+		<input type="hidden" name="ajouteur" value="2">
+		<button type="button" onclick="$(this).parent().slideUp();$(this).parent().prev().slideDown()"><%= locals.value.object.foi_cp_form.add.button %></button>
+		<fieldset id="cm_load_image"><legend>1°) <%= locals.value.object.foi_cp_form._1.titre %></legend>
+			<div class="inputTextEffects ui corner">
+				<label class="nex"><%= locals.value.object.foi_cp_form._1.label %></label>
+				<br>
+				<button type="button" class="nex btn btn-danger"><%= locals.value.object.foi_modals_save.general.h_2.ph %>..</button>						
+				<input type="file" name="img">
+				<div class="ui corner label" title="<%= locals.value.object.foi_modals_save.general.corner._0 %>">
+					<i class="asterisk icon"></i>
+				</div>
+			</div>
+		</fieldset>
+		<fieldset id="cm_choose_name"><legend>2°) <%= locals.value.object.foi_cp_form._2.titre %></legend>
+			<label for="cp_2"><%= locals.value.object.foi_cp_form._2.label %></label>
+			<div class="inputTextEffects ui corner">
+				<span class="input input--fumi">
+					<input onblur="$(this).closest('form').find('input[name=href]').val(document.URL+$(this).val().replace(/ /g,'-').toLowerCase())" id="cp_2" class="input__field input__field--fumi" type="text" name="titre" placeholder="ex: Prière pour les âmes du purgatoire">
+					<label class="input__label input__label--fumi" for="main_cp_titre">
+						<i class="ui users icon icon--fumi"></i>
+						<span class="input__label-content input__label-content--fumi"><%= locals.value.object.foi_cp_form._2.ph %></span>
+					</label>
+					<div class="ui corner label" title="<%= locals.value.object.foi_modals_save.general.corner._0 %>">
+						<i class="asterisk icon"></i>
+					</div>
+				</span>
+			</div>
+		</fieldset>
+		<fieldset id="cm_status"><legend>3°) <%- locals.value.object.foi_cp_form._3.titre %></legend>
+			<label for="cp_3"><%= locals.value.object.foi_cp_form._3.label %></label>
+			<div class="grouped fields inputTextEffects ui corner bg-white">
+				<div class="field">
+					<div class="ui toggle checkbox">
+					  <input id="main_cp_status" value="0" type="radio" name="status" checked="checked">
+					  <label for="main_cp_status"><%= locals.value.object.foi_cp_form._3.ph %></label>
+					</div>
+				</div>
+				<div class="field">
+					<div class="ui toggle checkbox">
+					  <input id="main_cp_status_" value="1" type="radio" name="status">
+					  <label for="main_cp_status_"><%= locals.value.object.foi_cp_form._3.ph_ %></label>
+					</div>
+				</div>
+				<div class="ui corner label" title="<%= locals.value.object.foi_modals_save.general.corner._0 %>">
+					<i class="asterisk icon"></i>
+				</div>
+			</div>
+		</fieldset>
+		<fieldset id="cm_short_descr"><legend>4°) <%= locals.value.object.foi_cp_form._4.titre %></legend>
+			<div class="inputTextEffects ui corner">
+				<label for="main_cp_descr_"><%= locals.value.object.foi_cp_form._4.label %></label>
+				<textarea id="main_cp_descr_" name="short_descr" placeholder="<%= locals.value.object.foi_cp_form._4.ph %>" class="form-control"></textarea>
+				<div class="ui corner label" title="<%= locals.value.object.foi_modals_save.general.corner._0 %>">
+					<i class="asterisk icon"></i>
+				</div>
+			</div>
+		</fieldset>
+		<fieldset id="cm_descr"><legend>5°) <%= locals.value.object.foi_cp_form._5.titre %></legend>
+			<div class="inputTextEffects ui corner">
+				<label for="main_cp_descr"><%= locals.value.object.foi_cp_form._5.label %></label>
+				<textarea id="main_cp_descr" name="descr" placeholder="<%= locals.value.object.foi_cp_form._5.ph %>"></textarea>
+				<div class="ui corner label" title="<%= locals.value.object.foi_modals_save.general.corner._0 %>">
+					<i class="asterisk icon"></i>
+				</div>
+			</div>
+		</fieldset>
+		<fieldset id="cm_choix_priere" class="inputTextEffects ui corner">
+			<legend>6°) <%= locals.value.object.foi_cp_form._6.titre %></legend>
+			<label for="cp_6"><%= locals.value.object.foi_cp_form._6.label %></label>
+			<div class="dropdown">
+				<button id="cp_6" class="btn dropdown-toggle" data-toggle="dropdown"><%= locals.value.object.foi_cp_form._6.btn %><span class="caret"></span></button>
+				<ul class="dropdown-menu safe">
+					<li class="item" data-value="<%= locals.value.object.foi_cp_form._6.opt0 %>"><a href="#"><%= locals.value.object.foi_cp_form._6.opt0_ %></a></li>
+					<li class="item" data-value="<%= locals.value.object.foi_cp_form._6.opt1 %>"><a href="#"><%= locals.value.object.foi_cp_form._6.opt1_ %></a></li>
+					<li class="item" data-value="<%= locals.value.object.foi_cp_form._6.opt2 %>"><a href="#"><%= locals.value.object.foi_cp_form._6.opt2_ %></a></li>
+					<li class="item" data-value="<%= locals.value.object.foi_cp_form._6.opt3 %>"><a href="#"><%= locals.value.object.foi_cp_form._6.opt3_ %></a></li>
+					<li class="item" data-value="<%= locals.value.object.foi_cp_form._6.opt4 %>"><a href="#"><%= locals.value.object.foi_cp_form._6.opt4_ %></a></li>
+				</ul>
+				<input id="cm_i_priere" name="priere" readonly class="form-control">
+			</div>
+			<!--
+			<div class="cd-dropdown">
+				<span>qsdfdsf</span>
+				<ul>
+					<li>
+						<span>dsqdsq</span>
+					</li>
+				</ul>
+			</div>
+			-->
+			<div class="cm_priere">
+			</div>
+			<hr/>
+			<label for="cp_6_"><%= locals.value.object.foi_cp_form._6.titre_ %></label>
+			<div class="cm_faire_priere">
+				<div class="inputTextEffects ui corner">
+					<span class="input input--fumi">
+						<input id="cp_6_" class="input__field input__field--fumi" type="text" placeholder="ex: Le Pater">
+						<label class="input__label input__label--fumi" for="main_cp_titre">
+							<i class="ui users icon icon--fumi"></i>
+							<span class="input__label-content input__label-content--fumi"><%= locals.value.object.foi_cp_form._6.ph %></span>
+						</label>
+						<div class="ui corner label optional" title="<%= locals.value.object.foi_modals_save.general.corner._1 %>">
+							<i class="asterisk icon"></i>
+						</div>
+					</span>
+					<textarea name="priere_" placeholder="<%= locals.value.object.foi_cp_form._6.ph_ %>" class="form-control"></textarea>
+				</div>
+			</div>
+			<hr/>
+			<div class="ui input inputTextEffects">
+				<label for="main_cp_heure"><%= locals.value.object.foi_cp_form._6.label %></p>
+				<input name="heure" id="main_cp_heure" type="time"/>
+				<button type="button" onclick="let a='';if(this.value!='')a='||';$(this).next().val($(this).prev().val())" class="btn btn-danger">Ajouter horaire</button>
+				<input name="heure_" readonly>
+				<div class="ui corner label" title="<%= locals.value.object.foi_modals_save.general.corner._0 %>">
+					<i class="asterisk icon"></i>
+				</div>
+			</div>
+			<div class="ui corner label" title="<%= locals.value.object.foi_modals_save.general.corner._0 %>">
+				<i class="asterisk icon"></i>
+			</div>
+		</fieldset>
+		<fieldset id="cm_periode"><legend>7°) <%= locals.value.object.foi_cp_form._7.titre %></legend>
+			<p><%- locals.value.object.foi_cp_form._7.p %></p>
+			<div class="inputTextEffects ui corner">
+				<label for="main_cp_debut"><%= locals.value.object.foi_cp_form._7.label %></label>
+				<input id="main_cp_debut" type="date" name="debut" class="form-control">
+				<input id="main_cp_fin" type="date" name="fin" class="form-control">
+				<div class="ui corner label optional" title="<%= locals.value.object.foi_modals_save.general.corner._1 %>">
+					<i class="asterisk icon"></i>
+				</div>
+			</div>						
+		</fieldset>
+		<fieldset><legend>8°) <%= locals.value.object.foi_modals_save.general.validate %></legend>
+			<div class="ui slider checkbox">
+				<input type="checkbox" name="appouver" id="main_cp_check"> <label for="main_cp_check"><%= locals.value.object.foi_modals_save.general.approuver %></label>
+			</div>
+			<div>
+				<button type="button" class="ui yellow basic button"><%= locals.value.object.foi_modals_save.general.approuver_._0 %></button>
+				<button type="button" class="ui blue basic button"><%= locals.value.object.foi_modals_save.general.approuver_._1 %></button>
+				<button class="ui green button"><%= locals.value.object.foi_modals_save.general.approuver_._2 %></button>
+			</div>
+		</fieldset>
+	</form>
+</template>

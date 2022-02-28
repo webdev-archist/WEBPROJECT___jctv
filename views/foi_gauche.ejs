@@ -1,0 +1,29 @@
+<nav id="gauche" class="bg-pg">
+	<div class="btn-group">
+		<a class="menu menu_petit btn btn-sm btn-danger" data-tab='["accueil"]' title="<%= locals.value.object._all_menu_gauche.lien0.title %>"><i class="glyphicon glyphicon-home"></i></a>
+		<button class="menu_petit btn btn-sm btn-danger" data-tab='["menu"]' title="<%= locals.value.object._all_menu_gauche.lien1.title %>" onclick="$('#sousmenu').addClass('active');"><i class="glyphicon glyphicon-align-justify"></i></button>
+		<button class="menu_petit btn btn-sm btn-danger" data-tab='["menu"]' title="<%= locals.value.object._all_menu_gauche.lien2.title %>"><i style="font-weight:bold">?</i></button>
+		<button class="nodisplay menu_petit btn btn-sm btn-danger" data-tab='["dropdown"]' title=""><i class="	glyphicon glyphicon-plus"></i></button>
+	</div>
+	<hr/><%= locals.value.protocol +'://' + locals.value.get_ + locals.value.ori %>|||<%= locals.value._ + locals.value.url_ %>
+	<a href="<%= locals.value._href + locals.value.object.foi_menu_gauche.lien0.href %>" class="menu btn btn-danger btn-xs" data-tab='["livres_prieres","livres",true]' title="<%= locals.value.object.foi_menu_gauche.lien0.title %>"><i class="glyphicon glyphicon-book"></i><br><h4><%= locals.value.object.foi_menu_gauche.lien0.html %></h4></a>
+	<a href="<%= locals.value._href + locals.value.object.foi_menu_gauche.lien1.href %>" class="menu btn btn-danger btn-xs" data-tab='["icones_images","images",true]' title="<%= locals.value.object.foi_menu_gauche.lien1.title %>"><i class="glyphicon glyphicon-picture"></i><br><h4><%= locals.value.object.foi_menu_gauche.lien1.html %></h4></a>
+	<a href="<%= locals.value._href + locals.value.object.foi_menu_gauche.lien2.href %>" class="menu btn btn-danger btn-xs" data-tab='["artistes_musique","musics",true]' title="<%= locals.value.object.foi_menu_gauche.lien2.title %>"><i class="glyphicon glyphicon-music"></i><br><h4><%= locals.value.object.foi_menu_gauche.lien2.html %></h4></a>
+	<a href="<%= locals.value._href + locals.value.object.foi_menu_gauche.lien3.href %>" class="menu btn btn-danger btn-xs" data-tab='["films_cm","films",true]' title="<%= locals.value.object.foi_menu_gauche.lien3.title %>"><i class="glyphicon glyphicon-facetime-video"></i><br><h4><%= locals.value.object.foi_menu_gauche.lien3.html %></h4></a>
+	<a href="<%= locals.value._href + locals.value.object.foi_menu_gauche.lien4.href %>" class="menu btn btn-danger btn-xs" data-tab='["communautes_priere","cp"]' title="<%= locals.value.object.foi_menu_gauche.lien4.title %>"><i class="glyphicon glyphicon-fire"></i><br><h4><%= locals.value.object.foi_menu_gauche.lien4.html %></h4></a>
+	<a href="<%= locals.value._href + locals.value.object.foi_menu_gauche.lien5.href %>" class="menu btn btn-danger btn-xs" data-tab='["rencontres_chretienne","rc"]' title="<%= locals.value.object.foi_menu_gauche.lien5.title %>"><i class="icon users"></i><br><h4><%= locals.value.object.foi_menu_gauche.lien5.html %></h4></a>
+	
+	<!--
+	<% if(locals.value.connected==2){ %>
+		<% for(a in locals.value.object.foi_menu_gauche){ %>
+			<a href="<%= locals.value.object.foi_menu_gauche[a].href %>" class="menu btn btn-primary btn-xs" data-tab='["livres_prieres"]' title="<%= locals.value.object.foi_menu_gauche[a].title %>"><i class="glyphicon glyphicon-book"></i> <%= locals.value.object.foi_menu_gauche[a].html %></a>
+		<% } %>
+	<% } %>
+	<a class="menu btn btn-primary btn-xs" data-tab='["icones_images"]' title=""><i class="glyphicon glyphicon-picture"></i> Icônes et images</a>
+	<a class="menu btn btn-primary btn-xs" data-tab='["artistes_musique"]' title=""><i class="glyphicon glyphicon-music"></i> Musiques chrétienne</a>
+	<a class="menu btn btn-primary btn-xs" data-tab='["films_cm"]' title="" onclick='alert("il faut faire le .foi_options qui manque pour les films")'><i class="glyphicon glyphicon-facetime-video"></i> Films et court-métrages</a>
+	<a class="menu btn btn-primary btn-xs" data-tab='["communautes_priere"]' title=""><i class="glyphicon glyphicon-fire"></i> Communautés de priere</a>
+	<a class="menu btn btn-primary btn-xs" data-tab='["rencontres_chretienne"]' title=""><i class="icon users"></i> Rencontres chrétienne</a>
+	-->
+	<button class="nodisplay menu btn btn-primary btn-sm" data-tab='["dropdown"]' title=""><i class="	glyphicon glyphicon-plus"></i></button>
+</nav>

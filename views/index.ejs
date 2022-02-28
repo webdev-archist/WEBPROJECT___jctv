@@ -1,0 +1,214 @@
+<html>
+	<head>
+		<meta charset="utf8">
+		<title>accueil
+		</title>
+		<style>
+			html body header{height:initial;}
+			html body>header>h1{top:55%;margin:0;}
+			#imgs{		height: 45%;    display: flex;}
+			#imgs>img{float:left;width:33.33%;		}
+			form{margin:0;transition:top 1.5s,height 1.5s,width 1.5s;}
+			form>fieldset{transition-delay:1s;transition:height 1.5s,width 1.5s;overflow:hidden;height:100%;position:absolute;bottom: .5em;}
+			form>fieldset input{  font-size:1.5em;font-weight:900;color:#ac2925;}
+			#form_login{	border:solid;padding:.5em;    position: absolute;    top: 55%;    bottom: 0;   right:0; width: 50%;	}
+			#form_login fieldset{background:whitesmoke;}
+			#form_login fieldset:hover{height:150%;}
+			#form_login fieldset>div{position:absolute;    top: .5em;    right: .5em;}
+			#form_login fieldset>div a{float:right;margin-bottom:.5em;}
+			#form_signin,.signedin{	border:solid;padding:.5em;    position: absolute;    top: 55%;    bottom: 0;    width: 50%;	}
+			#form_signin{text-align:center;}
+			#form_signin>input{display:inline;}
+			#form_signin>fieldset{width:40%;padding-bottom:2em;
+			border: 2px solid palegoldenrod;background:whitesmoke;}
+			#form_signin>fieldset:first-of-type{}
+			#form_signin>fieldset:last-of-type{right:0;}
+					body fieldset legend{color:#ac2925;background: palegoldenrod;    padding: .1em;    width: 50%;    border-radius: 10px;}
+			#form_signin>fieldset input[type="submit"]{width:15%;}
+			#form_signin>fieldset input{    float: left;    clear: both;    margin: .5em;}
+			#form_signin.active{width:75%;top:10%;z-index:10;}
+			#form_signin>.signup{background:url(/imgs/signup.png) center center no-repeat,black;transition:opacity .7s;background-size:cover;}
+			#form_signin.active>.signup{z-index:-1;position:inherit;}
+			#form_signin.active>fieldset>div:hover{border-bottom:solid;background:gold}
+			#form_signin.active>fieldset>div>label{pointer:cursor}
+			.nodisplay_+.dropdown{display:none}
+			.accueil_img{text-align:center;    height: 45%;    top: 55%;    position: absolute;width:100%}
+			.accueil_img img{display:inline-block;height:100%}
+			.flash{    position: absolute;  display:flex;align-items:center;  width: 100%;    height: 45%;    font-size: 3em;    line-height: 1em;    text-align: center;    text-overflow: ellipsis;color:white;
+				text-shadow:0 0 3px goldenrod,0 0 10px goldenrod,0 0 30px white, 0 0 30px white, 0 0 30px white}
+			.flash div{width:100%;}
+			body>header>menu#menu{height:10%;    line-height: 1.75em;}
+			body>header>menu#menu h2{line-height: 1.75em;}
+			
+			#form_signin .input__label-content{    font-size: 1.5em;bottom:-10px;}#form_signin input:focus+label .input__label-content{bottom:10px;}
+			#form_signin .input__label--fumi{left:0;}
+			#form_signin .input__field--fumi{padding-top:0;}
+		</style>
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="apis/ui/semantic.css">
+		<link rel="stylesheet" href="apis/bootstrap/css/bootstrap.css">
+		<link rel="stylesheet" href="css/set2.css">
+		<script src="js/jquery.min.js"></script>
+		<script src="apis/bootstrap/js/bootstrap.js"></script>
+		<script src="apis/ui/semantic.js"></script>
+		<script src="js/fn.js"></script>
+		<script>
+		<% if(locals.value&&locals.value.token){ %>
+		var token="<%= locals.value.token %>"
+		<% } %>
+		</script>
+	</head>
+	<body id="accueil">
+		<header>
+			<div id="imgs">
+				<img src="<%= locals.value.object.all_menu.lien0.src %>" alt="<%= locals.value.object.all_menu.lien0.alt %>">
+				<img src="<%= locals.value.object.all_menu.lien1.src %>" alt="<%= locals.value.object.all_menu.lien1.alt %>">	
+				<img src="<%= locals.value.object.all_menu.lien2.src %>" alt="<%= locals.value.object.all_menu.lien2.alt %>">	
+			</div>
+			<h1><%= locals.value.object.all_menu.accueil_h1 %></h1>
+			<menu id="menu">
+				<a href="<%= locals.value._href+"/"+locals.value.object.all_menu.lien0.href %>" title="<%= locals.value.object.all_menu.lien0.title %>"><h2 class=""><strong><%= locals.value.object.all_menu.lien0.html %></strong></h2></a>
+				<a href="<%= locals.value._href+"/"+locals.value.object.all_menu.lien1.href %>" title="<%= locals.value.object.all_menu.lien1.title %>"><h2 class=""><strong><%= locals.value.object.all_menu.lien1.html %></strong></h2></a>
+				<a href="<%= locals.value._href+"/"+locals.value.object.all_menu.lien2.href %>" title="<%= locals.value.object.all_menu.lien2.title %>"><h2 class=""><strong><%= locals.value.object.all_menu.lien2.html %></strong></h2></a>
+			</menu>
+		</header>
+		<% if(locals.value&&locals.value.flash){ %>
+		<div class="flash">
+			<div>
+			<%= locals.value.flash %>
+			</div>
+		</div>
+		<% } %>
+		<% if(!locals.value.connected||locals.value.connected==0){ %>
+			<% if(!locals.value.signedin){ %>
+			<form id="form_signin" action="<%= locals.value.object.accueil_form_1.action %>_" method="post">
+				<fieldset class="scrolly_"><legend><%= locals.value.object.accueil_form_1.titre %></legend>
+					<h4><%= locals.value.object.accueil_form_1._1_h4 %></h4>
+					<div>
+						<label for="1_h40"><%= locals.value.object.accueil_form_1._1_h40 %></label><input onchange="$(this).parent().next().next().next().removeClass('nodisplay_')" type='radio' id="1_h40" name="clerger" value="1">
+					</div>
+					<div>
+						<label for="1_h41"><%= locals.value.object.accueil_form_1._1_h41 %></label><input onchange="$(this).parent().next().next().addClass('nodisplay_')" checked type='radio' id="1_h41" name="clerger" value="0">
+					</div>
+					<hr>
+					<h4 class="nodisplay_"><%= locals.value.object.accueil_form_1._1_h4_ %></h4>
+					<div class="dropdown">
+						<button class="btn btn-danger dropdown-toggle" data-toggle="dropdown"><span class=""><%= locals.value.object.accueil_form_1.choix %></span><span class="caret"></span></button>
+						<ul class="dropdown-menu safe">
+						<% for(a in locals.value.object.accueil_form_1.dropdown0){ %>
+							<li class="" data-data="<%= a %>" onclick="$(this).closest('ul').next().val($(this).attr('data-data'));$(this).closest('ul').next().next().val(this.innerText);$(this).closest('ul').prev().find('span:first').html(this.innerText);"><a href="#"><%= locals.value.object.accueil_form_1.dropdown0[a] %></a></li>
+						<% } %>
+						</ul>
+						<input type="hidden" name="type">
+						<input type="hidden" name="type_value">
+					</div>
+					<hr>
+					<span class="input input--fumi">
+						<input class="input__field input__field--fumi" name="nom" id="_0" required>
+						<label class="input__label input__label--fumi" for="_0">
+							<i class="ui users icon icon--fumi"></i>
+							<span class="input__label-content input__label-content--fumi"><%= locals.value.object.accueil_form_1.input_0 %></span>
+						</label>
+						<div class="ui corner label" title="Champ obligatoire">
+							<i class="asterisk icon"></i>
+						</div>
+					</span>
+					
+					<span class="input input--fumi">
+						<input class="input__field input__field--fumi" name="prenom" id="_1" required>
+						<label class="input__label input__label--fumi" for="_1">
+							<i class="ui users icon icon--fumi"></i>
+							<span class="input__label-content input__label-content--fumi"><%= locals.value.object.accueil_form_1.input_1 %></span>
+						</label>
+						<div class="ui corner label" title="Champ obligatoire">
+							<i class="asterisk icon"></i>
+						</div>
+					</span>
+					
+					<span class="input input--fumi">
+						<input class="input__field input__field--fumi" name="email" type="email" id="_2" required>
+						<label class="input__label input__label--fumi" for="_2">
+							<i class="ui users icon icon--fumi"></i>
+							<span class="input__label-content input__label-content--fumi"><%= locals.value.object.accueil_form_1.input_2 %></span>
+						</label>
+						<div class="ui corner label" title="Champ obligatoire">
+							<i class="asterisk icon"></i>
+						</div>
+					</span>
+					
+					<span class="input input--fumi">
+						<input class="input__field input__field--fumi" name="pseudo" id="_3" required>
+						<label class="input__label input__label--fumi" for="_3">
+							<i class="ui users icon icon--fumi"></i>
+							<span class="input__label-content input__label-content--fumi"><%= locals.value.object.accueil_form_1.input_3 %></span>
+						</label>
+						<div class="ui corner label" title="Champ obligatoire">
+							<i class="asterisk icon"></i>
+						</div>
+					</span>
+					
+					<span class="input input--fumi">
+						<input class="input__field input__field--fumi" name="pwd" type="password" id="_4" required>
+						<label class="input__label input__label--fumi" for="_4">
+							<i class="ui users icon icon--fumi"></i>
+							<span class="input__label-content input__label-content--fumi"><%= locals.value.object.accueil_form_1.input_4 %></span>
+						</label>
+						<div class="ui corner label" title="Champ obligatoire">
+							<i class="asterisk icon"></i>
+						</div>
+					</span>
+					
+				</fieldset>
+				<fieldset><legend><%= locals.value.object.accueil_form_1.titre_ %></legend>
+					<input name="birth" class="form-control" placeholder="<%= locals.value.object.accueil_form_1._input_0 %>"/>
+					<input name="addr" class="form-control" placeholder="<%= locals.value.object.accueil_form_1._input_1 %>"/>
+					<input name="etc" class="form-control" placeholder="<%= locals.value.object.accueil_form_1._input_2 %>"/>
+				</fieldset>
+				<button class="btn btn-danger">Soumettre</button>
+				<span class="close" onclick="$(this).parent().removeClass('active')">X</span>
+				<div class="trbl0 z10 signup" onclick="$(this).parent().addClass('active');"><%= locals.value.object.accueil_form_1.signup_btn %></div>
+			</form>
+			<% } %>
+			<% if(locals.value.signedin){ %>
+			<div class="signedin">
+				<%= locals.value.object.accueil_signedin %>
+			</div>		
+			<% } %>
+		<form id="form_login" action="<%= locals.value.object.accueil_form_2.action %>" method="post">
+			<fieldset><legend><%= locals.value.object.accueil_form_2.titre %></legend>
+				<span class="input input--fumi">
+					<input class="input__field input__field--fumi"  name="email" type="email"  id="_0" required>
+					<label class="input__label input__label--fumi" for="_0">
+						<i class="ui users icon icon--fumi"></i>
+						<span class="input__label-content input__label-content--fumi"><%= locals.value.object.accueil_form_2.input_0 %></span>
+					</label>
+					<div class="ui corner label" title="Champ obligatoire">
+						<i class="asterisk icon"></i>
+					</div>
+				</span>
+				<span class="input input--fumi">
+					<input class="input__field input__field--fumi" name="pwd" type="password" id="_1" required>
+					<label class="input__label input__label--fumi" for="_1">
+						<i class="ui users icon icon--fumi"></i>
+						<span class="input__label-content input__label-content--fumi"><%= locals.value.object.accueil_form_2.input_1 %></span>
+					</label>
+					<div class="ui corner label" title="Champ obligatoire">
+						<i class="asterisk icon"></i>
+					</div>
+				</span>
+				<input type="hidden" name="login" value=""/>
+				<button class="btn btn-danger">Se connecter</button>
+				<div>
+					<a href="signin_up" class="btn btn-warning" title="<%= locals.value.object.accueil_form_2.liens_title %>"><i class="ui icon users"></i><%= locals.value.object.accueil_form_2.liens_html %> Facebook</a>
+					<br>
+					<a href="signin_up" class="btn btn-warning" title="<%= locals.value.object.accueil_form_2.liens_title %>"><i class="ui icon users"></i><%= locals.value.object.accueil_form_2.liens_html %> Google</a>
+				</div>
+			</fieldset>
+		</form>
+		<% } if(locals.value&&locals.value.connected==1){ %>
+		<div class="accueil_img">
+			<img src="imgs/dieu.jpg" alt="teste" class="">
+		</div>
+		<% } %>
+	</body>
+</html>

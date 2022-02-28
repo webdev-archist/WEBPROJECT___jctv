@@ -1,0 +1,25 @@
+
+		<nav id="gauche" class="bg-pg">
+			<div class="btn-group">
+				<a class="menu menu_petit btn btn-sm btn-danger" data-tab='["accueil"]' title="<%= locals.value.object._all_menu_gauche.lien0.title %>"><i class="glyphicon glyphicon-home"></i></a>
+				<button class="menu_petit btn btn-sm btn-danger" data-tab='["menu"]' title="<%= locals.value.object._all_menu_gauche.lien1.title %>" onclick="$('#sousmenu').addClass('active');"><i class="glyphicon glyphicon-align-justify"></i></button>
+				<button class="menu_petit btn btn-sm btn-danger" data-tab='["menu"]' title="<%= locals.value.object._all_menu_gauche.lien2.title %>"><i style="font-weight:bold">?</i></button>
+				<button class="nodisplay menu_petit btn btn-sm btn-danger" data-tab='["dropdown"]' title=""><i class="	glyphicon glyphicon-plus"></i></button>
+			</div>
+			<hr/><%= locals.value.protocol %>|||<%= locals.value.get_ + locals.value.ori %>|||<%= locals.value._ + locals.value.url_ %>
+			<a href="<%= locals.value._ + locals.value.object.charite_menu_gauche.lien0.href %>" class="menu btn btn-danger btn-xs" data-tab='["oeuvres_caritative","oc"]' title="<%= locals.value.object.charite_menu_gauche.lien0.title %>"><i class="glyphicon glyphicon-cutlery"></i><br><h4><%= locals.value.object.charite_menu_gauche.lien0.html %></h4></a>
+			<a href="<%= locals.value._+locals.value.object.charite_menu_gauche.lien1.href %>" class="menu btn btn-danger btn-xs" data-tab='["solidarite","s"]' title="<%= locals.value.object.charite_menu_gauche.lien1.title %>"><i class="icon hand spock"></i><br><h4><%= locals.value.object.charite_menu_gauche.lien1.html %></h4></a>
+			<a href="<%= locals.value._href+locals.value.object.charite_menu_gauche.lien2.href %>" class="menu btn btn-danger btn-xs" data-tab='["actions_sociales","as"]' title="<%= locals.value.object.charite_menu_gauche.lien2.title %>"><i class="icon share alternate"></i><br><h4><%= locals.value.object.charite_menu_gauche.lien2.html %></h4></a>
+			<a href="<%= locals.value._href+locals.value.object.charite_menu_gauche.lien3.href %>" class="menu btn btn-danger btn-xs" data-tab='["benevolat","b"]' title="<%= locals.value.object.charite_menu_gauche.lien3.title %>"><i class="glyphicon glyphicon-bitcoin"></i><br><h4><%= locals.value.object.charite_menu_gauche.lien3.html %></h4></a>
+			<a href="<%= locals.value._href+locals.value.object.charite_menu_gauche.lien4.href %>" class="menu btn btn-danger btn-xs" data-tab='["aumone","a"]' title="<%= locals.value.object.charite_menu_gauche.lien4.title %>"><i class="glyphicon glyphicon-bitcoin"></i><br><h4><%= locals.value.object.charite_menu_gauche.lien4.html %></h4></a>
+			<a href="<%= locals.value._href+locals.value.object.charite_menu_gauche.lien5.href %>" class="menu btn btn-danger btn-xs" data-tab='["auto_promo","ap"]' title="<%= locals.value.object.charite_menu_gauche.lien5.title %>"><i class="icon bitcoin"></i><br><h4><%= locals.value.object.charite_menu_gauche.lien5.html %></h4></a>
+			<button class="nodisplay menu btn btn-primary btn-sm" data-tab='["dropdown"]' title=""><i class="	glyphicon glyphicon-plus"></i></button>
+		<!--
+			<a class="menu btn disable btn-primary btn-xs" data-tab='["oeuvres_caritative"]' title=""><i class="glyphicon glyphicon-cutlery"></i> Charité</a>
+			<a class="menu btn disable btn-primary btn-xs" data-tab='["solidarite"]' title=""><i class="icon hand spock"></i> Solidarité</a>
+			<a class="menu btn disable btn-primary btn-xs" data-tab='["actions_sociales"]' title=""><i class="icon share alternate"></i> Actions sociales</a>
+			<a class="menu btn disable btn-primary btn-xs" data-tab='["aumone"]' title=""><i class="icon bitcoin"></i> Aumônes</a>
+			<a class="menu btn disable btn-primary btn-xs" data-tab='["benevolat"]' title=""><i class="icon bitcoin"></i> Bénévolat</a>
+			<a class="menu btn disable btn-primary btn-xs" data-tab='["auto_promo"]' title=""><i class="icon bitcoin"></i> Jésus-Christ.tv</a>
+		--> 
+		</nav> 

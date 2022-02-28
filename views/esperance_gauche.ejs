@@ -1,0 +1,21 @@
+<nav id="gauche" class="bg-pg">
+	<div class="btn-group">
+		<a class="menu menu_petit btn btn-sm btn-danger" data-tab='["accueil"]' title=""><i class="glyphicon glyphicon-home"></i></a>
+		<button class="menu_petit btn btn-sm btn-danger" data-tab='["menu"]' title="" onclick="$('#sousmenu').addClass('active');"><i class="glyphicon glyphicon-align-justify"></i></button>
+		<button class="menu_petit btn btn-sm btn-danger" data-tab='["menu"]' title=""><i style="font-weight:bold">?</i></button>
+		<button class="nodisplay menu_petit btn btn-sm btn-danger" data-tab='["dropdown"]' title=""><i class="	glyphicon glyphicon-plus"></i></button>
+	</div>
+	<hr/>
+	<a href="<%= locals.value._href+locals.value.object.esperance_menu_gauche.lien0.href %>" class="menu btn btn-danger btn-xs" data-tab='["sauver_monde"]' title="<%= locals.value.object.esperance_menu_gauche.lien0.title %>"><i class="ui icon doctor"></i><br><h4><%= locals.value.object.esperance_menu_gauche.lien0.html %></h4></a>
+	<a href="<%= locals.value._href+locals.value.object.esperance_menu_gauche.lien1.href %>" class="menu btn btn-danger btn-xs" data-tab='["miracles"]' title="<%= locals.value.object.esperance_menu_gauche.lien1.title %>"><i class="icon gift"></i><br><h4><%= locals.value.object.esperance_menu_gauche.lien1.html %></h4></a>
+	<a href="<%= locals.value._href+locals.value.object.esperance_menu_gauche.lien2.href %>" class="menu btn btn-danger btn-xs" data-tab='["conversions"]' title="<%= locals.value.object.esperance_menu_gauche.lien2.title %>"><i class="icon lightning"></i><br><h4><%= locals.value.object.esperance_menu_gauche.lien2.html %></h4></a>
+	<a href="<%= locals.value._href+locals.value.object.esperance_menu_gauche.lien3.href %>" class="menu btn btn-danger btn-xs" data-tab='["guerir"]' title="<%= locals.value.object.esperance_menu_gauche.lien3.title %>"><i class="icon heartbeat"></i><br><h4><%= locals.value.object.esperance_menu_gauche.lien3.html %></h4></a>
+	<a href="<%= locals.value._href+locals.value.object.esperance_menu_gauche.lien4.href %>" class="menu btn btn-danger btn-xs" data-tab='["confession"]' title="<%= locals.value.object.esperance_menu_gauche.lien4.title %>"><i class="icon heartbeat"></i><br><h4><%= locals.value.object.esperance_menu_gauche.lien4.html %></h4></a>
+	<button class="nodisplay menu btn btn-primary btn-sm" data-tab='["dropdown"]' title=""><i class="	glyphicon glyphicon-plus"></i></button>
+<!--
+	<a class="menu btn disable btn-primary btn-xs" data-tab='["sauver_monde"]' title=""><i class="icon"></i> Changer le monde</a>
+	<a class="menu btn disable btn-primary btn-xs" data-tab='["miracles"]' title=""><i class="icon"></i> Miracles et Témoignages</a>
+	<a class="menu btn disable btn-primary btn-xs" data-tab='["conversions"]' title=""><i class="icon"></i> Conversions chrétienne</a>
+	<a class="menu btn disable btn-primary btn-xs" data-tab='["guerir"]' title=""><i class="icon"></i> Guérir avec Jésus</a>
+-->
+</nav>
